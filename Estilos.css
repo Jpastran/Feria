@@ -1,0 +1,163 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.MenuSuperior{
+cursor: pointer;
+font-family:letraOswald;
+color:#FFF;
+font-size:16px;
+text-align:center;
+padding-left:7px;
+padding-right:7px;
+}
+
+
+.MenuSuperior:hover{
+background-color:#960;
+}
+
+.LinkFoot{
+color:#fff;
+text-decoration:none;
+font-weight:normal;	
+}
+.LinkFoot:hover{
+	font-weight:bold;
+}
+	
+	
+.MenuSuperior2{
+cursor: pointer;
+font-family:letraOswald;
+color:#999;
+font-size:16px;
+text-align:center;
+padding-left:7px;
+padding-right:7px;
+}
+
+.button { /* clase general */
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  color: #555;
+  display: inline-block;
+  font: bold 12px/12px HelveticaNeue, Arial;
+  padding: 8px 11px;
+  text-decoration: none;
+}
+
+.button{
+  background: #f5f5f5;
+  border-color: #dedede #d8d8d8 #d3d3d3;
+  box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #fbfbfb;
+  color: #555;
+  text-shadow: 0 1px 0 #fff;
+  background: -moz-linear-gradient(top,  #f9f9f9, #f0f0f0);
+  background: -webkit-linear-gradient(top,  #f9f9f9, #f0f0f0);
+  background: o-linear-gradient(top,  #f9f9f9, #f0f0f0);
+  background: ms-linear-gradient(top,  #f9f9f9, #f0f0f0);
+  background: linear-gradient(top,  #f9f9f9, #f0f0f0);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#f0f0f0');
+}
+
+.button:hover{
+    background: #f4f4f4;
+    border-color: #c7c7c7 #c3c3c3 #bebebe;
+    box-shadow: 0 1px 1px #ebebeb, inset 0 1px 0 #f3f3f3;
+    text-shadow: 0 1px 0 #fdfdfd;
+    background: -moz-linear-gradient(top,  #efefef, #f8f8f8);
+    background: -webkit-linear-gradient(top,  #efefef, #f8f8f8);
+    background: -o-linear-gradient(top,  #efefef, #f8f8f8);
+    background: -ms-linear-gradient(top,  #efefef, #f8f8f8);
+    background: linear-gradient(top,  #efefef, #f8f8f8);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#efefef', endColorstr='#f8f8f8');
+}
+	
+.MenuSuperior2:hover{
+background-color:#F90;
+}
+
+
+.linkProg{	
+padding-top:100px;
+font-size:16px;
+color:#000;
+}
+
+
+.linkProg:hover {	
+color:#990000;
+font-weight:bold;
+}
+
+
+
+@font-face{
+font-family: letraMyriad;
+src: url(Letras/Myriad.ttf);	
+} 
+@font-face{
+font-family: Futura;
+src: url(Letras/Futura.otf);	
+} 
+
+.late{
+	width:100%;
+	max-width:100px;
+	cursor:pointer;
+transform: scale(1,1)	;
+-webkit-transform: scale(1,1);
+transition: -webkit-transform 0.47s;
+margin-left: 3%;
+margin-right: 3%;
+margin-top: 30px;
+}
+.late:hover{
+transform: scale(1.1,1.1)	;
+}
+
+.late2{
+	width:100%;
+	max-width:500px;
+cursor:pointer;
+transform: scale(1,1)	;
+-webkit-transform: scale(1,1);
+transition: -webkit-transform 0.47s;
+}
+.late2:hover{
+transform: scale(1.1,1.1)	;
+}
+
+
+
+.box {
+	
+ background-image:url(Imagenes/form_bg.jpg);
+	background-repeat:repeat-x;
+	border:1px solid #d1c7ac;
+	width: 230px;
+	color:#333333;
+	font-size:12px;
+	padding:3px;
+	margin-right:4px;
+	font-family:tahoma, arial, sans-serif;
+	border-radius:3px;
+ }	
+ .box:hover {
+	 box-shadow: 0px 0px 1px #3d5691;
+	border:1px solid #999;
+ }
+ .box:focus {
+	 box-shadow: 0px 0px 1px #3d5691;
+	border:1px solid #999;
+ }
+
+@font-face{
+font-family: letraOswald;
+src: url(Letras/Oswald.ttf);	
+} 
+@font-face{
+font-family: Futura;
+src: url(Letras/Futura.otf);	
+} 

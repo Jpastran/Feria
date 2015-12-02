@@ -1,0 +1,1 @@
+=CONCATENAR(B2;"|";D2;"|";TEXTO(E2;"yyyy-mm-dd");"|";H2;"|";TEXTO(I2;"yy-mm");"|";J2;"|";K2;"|";TEXTO(L2;"YY-mmmm");"|";M2;"|";P2;"|";Q2)
