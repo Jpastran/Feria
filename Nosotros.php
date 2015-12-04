@@ -1,35 +1,34 @@
-<?php 
-session_start();  
+<?php
+session_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Feria Virtual De Educación</title> 
-<link href="Estilos.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="bannerRotator.js"></script>
-<script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
-<script type="text/javascript" src="Ext/jscroller.js"></script>
-<link href="style.css" rel="stylesheet" type="text/css">
-<script type="text/javascript">
- $(document).ready(function(){  
- 	bannerRotator('#bannerRotator', 500, 3500, true);
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Feria Virtual De Educación</title> 
+        <link href="Estilos.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="bannerRotator.js"></script>
+        <script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="Ext/jscroller.js"></script>
+        <link href="style.css" rel="stylesheet" type="text/css">
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    bannerRotator('#bannerRotator', 500, 3500, true);
 
- });
+                });
 
-</script>
-
- 
-</head>
-
-<body style="margin:0px;"  onLoad="scroll();">
+            </script>
 
 
-<?php
+    </head>
 
-if(empty($_SESSION['Nombre'])){
-	
-	echo'
+    <body style="margin:0px;"  onLoad="scroll();">
+
+
+        <?php
+        if (empty($_SESSION['Nombre'])) {
+
+            echo'
 
 <div style="top:0%;background-image:url(Imagenes/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
 
@@ -79,8 +78,8 @@ if(empty($_SESSION['Nombre'])){
 </div>
 </div>
 ';
-}else{
-	echo'
+        } else {
+            echo'
 
 <div style="top:0%;background-image:url(Imagenes/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
 
@@ -114,7 +113,7 @@ if(empty($_SESSION['Nombre'])){
       <td valign="middle" class="MenuSuperior">    
         <a href="Datos.php" style="text-decoration:none;color:#FFF">   
        <img src="Imagenes/user.png"  /><br />   
-       '.$_SESSION['Nombre'].'</a>
+       ' . $_SESSION['Nombre'] . '</a>
        </td>
       
       </tr>
@@ -125,89 +124,87 @@ if(empty($_SESSION['Nombre'])){
 </div>
 </div>
 ';
-	}
+        }
 
 
-	require_once("Conexion.php");	
-	$consulta = "SELECT mision,vision,quienes,objetivos,producto FROM configuracion	";
-	$datos = mysql_query($consulta);
+        require_once("Conexion.php");
+        $consulta = "SELECT mision,vision,quienes,objetivos,producto FROM configuracion	";
+        $datos = mysql_query($consulta);
 
-	if ($row = mysql_fetch_array($datos)){			
-
-?>
-
-
-
-  
-  <div style="max-width:900px;margin:auto;width:100%;margin-top:50px;margin-bottom:150px;">
-  <h2 style="font-family:letraOswald;color:#993300">
-  NUESTRA MISION
-  </h2>
-<div style="font-size:18px;text-align:justify"><?php
-echo nl2br(($row[0]));
-?>
-</div><BR /><BR />
-
-  <h2 style="font-family:letraOswald;color:#993300">
-  NUESTRA VISION
-  </h2>
-<div style="font-size:18px;text-align:justify"><?php
-echo nl2br(($row[1]));
-?>
-</div>
-  <BR /><BR />
-
-  <h2 style="font-family:letraOswald;color:#993300">
-  QUIENES SOMOS
-  </h2>
-<div style="font-size:18px;text-align:justify"><?php
-echo nl2br(($row[2]));
-?>
-</div>
+        if ($row = mysql_fetch_array($datos)) {
+            ?>
 
 
 
 
-<BR /><BR />
+            <div style="max-width:900px;margin:auto;width:100%;margin-top:50px;margin-bottom:150px;">
+                <h2 style="font-family:letraOswald;color:#993300">
+                    NUESTRA MISION
+                </h2>
+                <div style="font-size:18px;text-align:justify"><?php
+                    echo nl2br(($row[0]));
+                    ?>
+                </div><BR /><BR />
 
-  <h2 style="font-family:letraOswald;color:#993300">
- OBJETIVOS
-  </h2>
-<div style="font-size:18px;text-align:justify">
+                <h2 style="font-family:letraOswald;color:#993300">
+                    NUESTRA VISION
+                </h2>
+                <div style="font-size:18px;text-align:justify"><?php
+                    echo nl2br(($row[1]));
+                    ?>
+                </div>
+                <BR /><BR />
 
-<?php
-echo nl2br(($row[3]));
-?>
-
-
-</div>
-
-
-
-
-<BR /><BR />
-
-  <h2 style="font-family:letraOswald;color:#993300">
-NUESTRO PRODUCTO
-  </h2>
-<div style="font-size:18px;text-align:justify"><?php
-echo nl2br(($row[4]));
-?>
-</div>
-  </div>
+                <h2 style="font-family:letraOswald;color:#993300">
+                    QUIENES SOMOS
+                </h2>
+                <div style="font-size:18px;text-align:justify"><?php
+                    echo nl2br(($row[2]));
+                    ?>
+                </div>
 
 
 
 
+                <BR /><BR />
 
-<?php
-	}
-$variable= file_get_contents("Partes/Pie.html");
-	echo $variable;
+                <h2 style="font-family:letraOswald;color:#993300">
+                    OBJETIVOS
+                </h2>
+                <div style="font-size:18px;text-align:justify">
 
-?>
+                    <?php
+                    echo nl2br(($row[3]));
+                    ?>
 
 
- 
-</body>
+                </div>
+
+
+
+
+                <BR /><BR />
+
+                <h2 style="font-family:letraOswald;color:#993300">
+                    NUESTRO PRODUCTO
+                </h2>
+                <div style="font-size:18px;text-align:justify"><?php
+                    echo nl2br(($row[4]));
+                    ?>
+                </div>
+            </div>
+
+
+
+
+
+            <?php
+        }
+        $variable = file_get_contents("Partes/Pie.html");
+        echo $variable;
+        ?>
+
+
+
+    </body>
 </html>

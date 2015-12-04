@@ -1,92 +1,88 @@
-<?php 
-session_start();  
-if (empty($_SESSION['Nombre'])  )           
-{           
-echo"<script>alert('Para Ingresar A Este Lugar Debe Iniciar Sesion');document.location='Login.php';</script>";	
-}else{
+<?php
+session_start();
+if (empty($_SESSION['Nombre'])) {
+    echo"<script>alert('Para Ingresar A Este Lugar Debe Iniciar Sesion');document.location='Login.php';</script>";
+} else {
 
 
-	
-	require_once("Conexion.php");	
-	$consulta = "insert visitas(fecha,codestudiante,codprograma) values(
+
+    require_once("Conexion.php");
+    $consulta = "insert visitas(fecha,codestudiante,codprograma) values(
 	curdate(),
-	'".mysql_real_escape_string($_SESSION['Correo'])."',
-	'".mysql_real_escape_string($_GET['cod'])."')";
-	$datos = mysql_query($consulta);
-
+	'" . mysql_real_escape_string($_SESSION['Correo']) . "',
+	'" . mysql_real_escape_string($_GET['cod']) . "')";
+    $datos = mysql_query($consulta);
 }
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Feria Virtual De Educación</title>
-<link href="Estilos.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="bannerRotator.js"></script>
-<script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
-<script type="text/javascript" src="Ext/jscroller.js"></script>
-<link href="style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript">
- $(document).ready(function(){  
- 
-Negro1();
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Feria Virtual De Educación</title>
+        <link href="Estilos.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="bannerRotator.js"></script>
+        <script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="Ext/jscroller.js"></script>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript">
+            $(document).ready(function() {
 
-$("#Negro1").click(Negro1);
-$(".linkProg").click(Resize);
- var global="";
-		function Negro1(){
-			 $("#DivSobreMG").hide(500);
-		}
+                Negro1();
 
-function Press(){
-	
-$("#blanco").html('<center><img src="Imagenes/cargando.gif" ><br><img src="Imagenes/Mensaje.jpg" ></center>');
-	var parametros = {
-				 "MyCorreo" : $("#MyCorreo").val(),
-				 "Programa" : global,
-				 "Tipo" : "Universidades",
-				 "Keysave" : "#f7641"
-			};				
-			$.ajax({
-			data:parametros,
-			url:"EnvioSolicitudes.php",
-			type:"POST",
-				success:function(resp ){
-					Negro1();
-					if(resp=="s"){
-						alert("Ha Sido Registrado Su Interes Hacia Este Programa");
-					}else{			
-						alert("No se pudo guardar, verifique su conexión");
-					}
-					
-				}
-			});
-	
-}
-function Resize(){
-global=$(this).attr("title");
-$("#DivSobreMG").show(800);
-$("#blanco").html('<img src="Imagenes/'+$(this).attr("name")+'" width="500"><br><center><img src="Imagenes/Interes.png" id="Press" style="cursor:pointer"></center>');
+                $("#Negro1").click(Negro1);
+                $(".linkProg").click(Resize);
+                var global = "";
+                function Negro1() {
+                    $("#DivSobreMG").hide(500);
+                }
 
-	 $('html, body').animate({scrollTop:10}, 650);
-$("#Press").click(Press);
-}
+                function Press() {
 
+                    $("#blanco").html('<center><img src="Imagenes/cargando.gif" ><br><img src="Imagenes/Mensaje.jpg" ></center>');
+                    var parametros = {
+                        "MyCorreo": $("#MyCorreo").val(),
+                        "Programa": global,
+                        "Tipo": "Universidades",
+                        "Keysave": "#f7641"
+                    };
+                    $.ajax({
+                        data: parametros,
+                        url: "EnvioSolicitudes.php",
+                        type: "POST",
+                        success: function(resp) {
+                            Negro1();
+                            if (resp == "s") {
+                                alert("Ha Sido Registrado Su Interes Hacia Este Programa");
+                            } else {
+                                alert("No se pudo guardar, verifique su conexión");
+                            }
 
- });
+                        }
+                    });
 
-</script>
-</head>
+                }
+                function Resize() {
+                    global = $(this).attr("title");
+                    $("#DivSobreMG").show(800);
+                    $("#blanco").html('<img src="Imagenes/' + $(this).attr("name") + '" width="500"><br><center><img src="Imagenes/Interes.png" id="Press" style="cursor:pointer"></center>');
 
-<body style="margin:0px;" >
+                    $('html, body').animate({scrollTop: 10}, 650);
+                    $("#Press").click(Press);
+                }
 
 
-<?php
+            });
 
-if(empty($_SESSION['Nombre'])){
-	
-	echo'
+        </script>
+    </head>
+
+    <body style="margin:0px;" >
+
+
+        <?php
+        if (empty($_SESSION['Nombre'])) {
+
+            echo'
 
 <div style="top:0%;background-image:url(Imagenes/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
 
@@ -136,8 +132,8 @@ if(empty($_SESSION['Nombre'])){
 </div>
 </div>
 ';
-}else{
-	echo'
+        } else {
+            echo'
 
 <div style="top:0%;background-image:url(Imagenes/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
 
@@ -171,7 +167,7 @@ if(empty($_SESSION['Nombre'])){
       <td valign="middle" class="MenuSuperior">    
         <a href="Datos.php" style="text-decoration:none;color:#FFF">   
        <img src="Imagenes/user.png"  /><br />   
-       '.$_SESSION['Nombre'].'</a>
+       ' . $_SESSION['Nombre'] . '</a>
        </td>
       
       </tr>
@@ -182,69 +178,62 @@ if(empty($_SESSION['Nombre'])){
 </div>
 </div>
 ';
-echo'
-<input type="hidden" id="MyCorreo" value="'.$_SESSION['Correo'].'"/>';
-	}
-
-
-?>
+            echo'
+<input type="hidden" id="MyCorreo" value="' . $_SESSION['Correo'] . '"/>';
+        }
+        ?>
 
 
 
 
-<div id="DivSobreMG">
+        <div id="DivSobreMG">
 
-<div style="background:#fff;z-index:999999;position:absolute;top:3%;margin-left:50%;width:500px;left:-250px" id="blanco">
-</div>  
-    
-<div style="background:#333;opacity:0.8;position:fixed;z-index:999998;top:0;left:0;width:100%;height:100%" id="Negro1">    
-</div>
+            <div style="background:#fff;z-index:999999;position:absolute;top:3%;margin-left:50%;width:500px;left:-250px" id="blanco">
+            </div>  
 
-</div>
+            <div style="background:#333;opacity:0.8;position:fixed;z-index:999998;top:0;left:0;width:100%;height:100%" id="Negro1">    
+            </div>
 
-
-<div style="max-width:1100px;margin:auto;width:100%;font-family:Futura;margin-top:30px">
-<center>
-<?php
-
-if(!empty($_GET['cod'])){
-	
-	$consulta = "SELECT banner FROM ofertas WHERE codigo='".mysql_real_escape_string($_GET['cod'])."'";
-	$datos = mysql_query($consulta);
-
-	if ($row = mysql_fetch_array($datos)){			
-		echo'<img src="Imagenes/'.$row[0].'"  style="max-width:1000px;width:95%"/>';
-  
-	}
-
-?>
-
-</center>
+        </div>
 
 
-<?php
- 
-	
-	$consulta = "SELECT codigo,nombre FROM areas WHERE codoferta='".mysql_real_escape_string($_GET['cod'])."'";
-	$datos = mysql_query($consulta);
+        <div style="max-width:1100px;margin:auto;width:100%;font-family:Futura;margin-top:30px">
+            <center>
+                <?php
+                if (!empty($_GET['cod'])) {
 
-	while ($row = mysql_fetch_array($datos)){			
-		echo'<h3 style="color:#fff;font-family:LetraOswald;padding:5px;font-size:18px;padding-left:10px;margin:7px;background-color:#993300;text-align:center;border-radius:5px;font-weight:normal;margin-top:30px; " id="titu1">'.$row[1].'</h3>
+                    $consulta = "SELECT banner FROM ofertas WHERE codigo='" . mysql_real_escape_string($_GET['cod']) . "'";
+                    $datos = mysql_query($consulta);
+
+                    if ($row = mysql_fetch_array($datos)) {
+                        echo'<img src="Imagenes/' . $row[0] . '"  style="max-width:1000px;width:95%"/>';
+                    }
+                    ?>
+
+                </center>
+
+
+                <?php
+                $consulta = "SELECT codigo,nombre FROM areas WHERE codoferta='" . mysql_real_escape_string($_GET['cod']) . "'";
+                $datos = mysql_query($consulta);
+
+                while ($row = mysql_fetch_array($datos)) {
+                    echo'<h3 style="color:#fff;font-family:LetraOswald;padding:5px;font-size:18px;padding-left:10px;margin:7px;background-color:#993300;text-align:center;border-radius:5px;font-weight:normal;margin-top:30px; " id="titu1">' . $row[1] . '</h3>
 <div style="font-family:Verdana, Geneva, sans-serif;margin-top:5px;color:#333;font-size:10px;line-height:155%;margin-left:40px;">';
-	
-	$consultax = "SELECT codigo,nombre,descripcion,imagen FROM programas WHERE codarea='".mysql_real_escape_string($row[0])."'";
-	$datosx = mysql_query($consultax);
 
-	while ($rowx = mysql_fetch_array($datosx)){	
-	echo '
+                    $consultax = "SELECT codigo,nombre,descripcion,imagen FROM programas WHERE codarea='" . mysql_real_escape_string($row[0]) . "'";
+                    $datosx = mysql_query($consultax);
 
-<a style="text-decoration:none;cursor:pointer;" class="linkProg" name="'.$rowx[3].'"  title="'.$rowx[0].'">
+                    while ($rowx = mysql_fetch_array($datosx)) {
+                        echo '
+
+<a style="text-decoration:none;cursor:pointer;" class="linkProg" name="' . $rowx[3] . '"  title="' . $rowx[0] . '">
 <div style="margin-top:10px;"> 
- <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>'.$rowx[1].' ('.$rowx[2].')</div>
+ <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>' . $rowx[1] . ' (' . $rowx[2] . ')</div>
 </a>
 <br />
 ';
-	}
+                    }
 
 
 
@@ -255,26 +244,23 @@ if(!empty($_GET['cod'])){
 
 
 
-echo '
+                    echo '
 </div>';
-  
-	}
-
-?>
+                }
+                ?>
 
 
 
 
- 
- </div>
-<?php
-}
-$variable= file_get_contents("Partes/Pie.html");
-	echo $variable;
 
-?>
+            </div>
+            <?php
+        }
+        $variable = file_get_contents("Partes/Pie.html");
+        echo $variable;
+        ?>
 
 
- 
-</body>
+
+    </body>
 </html>
