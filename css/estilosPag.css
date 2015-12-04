@@ -2,7 +2,7 @@
 /* CSS Document */
 
 body{
-    background-image:url(Imagenes/BackGround.png);
+    background-image:url(img/BackGround.png);
     background-repeat:repeat;
     margin:0px;	
 }
@@ -169,12 +169,12 @@ body{
 
 @font-face{
     font-family: letraOswald;
-    src: url(Letras/Oswald.ttf);	
+    src: url(../fonts/Oswald.ttf);	
 } 
 
 @font-face{
     font-family: letraMyriad;
-    src: url(Letras/Myriad.ttf);	
+    src: url(../fonts/Myriad.ttf);	
 } 
 
 .CeldaIndex{

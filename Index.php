@@ -6,11 +6,11 @@ session_start();
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Feria Virtual De Educación</title> 
-        <link href="Estilos.css" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="bannerRotator.js"></script>
-        <script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
-        <script type="text/javascript" src="Ext/jscroller.js"></script>
-        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/estilos.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="js/bannerRotator.js"></script>
+        <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="js/jscroller.js"></script>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <script type="text/javascript">
             $(document).ready(function() {
                 bannerRotator('#bannerRotator', 500, 3500, true);
@@ -21,36 +21,36 @@ session_start();
         <?php
         if (empty($_SESSION['Nombre'])) {
             echo'
-        <div style="top:0%;background-image:url(Imagenes/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
+        <div style="top:0%;background-image:url(img/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
             <div style="max-width:1100px;height:51px;margin:auto;width:100%">
                 <a href="Index.php" style="text-decoration:none;color:#FFF"> 
-                    <img src="Imagenes/Logo.png" style="margin-top:12px;margin-left:15px"/>
+                    <img src="img/Logo.png" style="margin-top:12px;margin-left:15px"/>
                 </a>
                 <table style="float:right;margin-top:6px;height:113px;">
                     <tr>   
                         <td valign="middle" class="MenuSuperior">   
                             <a href="Registro.php" style="text-decoration:none;color:#FFF" >
-                                <img src="Imagenes/LogRegistro.png"  /><br />
+                                <img src="img/LogRegistro.png"  /><br />
                                 REGISTRARME      </a>
                         </td>
                         <td valign="middle" class="MenuSuperior">   
                             <a href="Nosotros.php" style="text-decoration:none;color:#FFF">  
-                                <img src="Imagenes/LogNosotros.png"  /><br />   
+                                <img src="img/LogNosotros.png"  /><br />   
                                 QUIENES SOMOS  </a>    
                         </td>
                         <td valign="middle" class="MenuSuperior">   
                             <a href="Oferta.php" style="text-decoration:none;color:#FFF">    
-                                <img src="Imagenes/LogUniversidades.png"  /><br />   
+                                <img src="img/LogUniversidades.png"  /><br />   
                                 OFERTA ACADEMICA</a>
                         </td>
                         <td valign="middle" class="MenuSuperior">    
                             <a href="Contacto.php" style="text-decoration:none;color:#FFF">   
-                                <img src="Imagenes/LogContacto.png"  /><br />   
+                                <img src="img/LogContacto.png"  /><br />   
                                 CONTACTENOS</a>
                         </td>
                         <td valign="middle" class="MenuSuperior">    
                             <a href="Login.php" style="text-decoration:none;color:#FFF">   
-                                <img src="Imagenes/LogLogin.png"  /><br />   
+                                <img src="img/LogLogin.png"  /><br />   
                                 INICIAR SESION</a>
                         </td>
                     </tr>
@@ -59,31 +59,31 @@ session_start();
         </div>';
         } else {
             echo'
-        <div style="top:0%;background-image:url(Imagenes/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
+        <div style="top:0%;background-image:url(img/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
             <div style="max-width:1100px;height:51px;margin:auto;width:100%">
                 <a href="Index.php" style="text-decoration:none;color:#FFF"> 
-                    <img src="Imagenes/Logo.png" style="margin-top:12px;margin-left:15px"/>
+                    <img src="img/Logo.png" style="margin-top:12px;margin-left:15px"/>
                 </a>
                 <table style="float:right;margin-top:6px;height:113px;">
                     <tr>   
                         <td valign="middle" class="MenuSuperior">   
                             <a href="Nosotros.php" style="text-decoration:none;color:#FFF">  
-                                <img src="Imagenes/LogNosotros.png"  /><br />   
+                                <img src="img/LogNosotros.png"  /><br />   
                                 QUIENES SOMOS  </a>    
                         </td>
                         <td valign="middle" class="MenuSuperior">   
                             <a href="Oferta.php" style="text-decoration:none;color:#FFF">    
-                                <img src="Imagenes/LogUniversidades.png"  /><br />   
+                                <img src="img/LogUniversidades.png"  /><br />   
                                 OFERTA ACADEMICA</a>
                         </td>
                         <td valign="middle" class="MenuSuperior">    
                             <a href="Contacto.php" style="text-decoration:none;color:#FFF">  
-                                <img src="Imagenes/LogContacto.png"  /><br />   
+                                <img src="img/LogContacto.png"  /><br />   
                                 CONTACTENOS</a>
                         </td>
                         <td valign="middle" class="MenuSuperior">    
                             <a href="Datos.php" style="text-decoration:none;color:#FFF">   
-                                <img src="Imagenes/user.png"  /><br />   
+                                <img src="img/user.png"  /><br />   
                                 ' . $_SESSION['Nombre'] . '</a>
                         </td>
                     </tr>
@@ -92,7 +92,7 @@ session_start();
         </div>';
         }
         ?>
-        <div style="background-color:#1B4D70;width:100%;margin:auto;background-image:url(Imagenes/atras.png);height:350px;">
+        <div style="background-color:#1B4D70;width:100%;margin:auto;background-image:url(img/atras.png);height:350px;">
             <div id="bannerRotator">
                 <ul>   
                     <?php
@@ -101,13 +101,13 @@ session_start();
                     $datos = mysql_query($consulta);
                     while ($row = mysql_fetch_array($datos)) {
                         echo '<li>	
-                                <img src="Banner/' . $row[0] . '" >	
+                                <img src="img/banner/' . $row[0] . '" >	
                               </li>';
                     }
                     ?>
                 </ul>   
             </div><center>
-                <img src="Imagenes/sombra.png" style="width:100%;max-width:1100px" /></center>
+                <img src="img/sombra.png" style="width:100%;max-width:1100px" /></center>
         </div><br/>
         <div style="font-size:30px;color:#743E01;text-align:center;margin:auto;width:90%;max-width:900px;margin-bottom:30px;margin-top:10px">
             "<em>Nunca consideres el estudio como una obligación, sino como una oportunidad para penetrar en el bello y maravilloso mundo del saber.</em>" <br />- Albert Einstein </div>
@@ -119,7 +119,7 @@ session_start();
                             <div style="background-color:#E1E8ED;">
                                 <div style="background-color:#B26700;color:#FFF;padding-top:7px;padding-bottom:7px;padding-left:5px;font-family:letraOswald;font-size:18px;">QUIENES SOMOS</div>
                                 <center>
-                                    <img src="Imagenes/Intro1.png" style="width:90%;margin-top:10px"/>
+                                    <img src="img/Intro1.png" style="width:90%;margin-top:10px"/>
                                 </center>
                                 <div style="width:90%;font-family:letraMyriad;text-align:justify;margin:auto;color:#666;margin-top:10px">
                                     <?php
@@ -139,7 +139,7 @@ session_start();
                             <div style="background-color:#E1E8ED;">
                                 <div style="background-color:#7F4A00;color:#FFF;padding-top:7px;padding-bottom:7px;padding-left:5px;font-family:letraOswald;font-size:18px;">NUESTROS BENEFICIOS</div>
                                 <center>
-                                    <img src="Imagenes/Intro2.png" style="width:90%;margin-top:10px"/>
+                                    <img src="img/Intro2.png" style="width:90%;margin-top:10px"/>
                                 </center>
                                 <div style="width:90%;font-family:letraMyriad;text-align:justify;margin:auto;color:#666;margin-top:10px">
                                     <LI>Descuentos Especiales</LI>
@@ -155,7 +155,7 @@ session_start();
                             <div style="background-color:#E1E8ED;">
                                 <div style="background-color:#B26700;color:#FFF;padding-top:7px;padding-bottom:7px;padding-left:5px;font-family:letraOswald;font-size:18px;">CONTACTE CON NOSOTROS</div>
                                 <center>
-                                    <img src="Imagenes/Intro3.png" style="width:90%;margin-top:10px"/>
+                                    <img src="img/Intro3.png" style="width:90%;margin-top:10px"/>
                                 </center>
                                 <div style="width:90%;font-family:letraMyriad;text-align:justify;margin:auto;color:#666;margin-top:10px">
                                     <strong>UNIVERSIDADES - INSTITUCIONES </strong><BR />
@@ -183,16 +183,16 @@ session_start();
             <td>
             <a href="Login.php">
             <div style=" border: solid 1px #ccc;background-color:#f2f2f2;box-shadow:0px 0px 5px #999;width:100px;height:100px;">
-            <center> <img src="Imagenes/Univ1.png" /></center>
+            <center> <img src="img/Univ1.png" /></center>
             </div></a>           
             </td>
             <td><a href="Login.php">
             <div style=" border: solid 1px #ccc;background-color:#f2f2f2;box-shadow:0px 0px 5px #999;width:100px;height:100px;">  
-            <center> <img src="Imagenes/Univ2.png" /></center>
+            <center> <img src="img/Univ2.png" /></center>
             </div></a>             
              </td><td>
              <a href="Login.php">
-             <div style=" border: solid 1px #ccc;background-color:#f2f2f2;box-shadow:0px 0px 5px #999;width:100px;height:100px;">  <center> <img src="Imagenes/Univ3.png" /></center> </div>
+             <div style=" border: solid 1px #ccc;background-color:#f2f2f2;box-shadow:0px 0px 5px #999;width:100px;height:100px;">  <center> <img src="img/Univ3.png" /></center> </div>
              </a>
              </td>
             <td><div style=" border: solid 1px #ccc;background-color:#f2f2f2;box-shadow:0px 0px 5px #999;width:100px;height:100px;"> </div></td>
@@ -214,7 +214,7 @@ session_start();
         </div>-->
 
         <?php
-        $variable = file_get_contents("Partes/Pie.html");
+        $variable = file_get_contents("mods/Pie.html");
         echo $variable;
         ?>
     </body>

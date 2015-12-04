@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Feria Virtual De Educación</title> 
-        <link href="Estilos.css" rel="stylesheet" type="text/css" />
+        <link href="css/estilos.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="bannerRotator.js"></script>
         <script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
         <script type="text/javascript" src="Ext/jscroller.js"></script>
@@ -23,7 +23,7 @@
                     function Resize() {
 
                         $("#DivSobreMG").show(800);
-                        $("#blanco").html('<img src="Imagenes/Sobres.png" width="500">');
+                        $("#blanco").html('<img src="img/Sobres.png" width="500">');
                     }
 
                 });
@@ -37,7 +37,7 @@
 
 
         <?php
-        $variable = file_get_contents("Partes/Superior.html");
+        $variable = file_get_contents("mods/Superior.html");
         echo $variable;
         ?>
 
@@ -59,7 +59,7 @@
         <div style="max-width:1100px;margin:auto;width:100%;font-family:Futura;margin-top:30px">
 
             <center>
-                <img src="Imagenes/Banner.jpg"  style="max-width:1000px;width:95%"/>
+                <img src="img/Banner.jpg"  style="max-width:1000px;width:95%"/>
             </center>
 
 
@@ -68,22 +68,22 @@
             <div style="font-family:Verdana, Geneva, sans-serif;margin-top:5px;color:#333;font-size:14px;line-height:155%;margin-left:40px;">
 
 
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Técnico Laboral en Auxiliar De Sistemas Informáticos</a>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Técnico Laboral en Auxiliar De Sistemas Informáticos</a>
 
                 <br />
 
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Técnico Laboral En Auxiliar De mantenimiento De Equipos Electronicos</a>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Técnico Laboral En Auxiliar De mantenimiento De Equipos Electronicos</a>
 
                 <br />
 
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Técnico Laboral en Ensamble y Mantenimiento de Computadores</a>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Técnico Laboral en Ensamble y Mantenimiento de Computadores</a>
 
                 <br />
 
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Técnico Laboral en Auxiliar En Diseño Y Artes Gráficas</a>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Técnico Laboral en Auxiliar En Diseño Y Artes Gráficas</a>
 
                 <br />
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg"> <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Instalador De Redes De Telecomunicaciones</a>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg"> <img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Instalador De Redes De Telecomunicaciones</a>
 
                 <br />
 
@@ -93,61 +93,61 @@
 
             <h3 style="color:#fff;font-family:LetraOswald;padding:5px;cursor:pointer;font-size:18px;padding-left:10px;margin:7px;background-color:#993300;text-align:center;border-radius:5px;font-weight:normal;margin-top:30px; " id="titu1">AREA DE SALUD</h3>
             <div style="font-family:Verdana, Geneva, sans-serif;margin-top:5px;color:#333;font-size:14px;line-height:155%;margin-left:40px;">
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg"><img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Auxiliar en Servicios Farmacéuticos</a>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg"><img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Auxiliar en Servicios Farmacéuticos</a>
 
                 <br />
 
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Auxiliar en Enfermeríia</a>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Auxiliar en Enfermeríia</a>
 
                 <br />
 
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg"><img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Auxiliar en Salud Oral </a>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg"><img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Auxiliar en Salud Oral </a>
 
                 <br />
 
 
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg" ><img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Auxiliar Administrativo en Salud</a>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg" ><img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Auxiliar Administrativo en Salud</a>
 
                 <br />
 
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg"><img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Auxiliar en Salud Pública</a>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg"><img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Auxiliar en Salud Pública</a>
             </div>
 
 
             <h3 style="color:#fff;font-family:LetraOswald;padding:5px;cursor:pointer;font-size:18px;padding-left:10px;margin:7px;background-color:#993300;text-align:center;border-radius:5px;font-weight:normal;margin-top:30px; " id="titu1">AREA DE ADMINISTRACION</h3>
 
             <div style="font-family:Verdana, Geneva, sans-serif;margin-top:5px;color:#333;font-size:14px;line-height:155%;margin-left:40px;">
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>
                     Técnico Laboral en Auxiliar En Operaciones Portuarias
                 </a><br />
 
 
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>
                     Técnico Laboral en Auxiliar De Compras E Inventarios
                 </a>
 
                 <br />
 
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg"> <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Auxiliar Comercio Exterior</a>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg"> <img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Auxiliar Comercio Exterior</a>
 
                 <br />
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Técnico Laboral en Auxiliar Contable</a>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Técnico Laboral en Auxiliar Contable</a>
 
 
 
-
-                <br />
-
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg"> <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Auxiliar de Recursos Humanos</a>
 
                 <br />
 
-
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg"> <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Técnico Laboral en Auxiliar Administrativo</a>
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg"> <img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Auxiliar de Recursos Humanos</a>
 
                 <br />
 
-                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="Imagenes/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Técnico Laboral en Secretariado Ejecutivo </a>
+
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg"> <img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Técnico Laboral en Auxiliar Administrativo</a>
+
+                <br />
+
+                <a style="text-decoration:none;cursor:pointer;" class="linkProg" > <img src="img/next.png" style="margin-right:10px;margin-bottom:-3px;"/>Técnico Laboral en Secretariado Ejecutivo </a>
             </div>
 
 
@@ -157,7 +157,7 @@
 
 
         <?php
-        $variable = file_get_contents("Partes/Pie.html");
+        $variable = file_get_contents("mods/Pie.html");
         echo $variable;
         ?>
 

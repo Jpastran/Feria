@@ -6,7 +6,7 @@ session_start();
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Feria Virtual De Educación</title>
-        <link href="Estilos.css" rel="stylesheet" type="text/css" />
+        <link href="css/estilos.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="bannerRotator.js"></script>
         <script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
         <script type="text/javascript" src="Ext/jscroller.js"></script>
@@ -28,12 +28,12 @@ session_start();
 
             echo'
 
-<div style="top:0%;background-image:url(Imagenes/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
+<div style="top:0%;background-image:url(img/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
 
 <div style="max-width:1100px;height:51px;margin:auto;width:100%">
 
   <a href="Index.php" style="text-decoration:none;color:#FFF"> 
-  <img src="Imagenes/Logo.png" style="margin-top:12px;margin-left:15px"/>
+  <img src="img/Logo.png" style="margin-top:12px;margin-left:15px"/>
   </a>
     
     
@@ -43,28 +43,28 @@ session_start();
       <td valign="middle" class="MenuSuperior">   
      <a href="Registro.php" style="text-decoration:none;color:#FFF" >
      
-         <img src="Imagenes/LogRegistro.png"  /><br />
+         <img src="img/LogRegistro.png"  /><br />
       REGISTRARME      </a>
       </td>
       <td valign="middle" class="MenuSuperior">   
         <a href="Nosotros.php" style="text-decoration:none;color:#FFF">  
-         <img src="Imagenes/LogNosotros.png"  /><br />   
+         <img src="img/LogNosotros.png"  /><br />   
       QUIENES SOMOS  </a>    
       </td>
       <td valign="middle" class="MenuSuperior">   
         <a href="Oferta.php" style="text-decoration:none;color:#FFF">    
-       <img src="Imagenes/LogUniversidades.png"  /><br />   
+       <img src="img/LogUniversidades.png"  /><br />   
        OFERTA ACADEMICA</a>
        </td>
        
       <td valign="middle" class="MenuSuperior">    
         <a href="Contacto.php" style="text-decoration:none;color:#FFF">   
-       <img src="Imagenes/LogContacto.png"  /><br />   
+       <img src="img/LogContacto.png"  /><br />   
        CONTACTENOS</a>
        </td>
       <td valign="middle" class="MenuSuperior">    
         <a href="Login.php" style="text-decoration:none;color:#FFF">   
-       <img src="Imagenes/LogLogin.png"  /><br />   
+       <img src="img/LogLogin.png"  /><br />   
        INICIAR SESION</a>
        </td>
       
@@ -79,12 +79,12 @@ session_start();
         } else {
             echo'
 
-<div style="top:0%;background-image:url(Imagenes/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
+<div style="top:0%;background-image:url(img/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
 
 <div style="max-width:1100px;height:51px;margin:auto;width:100%">
 
   <a href="Index.php" style="text-decoration:none;color:#FFF"> 
-  <img src="Imagenes/Logo.png" style="margin-top:12px;margin-left:15px"/>
+  <img src="img/Logo.png" style="margin-top:12px;margin-left:15px"/>
   </a>
     
     
@@ -93,24 +93,24 @@ session_start();
   
       <td valign="middle" class="MenuSuperior">   
         <a href="Nosotros.php" style="text-decoration:none;color:#FFF">  
-         <img src="Imagenes/LogNosotros.png"  /><br />   
+         <img src="img/LogNosotros.png"  /><br />   
       QUIENES SOMOS  </a>    
       </td>
       <td valign="middle" class="MenuSuperior">   
         <a href="Oferta.php" style="text-decoration:none;color:#FFF">    
-       <img src="Imagenes/LogUniversidades.png"  /><br />   
+       <img src="img/LogUniversidades.png"  /><br />   
        OFERTA ACADEMICA</a>
        </td>
        
      
       <td valign="middle" class="MenuSuperior">    
         <a href="Contacto.php" style="text-decoration:none;color:#FFF">  
-       <img src="Imagenes/LogContacto.png"  /><br />   
+       <img src="img/LogContacto.png"  /><br />   
        CONTACTENOS</a>
        </td>
       <td valign="middle" class="MenuSuperior">    
         <a href="Datos.php" style="text-decoration:none;color:#FFF">   
-       <img src="Imagenes/user.png"  /><br />   
+       <img src="img/user.png"  /><br />   
        ' . $_SESSION['Nombre'] . '</a>
        </td>
       
@@ -141,20 +141,20 @@ session_start();
                         $sw = 0;
                         while ($row = mysql_fetch_array($datos)) {
                             echo' <a href="DetalleInstitutos.php?cod=' . $row[0] . '">
-		<img src="Imagenes/' . $row[1] . '"  class="late" style="float:left" />
+		<img src="img/' . $row[1] . '"  class="late" style="float:left" />
 		</a>';
                             $sw = 1;
                         }
                         if ($sw == 0) {
 
                             echo '<h1 style="text-align:center;color:#900;width:900px;">No Tenemos Oferta Disponible Para Este Departamento, Intente Seleccionado Otro...</h1>
-<center><a href="Opciones.php?cod=' . $_GET['cod'] . '">	<img src="Imagenes/Volver.png"></a></center>
+<center><a href="Opciones.php?cod=' . $_GET['cod'] . '">	<img src="img/Volver.png"></a></center>
 	
 	';
                         }
                     } else {
                         echo '<h1 style="text-align:center;color:#900;width:900px;">No Tenemos Oferta Disponible Para Este Departamento, Intente Seleccionado Otro...</h1>
-	<center><a href="Opciones.php?cod=' . $_GET['cod'] . '">	<img src="Imagenes/Volver.png"></a></center>';
+	<center><a href="Opciones.php?cod=' . $_GET['cod'] . '">	<img src="img/Volver.png"></a></center>';
                     }
                     ?>
 
@@ -168,7 +168,7 @@ session_start();
 
 
         <?php
-        $variable = file_get_contents("Partes/Pie.html");
+        $variable = file_get_contents("mods/Pie.html");
         echo $variable;
         ?>
 

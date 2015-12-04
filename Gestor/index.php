@@ -8,7 +8,7 @@ unset($_SESSION['UseR']);
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=none" />
-        <link href="Estilos.css" rel="stylesheet" type="text/css">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css">
             <script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
             <script>
                 $(document).ready(function() {
