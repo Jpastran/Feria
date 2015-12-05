@@ -6,7 +6,6 @@ body {
 }
 
 #nav{
-    height: 120px;
     background-image:url(../img/Foot.jpg);
     width:100%;
     border-top:solid 4px #FE9900;
@@ -15,8 +14,8 @@ body {
 
 .nav.logo{
     margin:auto;
-    width:30%;
     float: left;
+    min-width: 210px;
 }
 
 .nav.logo a{
@@ -30,20 +29,20 @@ body {
 }
 
 .nav.menu{
+    margin: auto;
+    cursor: pointer;
     float:right;
-    margin-top:6px;
-    height:110px;
 }
 
 .nav.menu.col {
-    margin: auto;
-    cursor: pointer;
     font-family: letraOswald;
-    color: #FFF;
     font-size: 16px;
     text-align: center;
-    padding: 5px;
     height: 100px;
+    float:left;
+    width: auto;
+    margin: 8px;
+    min-width: 100px;
 }
 
 .nav.menu.col a{
@@ -313,4 +312,25 @@ body {
 
 .clean{
     clear: both;
+}
+
+h2{
+    font-family:letraOswald;
+    color:#993300;
+}
+
+.contenido{
+    max-width:800px;
+    margin:auto;
+    width:90%;
+    margin: auto;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+.texto{
+    font-size:18px;
+    text-align:justify;
+    padding-bottom: 20px;
+    font-family: Calibri, Helvetica;
 }

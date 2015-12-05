@@ -8,101 +8,88 @@ session_start();
         <title>Feria Virtual De Educación</title> 
         <link href="css/estilos.css" rel="stylesheet" type="text/css" />
     </head>
-    <body style="margin:0px;"  onLoad="scroll();">       
-        <div style="top:0%;background-image:url(img/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
-            <div style="max-width:1100px;height:51px;margin:auto;width:100%">
-                <a href="Index.php" style="text-decoration:none;color:#FFF"> 
-                    <img src="img/Logo.png" style="margin-top:12px;margin-left:15px"/>
+    <body onLoad="scroll();">       
+        <div id="nav">
+            <div class="nav logo">
+                <a href="Index.php" > 
+                    <img src="img/Logo.png" />
                 </a>
-                <table style="float:right;margin-top:6px;height:113px;">
-                    <tr>  
-                        <?php if (empty($_SESSION['Nombre'])) {
-                            echo'
-                        <td valign="middle" class="table td">   
-                            <a href="Registro.php" style="text-decoration:none;color:#FFF" >
-                                <img src="img/LogRegistro.png"  /><br />
-                                REGISTRARME</a>
-                        </td>';
-                        }
-                        ?>
-                        <td valign="middle" class="table td">   
-                            <a href="Nosotros.php" style="text-decoration:none;color:#FFF">  
-                                <img src="img/LogNosotros.png"  /><br />   
-                                QUIENES SOMOS  </a>    
-                        </td>
-                        <td valign="middle" class="table td">   
-                            <a href="Oferta.php" style="text-decoration:none;color:#FFF">    
-                                <img src="img/LogUniversidades.png"  /><br />   
-                                OFERTA ACADEMICA</a>
-                        </td>
-                        <td valign="middle" class="table td">    
-                            <a href="Contacto.php" style="text-decoration:none;color:#FFF">   
-                                <img src="img/LogContacto.png"  /><br />   
-                                CONTACTENOS</a>
-                        </td>
-                        <?php
-                        if (empty($_SESSION['Nombre'])) {
-                            echo'
-                        <td valign="middle" class="table td">    
-                            <a href="Login.php" style="text-decoration:none;color:#FFF">   
-                                <img src="img/LogLogin.png"  /><br />   
-                                INICIAR SESION</a>
-                        </td>';
-                        } else {
-                            echo' 
-                        <td valign="middle" class="table td">    
-                            <a href="Datos.php" style="text-decoration:none;color:#FFF">   
-                                <img src="img/user.png"  /><br />   
-                                ' . $_SESSION['Nombre'] . '</a>
-                        </td>';
-                        }
-                        ?>
-                    </tr>
-                </table>
             </div>
-        </div>       
+            <div class="nav menu">
+                <?php
+                if (empty($_SESSION['Nombre'])) {
+                    echo'
+                    <div class="nav menu col">   
+                        <a href="Registro.php">
+                            <img src="img/LogRegistro.png"  /><br />
+                            REGISTRARME</a>
+                    </div>';
+                }
+                ?>
+                <div class="nav menu col">   
+                    <a href="Nosotros.php">  
+                        <img src="img/LogNosotros.png"  /><br />   
+                        QUIENES SOMOS  </a>    
+                </div>
+                <div class="nav menu col">   
+                    <a href="Oferta.php">    
+                        <img src="img/LogUniversidades.png"  /><br />   
+                        OFERTA ACADEMICA</a>
+                </div>
+                <div class="nav menu col">    
+                    <a href="Contacto.php">   
+                        <img src="img/LogContacto.png"  /><br />   
+                        CONTACTENOS</a>
+                </div>
+                <?php
+                if (empty($_SESSION['Nombre'])) {
+                    echo'
+                    <div class="nav menu col">    
+                        <a href="Login.php" >   
+                            <img src="img/LogLogin.png"  /><br />   
+                            INICIAR SESION</a>
+                    </div>';
+                } else {
+                    echo' 
+                    <div class="nav menu col">    
+                        <a href="Datos.php" >   
+                            <img src="img/user.png"  /><br />   
+                            ' . $_SESSION['Nombre'] . '</a>
+                    </div>';
+                }
+                ?>
+            </div>
+            <div class="clean"></div>
+        </div>  
         <?php
         require_once("Conexion.php");
         $consulta = "SELECT mision,vision,quienes,objetivos,producto FROM configuracion	";
         $datos = mysql_query($consulta);
         if ($row = mysql_fetch_array($datos)) {
-        ?>
-        <div style="max-width:900px;margin:auto;width:100%;margin-top:50px;margin-bottom:150px;">
-            <h2 style="font-family:letraOswald;color:#993300">
-                NUESTRA MISION
-            </h2>
-            <div style="font-size:18px;text-align:justify">
-                <?php echo nl2br(($row[0])); ?>
-            </div><BR /><BR />
-            <h2 style="font-family:letraOswald;color:#993300">
-                NUESTRA VISION
-            </h2>
-            <div style="font-size:18px;text-align:justify">
-                <?php echo nl2br(($row[1])); ?>
+            ?>
+            <div class="contenido">
+                <h2>QUIENES SOMOS</h2>
+                <div class="texto">
+                    <?php echo nl2br(($row[2])); ?>
+                </div>
+                <h2>NUESTRA MISION </h2>
+                <div class="texto">
+                    <?php echo nl2br(($row[0])); ?>
+                </div>               
+                <h2>NUESTRA VISION</h2>
+                <div class="texto">
+                    <?php echo nl2br(($row[1])); ?>
+                </div>
+                <h2>OBJETIVOS</h2>
+                <div class="texto">
+                    <?php echo nl2br(($row[3])); ?>
+                </div>
+                <h2>NUESTRO PRODUCTO</h2>
+                <div class="texto">
+                    <?php echo nl2br(($row[4])); ?>
+                </div>
             </div>
-            <BR /><BR />
-            <h2 style="font-family:letraOswald;color:#993300">
-                QUIENES SOMOS
-            </h2>
-            <div style="font-size:18px;text-align:justify">
-                <?php echo nl2br(($row[2])); ?>
-            </div>
-            <BR /><BR />
-            <h2 style="font-family:letraOswald;color:#993300">
-                OBJETIVOS
-            </h2>
-            <div style="font-size:18px;text-align:justify">
-                <?php echo nl2br(($row[3])); ?>
-            </div>
-            <BR /><BR />
-            <h2 style="font-family:letraOswald;color:#993300">
-                NUESTRO PRODUCTO
-            </h2>
-            <div style="font-size:18px;text-align:justify">
-        <?php echo nl2br(($row[4])); ?>
-            </div>
-        </div>
-        <?php
+            <?php
         }
         $variable = file_get_contents("mods/Pie.html");
         echo $variable;
