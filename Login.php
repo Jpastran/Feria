@@ -8,11 +8,9 @@ unset($_SESSION['Nombre']);
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Feria Virtual De Educación</title> 
         <link href="css/estilos.css" rel="stylesheet" type="text/css" />
-        <!--<script type="text/javascript" src="bannerRotator.js"></script>-->
         <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
-        <!--<script type="text/javascript" src="js/jscroller.js"></script>-->
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
-            <script type="text/javascript">
+        <script type="text/javascript">
                 $(document).ready(function() {
                     $("#btnentrar").click(Enviar);
                     function Enviar() {
@@ -73,29 +71,29 @@ unset($_SESSION['Nombre']);
   <table style="float:right;margin-top:6px;height:113px;">
     <tr>   
       
-      <td valign="middle" class="MenuSuperior">   
+      <td valign="middle" class="table td">   
      <a href="Registro.php" style="text-decoration:none;color:#FFF" >
      
          <img src="img/LogRegistro.png"  /><br />
       REGISTRARME      </a>
       </td>
-      <td valign="middle" class="MenuSuperior">   
+      <td valign="middle" class="table td">   
         <a href="Nosotros.php" style="text-decoration:none;color:#FFF">  
          <img src="img/LogNosotros.png"  /><br />   
       QUIENES SOMOS  </a>    
       </td>
-      <td valign="middle" class="MenuSuperior">   
+      <td valign="middle" class="table td">   
         <a href="Oferta.php" style="text-decoration:none;color:#FFF">    
        <img src="img/LogUniversidades.png"  /><br />   
        OFERTA ACADEMICA</a>
        </td>
        
-      <td valign="middle" class="MenuSuperior">    
+      <td valign="middle" class="table td">    
         <a href="Contacto.php" style="text-decoration:none;color:#FFF">   
        <img src="img/LogContacto.png"  /><br />   
        CONTACTENOS</a>
        </td>
-      <td valign="middle" class="MenuSuperior">    
+      <td valign="middle" class="table td">    
         <a href="Login.php" style="text-decoration:none;color:#FFF">   
        <img src="img/LogLogin.png"  /><br />   
        INICIAR SESION</a>
@@ -124,24 +122,24 @@ unset($_SESSION['Nombre']);
   <table style="float:right;margin-top:6px;height:113px;">
     <tr>   
   
-      <td valign="middle" class="MenuSuperior">   
+      <td valign="middle" class="table td">   
         <a href="Nosotros.php" style="text-decoration:none;color:#FFF">  
          <img src="img/LogNosotros.png"  /><br />   
       QUIENES SOMOS  </a>    
       </td>
-      <td valign="middle" class="MenuSuperior">   
+      <td valign="middle" class="table td">   
         <a href="Oferta.php" style="text-decoration:none;color:#FFF">    
        <img src="img/LogUniversidades.png"  /><br />   
        OFERTA ACADEMICA</a>
        </td>
        
      
-      <td valign="middle" class="MenuSuperior">    
+      <td valign="middle" class="table td">    
         <a href="Contacto.php" style="text-decoration:none;color:#FFF">  
        <img src="img/LogContacto.png"  /><br />   
        CONTACTENOS</a>
        </td>
-      <td valign="middle" class="MenuSuperior">    
+      <td valign="middle" class="table td">    
         <a href="Datos.php" style="text-decoration:none;color:#FFF">   
        <img src="img/user.png"  /><br />   
        ' . $_SESSION['Nombre'] . '</a>

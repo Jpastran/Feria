@@ -43,29 +43,29 @@ session_start();
   <table style="float:right;margin-top:6px;height:113px;">
     <tr>   
       
-      <td valign="middle" class="MenuSuperior">   
+      <td valign="middle" class="table td">   
      <a href="Registro.php" style="text-decoration:none;color:#FFF" >
      
          <img src="img/LogRegistro.png"  /><br />
       REGISTRARME      </a>
       </td>
-      <td valign="middle" class="MenuSuperior">   
+      <td valign="middle" class="table td">   
         <a href="Nosotros.php" style="text-decoration:none;color:#FFF">  
          <img src="img/LogNosotros.png"  /><br />   
       QUIENES SOMOS  </a>    
       </td>
-      <td valign="middle" class="MenuSuperior">   
+      <td valign="middle" class="table td">   
         <a href="Oferta.php" style="text-decoration:none;color:#FFF">    
        <img src="img/LogUniversidades.png"  /><br />   
        OFERTA ACADEMICA</a>
        </td>
        
-      <td valign="middle" class="MenuSuperior">    
+      <td valign="middle" class="table td">    
         <a href="Contacto.php" style="text-decoration:none;color:#FFF">   
        <img src="img/LogContacto.png"  /><br />   
        CONTACTENOS</a>
        </td>
-      <td valign="middle" class="MenuSuperior">    
+      <td valign="middle" class="table td">    
         <a href="Login.php" style="text-decoration:none;color:#FFF">   
        <img src="img/LogLogin.png"  /><br />   
        INICIAR SESION</a>
@@ -94,24 +94,24 @@ session_start();
   <table style="float:right;margin-top:6px;height:113px;">
     <tr>   
   
-      <td valign="middle" class="MenuSuperior">   
+      <td valign="middle" class="table td">   
         <a href="Nosotros.php" style="text-decoration:none;color:#FFF">  
          <img src="img/LogNosotros.png"  /><br />   
       QUIENES SOMOS  </a>    
       </td>
-      <td valign="middle" class="MenuSuperior">   
+      <td valign="middle" class="table td">   
         <a href="Oferta.php" style="text-decoration:none;color:#FFF">    
        <img src="img/LogUniversidades.png"  /><br />   
        OFERTA ACADEMICA</a>
        </td>
        
     
-      <td valign="middle" class="MenuSuperior">    
+      <td valign="middle" class="table td">    
         <a href="Contacto.php" style="text-decoration:none;color:#FFF">  
        <img src="img/LogContacto.png"  /><br />   
        CONTACTENOS</a>
        </td>
-      <td valign="middle" class="MenuSuperior">    
+      <td valign="middle" class="table td">    
         <a href="Datos.php" style="text-decoration:none;color:#FFF">   
        <img src="img/user.png"  /><br />   
        ' . $_SESSION['Nombre'] . '</a>
