@@ -9,60 +9,59 @@ session_start();
         <link href="css/estilos.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="js/mapMang.js"></script>
     </head>
-    <body style="margin:0px;" >
-        <div style="top:0%;background-image:url(img/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
-            <div style="max-width:1100px;height:51px;margin:auto;width:100%">
-                <a href="Index.php" style="text-decoration:none;color:#FFF"> 
-                    <img src="img/Logo.png" style="margin-top:12px;margin-left:15px"/>
+    <body>
+        <div id="nav">
+            <div class="nav logo">
+                <a href="Index.php" > 
+                    <img src="img/Logo.png" />
                 </a>
-                <table style="float:right;margin-top:6px;height:113px;">
-                    <tr>  
-                        <?php
-                        if (empty($_SESSION['Nombre'])) {
-                            echo'
-                        <td valign="middle" class="table td">   
-                            <a href="Registro.php" style="text-decoration:none;color:#FFF" >
-                                <img src="img/LogRegistro.png"  /><br />
-                                REGISTRARME</a>
-                        </td>';
-                        }
-                        ?>
-                        <td valign="middle" class="table td">   
-                            <a href="Nosotros.php" style="text-decoration:none;color:#FFF">  
-                                <img src="img/LogNosotros.png"  /><br />   
-                                QUIENES SOMOS  </a>    
-                        </td>
-                        <td valign="middle" class="table td">   
-                            <a href="Oferta.php" style="text-decoration:none;color:#FFF">    
-                                <img src="img/LogUniversidades.png"  /><br />   
-                                OFERTA ACADEMICA</a>
-                        </td>
-                        <td valign="middle" class="table td">    
-                            <a href="Contacto.php" style="text-decoration:none;color:#FFF">   
-                                <img src="img/LogContacto.png"  /><br />   
-                                CONTACTENOS</a>
-                        </td>
-                        <?php
-                        if (empty($_SESSION['Nombre'])) {
-                            echo'
-                        <td valign="middle" class="table td">    
-                            <a href="Login.php" style="text-decoration:none;color:#FFF">   
-                                <img src="img/LogLogin.png"  /><br />   
-                                INICIAR SESION</a>
-                        </td>';
-                        } else {
-                            echo' 
-                        <td valign="middle" class="table td">    
-                            <a href="Datos.php" style="text-decoration:none;color:#FFF">   
-                                <img src="img/user.png"  /><br />   
-                                ' . $_SESSION['Nombre'] . '</a>
-                        </td>';
-                        }
-                        ?>
-                    </tr>
-                </table>
             </div>
-        </div>       
+            <div class="nav menu">
+                <?php
+                if (empty($_SESSION['Nombre'])) {
+                    echo'
+                    <div class="nav menu col">   
+                        <a href="Registro.php">
+                            <img src="img/LogRegistro.png"  /><br />
+                            REGISTRARME</a>
+                    </div>';
+                }
+                ?>
+                <div class="nav menu col">   
+                    <a href="Nosotros.php">  
+                        <img src="img/LogNosotros.png"  /><br />   
+                        QUIENES SOMOS  </a>    
+                </div>
+                <div class="nav menu col">   
+                    <a href="Oferta.php">    
+                        <img src="img/LogUniversidades.png"  /><br />   
+                        OFERTA ACADEMICA</a>
+                </div>
+                <div class="nav menu col">    
+                    <a href="Contacto.php">   
+                        <img src="img/LogContacto.png"  /><br />   
+                        CONTACTENOS</a>
+                </div>
+                <?php
+                if (empty($_SESSION['Nombre'])) {
+                    echo'
+                    <div class="nav menu col">    
+                        <a href="Login.php" >   
+                            <img src="img/LogLogin.png"  /><br />   
+                            INICIAR SESION</a>
+                    </div>';
+                } else {
+                    echo' 
+                    <div class="nav menu col">    
+                        <a href="Datos.php" >   
+                            <img src="img/user.png"  /><br />   
+                            ' . $_SESSION['Nombre'] . '</a>
+                    </div>';
+                }
+                ?>
+            </div>
+            <div class="clean"></div>
+        </div>        
         <div style="max-width:1100px;margin:auto;width:100%;font-family:Futura;margin-top:30px">
             <center>
                 <h1 style="text-align:center;color:#900;">¿En Que Departamento Desea Estudiar? </h1	>
