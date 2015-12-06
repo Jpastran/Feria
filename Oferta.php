@@ -62,9 +62,9 @@ session_start();
             </div>
             <div class="clean"></div>
         </div>        
-        <div style="max-width:1100px;margin:auto;width:100%;font-family:Futura;margin-top:30px">
+        <div class="contenido">
             <center>
-                <h1 style="text-align:center;color:#900;">¿En Que Departamento Desea Estudiar? </h1	>
+                <h1>¿En Que Departamento Desea Estudiar? </h1>
                 <table border="0" cellpadding="0" cellspacing="0" width="584">
                     <!-- fwtable fwsrc="Ubicacion.png" fwpage="Página 1" fwbase="Ubicacion.png" fwstyle="Dreamweaver" fwdocid = "107092166" fwnested="0" -->
                     <tr>

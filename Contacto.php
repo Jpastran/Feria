@@ -7,202 +7,96 @@ session_start();
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Feria Virtual De Educación</title> 
         <link href="css/estilos.css" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="bannerRotator.js"></script>
-        <script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
-        <script type="text/javascript" src="Ext/jscroller.js"></script>
-        <link href="style.css" rel="stylesheet" type="text/css">
-            <script type="text/javascript">
-                $(document).ready(function() {
-
-                    $("#Enviar").click(Enviar);
-
-                    function Enviar() {
-                        if ($("#Mensaje").val() != "" && $("#Nombre").val() != "" && $("#Correo").val() != "" && $("#Telefono").val() != "") {
-                            var parametros = {
-                                "SendMensaje": $("#Mensaje").val(),
-                                "SendCorreo": $("#Correo").val(),
-                                "SendTelefono": $("#Telefono").val(),
-                                "SendNombre": $("#Nombre").val()
-                            };
-
-                            $.ajax({
-                                data: parametros,
-                                url: "EnvioSolicitudes.php",
-                                type: "POST",
-                                success: function(resp) {
-                                    alert("Mensaje Enviado, Nos Pondremos en contacto con usted");
-                                    $("#Mensaje").val("");
-                                    $("#Correo").val("");
-                                    $("#Nombre").val("");
-                                    $("#Telefono").val("");
-                                },
-                                error: function(resp) {
-                                    alert("Error Al Conectarse Al Servidor");
-                                }
-                            });
-                        } else {
-                            alert("Escriba Nombre,Correo,Telefono y Mensaje");
-                            $("#Nombre").focus();
-                        }
-                    }
-
-                });
-
-            </script>
-
-
+        <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="js/contacto.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#Enviar").click(enviar);
+            });
+        </script>
     </head>
-
-    <body style="margin:0px;background-color:#f2f2f2"  onLoad="scroll();">
-
-
-        <?php
-        if (empty($_SESSION['Nombre'])) {
-
-            echo'
-
-<div style="top:0%;background-image:url(img/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
-
-<div style="max-width:1100px;height:51px;margin:auto;width:100%">
-
-  <a href="Index.php" style="text-decoration:none;color:#FFF"> 
-  <img src="img/Logo.png" style="margin-top:12px;margin-left:15px"/>
-  </a>
-    
-    
-  <table style="float:right;margin-top:6px;height:113px;">
-    <tr>   
-      
-      <td valign="middle" class="table td">   
-     <a href="Registro.php" style="text-decoration:none;color:#FFF" >
-     
-         <img src="img/LogRegistro.png"  /><br />
-      REGISTRARME      </a>
-      </td>
-      <td valign="middle" class="table td">   
-        <a href="Nosotros.php" style="text-decoration:none;color:#FFF">  
-         <img src="img/LogNosotros.png"  /><br />   
-      QUIENES SOMOS  </a>    
-      </td>
-      <td valign="middle" class="table td">   
-        <a href="Oferta.php" style="text-decoration:none;color:#FFF">    
-       <img src="img/LogUniversidades.png"  /><br />   
-       OFERTA ACADEMICA</a>
-       </td>
-       
-      <td valign="middle" class="table td">    
-        <a href="Contacto.php" style="text-decoration:none;color:#FFF">   
-       <img src="img/LogContacto.png"  /><br />   
-       CONTACTENOS</a>
-       </td>
-      <td valign="middle" class="table td">    
-        <a href="Login.php" style="text-decoration:none;color:#FFF">   
-       <img src="img/LogLogin.png"  /><br />   
-       INICIAR SESION</a>
-       </td>
-      
-      </tr>
-  </table>
-  
-
-</div>
-</div>
-</div>
-';
-        } else {
-            echo'
-
-<div style="top:0%;background-image:url(img/Foot.jpg) ;width:100%;overflow:auto;border-top:solid 4px #FE9900;border-bottom:solid 4px #FE9900;">
-
-<div style="max-width:1100px;height:51px;margin:auto;width:100%">
-
-  <a href="Index.php" style="text-decoration:none;color:#FFF"> 
-  <img src="img/Logo.png" style="margin-top:12px;margin-left:15px"/>
-  </a>
-    
-    
-  <table style="float:right;margin-top:6px;height:113px;">
-    <tr>   
-  
-      <td valign="middle" class="table td">   
-        <a href="Nosotros.php" style="text-decoration:none;color:#FFF">  
-         <img src="img/LogNosotros.png"  /><br />   
-      QUIENES SOMOS  </a>    
-      </td>
-      <td valign="middle" class="table td">   
-        <a href="Oferta.php" style="text-decoration:none;color:#FFF">    
-       <img src="img/LogUniversidades.png"  /><br />   
-       OFERTA ACADEMICA</a>
-       </td>
-       
-      <td valign="middle" class="table td">    
-        <a href="Contacto.php" style="text-decoration:none;color:#FFF">  
-       <img src="img/LogContacto.png"  /><br />   
-       CONTACTENOS</a>
-       </td>
-      <td valign="middle" class="table td">    
-        <a href="Datos.php" style="text-decoration:none;color:#FFF">   
-       <img src="img/user.png"  /><br />   
-       ' . $_SESSION['Nombre'] . '</a>
-       </td>
-      
-      </tr>
-  </table>
-  
-
-</div>
-</div>
-</div>
-';
-        }
-        ?>
-
-
-
-        <div style="background-color:#f2f2f2;width:100%;padding-top:30px">
-
-            <table cellpadding="8" style="width:100%;margin:auto;color:#fff;font-family:Arial, Helvetica, sans-serif;max-width:1100px;padding-bottom:30px;">
-                <tr>
-                    <td align="left" style="font-size:20px;">
-                    </td>
-                    <td valign="bottom" align="center">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center" style="font-size:66px;"><div style="margin-bottom:-25px;font-weight:bold;color:#993300;">BIENVENIDO</div></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center" style="font-size:18px;">
-                        <div style="text-align:center;color:#993300;line-height:1.4;margin-top:20px;"> 
-                            Tienes alguna inquitud, escribenos y nos pondremos en contacto.
-                        </div>      
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right" valign="top" style="font-size:18px;"><input name="Nombre" type="text" class="box" id="Nombre" onkeydown="testForEnter();" value="" placeholder="Tu Nombre Completo" style="height:40px;width:380px;font-size:16px;background-color:#fff;border:solid #000033 1px"/></td>
-                    <td rowspan="3" align="left" valign="top" ><textarea name="Mensaje" class="box" id="Mensaje"  style="width:380px !important;font-size:16px;background-color:#fff;border:solid #000033 1px;height:106px;resize:none" placeholder="Déjanos  Un Mensaje" onkeydown="testForEnter();"></textarea><br />
-                        <img src="img/Csend.jpg" alt="" height="46" width="386" class="Send" id="Enviar" style="margin-top:17px;border:solid 1px #000;cursor:pointer"/></td>
-                </tr>
-                <tr align="right">
-                    <td valign="top" style="font-size:18px;"><input name="Correo" type="text" class="box" id="Correo" onkeydown="testForEnter();" value="" placeholder="Tu Correo Electronico" style="height:40px;width:380px;font-size:16px;background-color:#fff;border:solid #000033 1px" /></td>
-                </tr>
-                <tr align="right">
-                    <td valign="top" style="font-size:18px;"><input name="Telefono" type="text" class="box" id="Telefono" onkeydown="testForEnter();" value="" placeholder="Tu Numero De Telefono"  style="height:40px;width:380px;font-size:16px;background-color:#fff;border:solid #000033 1px"/></td>
-                </tr>
-            </table>
-
-
-
+    <body onLoad="scroll();">
+        <div id="nav">
+            <div class="nav logo">
+                <a href="Index.php" > 
+                    <img src="img/Logo.png" />
+                </a>
+            </div>
+            <div class="nav menu">
+                <?php
+                if (empty($_SESSION['Nombre'])) {
+                    echo'
+                    <div class="nav menu col">   
+                        <a href="Registro.php">
+                            <img src="img/LogRegistro.png"  /><br />
+                            REGISTRARME</a>
+                    </div>';
+                }
+                ?>
+                <div class="nav menu col">   
+                    <a href="Nosotros.php">  
+                        <img src="img/LogNosotros.png"  /><br />   
+                        QUIENES SOMOS  </a>    
+                </div>
+                <div class="nav menu col">   
+                    <a href="Oferta.php">    
+                        <img src="img/LogUniversidades.png"  /><br />   
+                        OFERTA ACADEMICA</a>
+                </div>
+                <div class="nav menu col">    
+                    <a href="Contacto.php">   
+                        <img src="img/LogContacto.png"  /><br />   
+                        CONTACTENOS</a>
+                </div>
+                <?php
+                if (empty($_SESSION['Nombre'])) {
+                    echo'
+                    <div class="nav menu col">    
+                        <a href="Login.php" >   
+                            <img src="img/LogLogin.png"  /><br />   
+                            INICIAR SESION</a>
+                    </div>';
+                } else {
+                    echo' 
+                    <div class="nav menu col">    
+                        <a href="Datos.php" >   
+                            <img src="img/user.png"  /><br />   
+                            ' . $_SESSION['Nombre'] . '</a>
+                    </div>';
+                }
+                ?>
+            </div>
+            <div class="clean"></div>
+        </div> 
+        <div class="contenido">
+            <div id="panel">
+                <p class="panel title">Envíanos tu Pregunta</p>
+                <p class="panel subtitle"> Tienes alguna inquitud, escribenos y nos pondremos en contacto.</p>      
+                <div class="panel col dos">
+                    <div class="col row">
+                        <input name="Nombre" type="text" class="box" id="Nombre" onkeydown="testForEnter();" value="" placeholder="Tu nombre completo"/>
+                    </div>
+                    <div class="col row">
+                        <input name="Correo" type="text" class="box" id="Correo" onkeydown="testForEnter();" value="" placeholder="Tu correo electronico"/>
+                    </div>
+                    <div class="col row">
+                        <input name="Telefono" type="text" class="box" id="Telefono" onkeydown="testForEnter();" value="" placeholder="Tu numero de telefono"/>
+                    </div>
+                </div>
+                <div class="panel col dos">
+                    <div class="col row">
+                        <textarea name="Mensaje" class="box" id="Mensaje" placeholder="Déjanos tu mensaje" onkeydown="testForEnter();"></textarea>
+                    </div>
+                    <div class="col row">
+                        <img src="img/Csend.jpg" class="box img" id="Enviar"/>
+                    </div>
+                </div>
+            </div>
+            <div class="clean"></div>
         </div>
-
-
-
-
         <?php
         $variable = file_get_contents("mods/Pie.html");
         echo $variable;
         ?>
-
-
-
     </body>
 </html>
