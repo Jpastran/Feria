@@ -10,20 +10,27 @@ function enviar() {
             data: parametros,
             url: "EnvioSolicitudes.php",
             type: "POST",
-            success: function(resp) {
-                alert("Mensaje Enviado, Nos Pondremos en contacto con usted");
-                $("#Mensaje").val("");
-                $("#Correo").val("");
-                $("#Nombre").val("");
-                $("#Telefono").val("");
+            success: function(resp) {                
+                $("#resp").html("Mensaje Enviado, Nos Pondremos en contacto con usted");
             },
             error: function(resp) {
-                alert("Error Al Conectarse Al Servidor");
+                $("#resp").html("Error Al Conectarse Al Servidor");
             }
         });
     } else {
-        alert("Escriba Nombre,Correo,Telefono y Mensaje");
-        $("#Nombre").focus();
+        if ($("#Nombre").val() == "") {
+            $("#Nombre").val("");
+        }
+        if ($("#Mensaje").val() == "") {
+            $("#Mensaje").val("");
+        }
+        if ($("#Correo").val() == "") {
+            $("#Correo").val("");
+        }
+        if ($("#Telefono").val() == "") {
+             $("#Telefono").val("");
+        }
+        $("#resp").html("Complete los campos resaltados");
     }
 }
 

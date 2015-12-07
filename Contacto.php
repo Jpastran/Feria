@@ -7,7 +7,7 @@ session_start();
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Feria Virtual De Educación</title> 
         <link href="css/estilos.css" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
         <script type="text/javascript" src="js/contacto.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
@@ -74,21 +74,22 @@ session_start();
                 <p class="panel subtitle"> Tienes alguna inquitud, escribenos y nos pondremos en contacto.</p>      
                 <div class="panel col dos">
                     <div class="col row">
-                        <input name="Nombre" type="text" class="box" id="Nombre" onkeydown="testForEnter();" value="" placeholder="Tu nombre completo"/>
+                        <input name="Nombre" type="text" class="box" id="Nombre" placeholder="Tu nombre completo" required/>
                     </div>
                     <div class="col row">
-                        <input name="Correo" type="text" class="box" id="Correo" onkeydown="testForEnter();" value="" placeholder="Tu correo electronico"/>
+                        <input name="Correo" type="text" class="box" id="Correo" placeholder="Tu correo electronico" required/>
                     </div>
                     <div class="col row">
-                        <input name="Telefono" type="text" class="box" id="Telefono" onkeydown="testForEnter();" value="" placeholder="Tu numero de telefono"/>
+                        <input name="Telefono" type="text" class="box" id="Telefono" placeholder="Tu numero de telefono" required/>
                     </div>
                 </div>
                 <div class="panel col dos">
                     <div class="col row">
-                        <textarea name="Mensaje" class="box" id="Mensaje" placeholder="Déjanos tu mensaje" onkeydown="testForEnter();"></textarea>
+                        <textarea name="Mensaje" class="box" id="Mensaje" placeholder="Déjanos tu mensaje" required></textarea>
                     </div>
                     <div class="col row">
                         <img src="img/Csend.jpg" class="box img" id="Enviar"/>
+                        <div id="resp"></div>
                     </div>
                 </div>
             </div>

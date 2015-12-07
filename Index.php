@@ -8,7 +8,7 @@ session_start();
         <title>Feria Virtual De Educación</title> 
         <link href="css/estilos.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="js/bannerRotator.js"></script>
-        <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
         <script type="text/javascript" src="js/jscroller.js"></script>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <script type="text/javascript">

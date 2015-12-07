@@ -8,7 +8,7 @@ unset($_SESSION['Nombre']);
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Feria Virtual De Educación</title> 
         <link href="css/estilos.css" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <script type="text/javascript">
                 $(document).ready(function() {

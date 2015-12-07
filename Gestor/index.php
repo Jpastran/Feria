@@ -8,55 +8,54 @@ unset($_SESSION['UseR']);
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=none" />
-        <link href="css/estilos.css" rel="stylesheet" type="text/css">
-            <script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
-            <script>
-                $(document).ready(function() {
-                    $("#Ingresar").click(Ingresar);
-                    function Ingresar() {
-                        $("#Usuario").removeClass('err');
-                        $("#pass").removeClass('err');
-                        if ($("#Usuario").val()) {
-                            if ($("#pass").val()) {
-                                $("#resul").html("<blink style='color:#000;margin-bottom:-10px;'>Procesando, espere...</blink><br><br>");
-                                var parametros = {
-                                    "Enteruser": $("#Usuario").val(),
-                                    "Enterpass": $("#pass").val()
-                                };
-                                console.log(parametros);
-                                $.ajax({
-                                    data: parametros,
-                                    url: "Procesamiento/Usuarios.php",
-                                    type: "POST",
-                                    success: function(resp) {
-                                        console.log(resp);
-                                        if (resp == "s") {
-                                            document.location = "Inicio.php"
-                                        } else {
-                                            $("#resul").html("Datos Incorrectos");
-                                            $("#pass").val("");
-                                        }
-                                    },
-                                    error: function(resp) {
-                                        alert("Error Al Conectarse Al Servidor");
+        <link href="Estilos.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#Ingresar").click(Ingresar);
+                function Ingresar() {
+                    $("#Usuario").removeClass('err');
+                    $("#pass").removeClass('err');
+                    if ($("#Usuario").val()) {
+                        if ($("#pass").val()) {
+                            $("#resul").html("<blink style='color:#000;margin-bottom:-10px;'>Procesando, espere...</blink><br><br>");
+                            var parametros = {
+                                "Enteruser": $("#Usuario").val(),
+                                "Enterpass": $("#pass").val()
+                            };
+                            $.ajax({
+                                data: parametros,
+                                url: "Procesamiento/Usuarios.php",
+                                type: "POST",
+                                success: function(resp) {
+                                    console.log(resp);
+                                    if (resp == "s") {
+                                        document.location = "Inicio.php"
+                                    } else {
+                                        $("#resul").html("Datos Incorrectos");
+                                        $("#pass").val("");
                                     }
-                                });
-                            } else {
-                                $("#pass").addClass('err');
-                                $("#resul").html("Complete Los Campos");
-                            }
+                                },
+                                error: function(resp) {
+                                    alert("Error Al Conectarse Al Servidor");
+                                }
+                            });
                         } else {
-                            $("#Usuario").addClass('err');
+                            $("#pass").addClass('err');
                             $("#resul").html("Complete Los Campos");
                         }
+                    } else {
+                        $("#Usuario").addClass('err');
+                        $("#resul").html("Complete Los Campos");
                     }
-                });
-            </script>           
-            <style>
-                .err{
-                    border: solid 1px #D8000C!important;
                 }
-            </style>
+            });
+        </script>           
+        <style>
+            .err{
+                border: solid 1px #D8000C!important;
+            }
+        </style>
     </head>
     <body style="background-color:#09C" >
         <div style="margin:auto;margin-top:5%;font-family:letraOswald;">
