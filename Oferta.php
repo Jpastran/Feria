@@ -5,7 +5,6 @@ session_start();
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <?php include_once './mods/head.html'; ?>
-        <script type="text/javascript" src="js/mapMang.js"></script>
     </head>
     <body>
         <?php include_once './mods/nav.html'; ?>        

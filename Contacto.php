@@ -5,7 +5,6 @@ session_start();
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <?php include_once './mods/head.html'; ?>
-        <script type="text/javascript" src="js/contacto.js"></script>
     </head>
     <body>
         <?php include_once './mods/nav.html'; ?>
@@ -29,7 +28,7 @@ session_start();
                         <textarea name="Mensaje" class="box" id="Mensaje" placeholder="Déjanos tu mensaje" required></textarea>
                     </div>
                     <div class="col row">
-                        <img src="img/Csend.jpg" class="box img" id="Enviar"/>
+                        <img src="img/Csend.jpg" class="box img" id="btncontacto"/>
                         <div id="resp"></div>
                     </div>
                 </div>
