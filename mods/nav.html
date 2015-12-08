@@ -1,52 +1,44 @@
-        <nav id="nav">
-            <div class="nav logo">
-                <a href="Index.php" > 
-                    <img src="img/Logo.png" />
-                </a>
-            </div>
-            <div class="nav menu">
-                <?php
-                if (empty($_SESSION['Nombre'])) {
-                    echo'
-                    <div class="nav menu col">   
-                        <a href="Registro.php">
-                            <img src="img/LogRegistro.png"  /><br />
-                            REGISTRARME</a>
-                    </div>';
-                }
-                ?>
-                <div class="nav menu col">   
-                    <a href="Nosotros.php">  
-                        <img src="img/LogNosotros.png"  /><br />   
-                        QUIENES SOMOS  </a>    
-                </div>
-                <div class="nav menu col">   
-                    <a href="Oferta.php">    
-                        <img src="img/LogUniversidades.png"  /><br />   
-                        OFERTA ACADEMICA</a>
-                </div>
-                <div class="nav menu col">    
-                    <a href="Contacto.php">   
-                        <img src="img/LogContacto.png"  /><br />   
-                        CONTACTENOS</a>
-                </div>
-                <?php
-                if (empty($_SESSION['Nombre'])) {
-                    echo'
-                    <div class="nav menu col">    
-                        <a href="Login.php" >   
-                            <img src="img/LogLogin.png"  /><br />   
-                            INICIAR SESION</a>
-                    </div>';
-                } else {
-                    echo' 
-                    <div class="nav menu col">    
-                        <a href="Datos.php" >   
-                            <img src="img/user.png"  /><br />   
-                            ' . $_SESSION['Nombre'] . '</a>
-                    </div>';
-                }
-                ?>
-            </div>
-            <div class="clean"></div>
-        </nav>     
+<nav id="nav">
+    <div class="nav logo">
+        <a href="Index.php" > 
+            <img src="img/Logo.png" />
+        </a>
+    </div>
+    <div class="nav menu">
+        <?php if (empty($_SESSION['Nombre'])) { echo'
+        <div class="nav menu col">   
+            <a href="Registro.php">
+                <img src="img/LogRegistro.png"  /><br />
+                REGISTRARME</a>
+        </div>';}?>
+        <div class="nav menu col">   
+            <a href="Nosotros.php">  
+                <img src="img/LogNosotros.png"  /><br />   
+                QUIENES SOMOS  </a>    
+        </div>
+        <div class="nav menu col">   
+            <a href="Oferta.php">    
+                <img src="img/LogUniversidades.png"  /><br />   
+                OFERTA ACADEMICA</a>
+        </div>
+        <div class="nav menu col">    
+            <a href="Contacto.php">   
+                <img src="img/LogContacto.png"  /><br />   
+                CONTACTENOS</a>
+        </div>
+        <?php
+        if (empty($_SESSION['Nombre'])) { echo'
+        <div class="nav menu col">    
+            <a href="Login.php" >   
+                <img src="img/LogLogin.png"  /><br />   
+                INICIAR SESION</a>
+        </div>';
+        } else { echo' 
+        <div class="nav menu col">    
+            <a href="Datos.php" >   
+                <img src="img/user.png"  /><br />   
+                ' . $_SESSION['Nombre'] . '</a>
+        </div>';}?>
+    </div>
+    <div class="clean"></div>
+</nav>     

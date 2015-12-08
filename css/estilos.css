@@ -462,3 +462,26 @@ h1{
 .login.line.btn{
     padding-left: 22%;
 }
+
+.registro{
+    max-width:990px;
+    margin:auto;
+    width:100%;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.registro h3{
+   color:#fff;
+   font-family:LetraOswald;
+   padding:5px;
+   font-size:18px;
+   padding-left:10px;
+   margin:7px;
+   background-color:#993300;
+   text-align:center;
+   border-radius:5px;
+   font-weight:normal; 
+   width: 100%;
+   margin-bottom: 16px;
+}

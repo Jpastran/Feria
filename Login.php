@@ -31,6 +31,6 @@ unset($_SESSION['Nombre']);
                 </div>
             </div>
         </div>
-        <?php include_once 'mods/pie.html'; ?>
+        <?php include_once './mods/pie.html'; ?>
     </body>
 </html>
