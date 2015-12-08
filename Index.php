@@ -4,73 +4,12 @@ session_start();
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Feria Virtual De Educación</title> 
-        <link href="css/estilos.css" rel="stylesheet" type="text/css" />
+        <?php include_once './mods/head.html'; ?>
         <script type="text/javascript" src="js/bannerRotator.js"></script>
-        <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
-        <script type="text/javascript" src="js/jscroller.js"></script>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                bannerRotator('#bannerRotator', 500, 3500, true);
-            });
-        </script>
     </head>
-    <body onLoad="scroll();">
-        <div id="nav">
-            <div class="nav logo">
-                <a href="Index.php" > 
-                    <img src="img/Logo.png" />
-                </a>
-            </div>
-            <div class="nav menu">
-                <?php
-                if (empty($_SESSION['Nombre'])) {
-                    echo'
-                    <div class="nav menu col">   
-                        <a href="Registro.php">
-                            <img src="img/LogRegistro.png"  /><br />
-                            REGISTRARME</a>
-                    </div>';
-                }
-                ?>
-                <div class="nav menu col">   
-                    <a href="Nosotros.php">  
-                        <img src="img/LogNosotros.png"  /><br />   
-                        QUIENES SOMOS  </a>    
-                </div>
-                <div class="nav menu col">   
-                    <a href="Oferta.php">    
-                        <img src="img/LogUniversidades.png"  /><br />   
-                        OFERTA ACADEMICA</a>
-                </div>
-                <div class="nav menu col">    
-                    <a href="Contacto.php">   
-                        <img src="img/LogContacto.png"  /><br />   
-                        CONTACTENOS</a>
-                </div>
-                <?php
-                if (empty($_SESSION['Nombre'])) {
-                    echo'
-                    <div class="nav menu col">    
-                        <a href="Login.php" >   
-                            <img src="img/LogLogin.png"  /><br />   
-                            INICIAR SESION</a>
-                    </div>';
-                } else {
-                    echo' 
-                    <div class="nav menu col">    
-                        <a href="Datos.php" >   
-                            <img src="img/user.png"  /><br />   
-                            ' . $_SESSION['Nombre'] . '</a>
-                    </div>';
-                }
-                ?>
-            </div>
-            <div class="clean"></div>
-        </div>
-
+    <body>
+        <?php include_once './mods/nav.html'; ?>
         <div id="banner">
             <div id="bannerRotator">
                 <ul>   
@@ -140,9 +79,6 @@ session_start();
                 Regístrate con nosotros y recibe un descuento especial por ser parte de nuestra feria!!!
             </div>
         </div>
-        <?php
-        $variable = file_get_contents("mods/Pie.html");
-        echo $variable;
-        ?>
+        <?php include_once 'mods/pie.html'; ?>
     </body>
 </html>

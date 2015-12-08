@@ -1,3 +1,8 @@
+
+$(document).ready(function() {
+    $("#Enviar").click(enviar);
+});
+
 function enviar() {
     if ($("#Mensaje").val() != "" && $("#Nombre").val() != "" && $("#Correo").val() != "" && $("#Telefono").val() != "") {
         var parametros = {
@@ -10,7 +15,7 @@ function enviar() {
             data: parametros,
             url: "EnvioSolicitudes.php",
             type: "POST",
-            success: function(resp) {                
+            success: function(resp) {
                 $("#resp").html("Mensaje Enviado, Nos Pondremos en contacto con usted");
             },
             error: function(resp) {
@@ -28,7 +33,7 @@ function enviar() {
             $("#Correo").val("");
         }
         if ($("#Telefono").val() == "") {
-             $("#Telefono").val("");
+            $("#Telefono").val("");
         }
         $("#resp").html("Complete los campos resaltados");
     }

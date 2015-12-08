@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    bannerRotator('#bannerRotator', 500, 3500, true);
+});
+
 function bannerRotator(selector, scrollTime, pauseTime, nav) {
 
     $(selector + " li:first").css("display", "block"); //show the first list item
