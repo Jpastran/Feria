@@ -7,17 +7,18 @@ unset($_SESSION['Nombre']);
     <head>
         <?php include_once './mods/head.html'; ?>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <script src="js/bootstrap.js"></script>
     </head>
     <body>
         <?php include_once './mods/nav.html'; ?>
         <!--//TODO cambiar los <select> grandes hacia BD-->
-        <div class="contenido">
+        <div class="contenido panel panel-warning">
             <form class="registro form-horizontal">
                 <h3 id="titu1">INFORMACIÓN BÁSICA</h3>
                 <div class="form-group">                    
-                    <label for="Identificacion" class="control-label col-sm-2">*Numero de ID</label >
+                    <label for="Identificacion" class="control-label col-sm-2">Numero de ID</label >
                     <div class="col-sm-4">    
-                        <input name="Identificacion" type="text" class="box form-control" id="Identificacion" value="" />
+                        <input name="Identificacion" type="text" class="box form-control" id="Identificacion" value="" required/>
                     </div>
                     <label for="Tipo" class="control-label col-sm-2">Tipo de ID</label>
                     <div class="col-sm-4">                       
@@ -30,29 +31,29 @@ unset($_SESSION['Nombre']);
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="Nombres" class="control-label col-sm-2">*Nombres</label>
+                    <label for="Nombres" class="control-label col-sm-2">Nombres</label>
                     <div class="col-sm-4">
-                        <input name="Nombres" type="text" class="box form-control" id="Nombres" value="" />
+                        <input name="Nombres" type="text" class="box form-control" id="Nombres" value="" required/>
                     </div>
-                    <label for="Apellidos" class="control-label col-sm-2">*Apellidos</label>
+                    <label for="Apellidos" class="control-label col-sm-2">Apellidos</label>
                     <div class="col-sm-4">  
-                        <input name="Apellidos" type="text" class="box form-control" id="Apellidos" value=""/>
+                        <input name="Apellidos" type="text" class="box form-control" id="Apellidos" value="" required/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="Tel">*Teléfono</label>
+                    <label class="control-label col-sm-2" for="Tel">Teléfono</label>
                     <div class="col-sm-4">
-                        <input name="Tel" type="text" class="box form-control" id="Tel" value="" />
+                        <input name="Tel" type="text" class="box form-control" id="Tel" value="" required/>
                     </div>
-                    <label class="control-label col-sm-2" for="Celular">*Celular</label>
+                    <label class="control-label col-sm-2" for="Celular">Celular</label>
                     <div class="col-sm-4">
-                        <input name="Celular" type="text" class="box form-control" id="Celular"  value="" />
+                        <input name="Celular" type="text" class="box form-control" id="Celular"  value="" required/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="Correo">*Correo Electrónico</label>
+                    <label class="control-label col-sm-2" for="Correo">Correo Electrónico</label>
                     <div class="col-sm-4">
-                        <input name="Correo" type="text" class="box form-control" id="Correo"  value="" />
+                        <input name="Correo" type="text" class="box form-control" id="Correo"  value="" required/>
                     </div>
                     <label class="control-label col-sm-2" for="oCorreo">Correo Alternativo</label>
                     <div class="col-sm-4">
@@ -81,9 +82,6 @@ unset($_SESSION['Nombre']);
                             <option value="Si">Si</option>                            
                         </select>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-5"> (*) Campos Obligatorios</div>
                 </div>
                 <h3 id="titu2">INFORMACIÓN SOCIAL</h3>              
                 <div class="form-group">
@@ -242,18 +240,27 @@ unset($_SESSION['Nombre']);
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-5">
-                        <label for="Terminos">Acepto Terminos  y Condiciones</label>
-                        <input type="checkbox" name="Terminos" id="Terminos" />                        
-                    </div>
-                    <div class="col-sm-4">
+                    <label class="control-label col-sm-5 alert-warning" for="Terminos">
+                        Al registrarte aceptas las
+                        <a href="#" class="alert-link" data-toggle="modal" data-target="#condicion"> Condiciones de servicios</a>
+                        y la
+                        <a href="#" class="alert-link" data-toggle="modal" data-target="#politica"> Politica de privacidad</a>
+                    </label>                      
+                    <div class="col-sm-2">
                         <input type="button" name="btnEnviar" id="btnregistro" class="button" value="Finalizar Registro" />
                     </div>
-                </div>
-                <div class="col-sm-5">
-                    <div id="Resp"></div>
-                </div>
+                    <div class="col-sm-5">
+                        <div class="alert none" role="alert" id="Resp"></div>
+                    </div>
+                </div>              
             </form>
+        </div>
+        <!-- Modals -->
+        <div class="modal fade" id="condicion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <?php include_once './mods/servicio.html'; ?>
+        </div>
+        <div class="modal fade" id="politica" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <?php include_once './mods/privacidad.html'; ?>
         </div>
         <?php include_once './mods/pie.html'; ?>
     </body>

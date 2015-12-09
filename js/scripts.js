@@ -1,61 +1,63 @@
 $(document).ready(function() {
     $("#btnlogin").click(login);
-    $("#btncontacto").click(contacto);
-    $("#btnregistro").click(registro);
+    $("#formContacto").submit(function() {
+        contacto();
+        return false;
+    });
+    $("#btnregistro").click(registro);    
 });
 
 function registro() {
     if ($("#Nombres").val() != "" && $("#Apellidos").val() != "" && $("#Correo").val() != "" && $("#Identificacion").val() != "" && $("#Tel").val() != "" && $("#Celular").val() != "") {
-        if ($("#Terminos").is(':checked')) {
-            $("#Resp").html("Espere Por Favor...");
-            var parametros = {
-                "EnvioIdentificacion": $("#Identificacion").val(),
-                "EnvioTipo": $("#Tipo").val(),
-                "EnvioNombres": $("#Nombres").val(),
-                "EnvioApellidos": $("#Apellidos").val(),
-                "EnvioTel": $("#Tel").val(),
-                "EnvioCelular": $("#Celular").val(),
-                "EnvioCorreo": $("#Correo").val(),
-                "EnviooCorreo": $("#oCorreo").val(),
-                "EnvioDir": $("#Dir").val(),
-                "EnvioBarrio": $("#Barrio").val(),
-                "EnvioGrado": $("#Grado").val(),
-                "EnvioColegio": $("#Colegio").val(),
-                "EnvioPuntaje": $("#Puntaje").val(),
-                "EnvioPuesto": $("#Puesto").val(),
-                "Enviorecursos": $("#recursos").val(),
-                "EnvioMedio": $("#Medio").val(),
-                "Envioapoyo": $("#apoyo").val(),
-                "EnvioNapoyo": $("#Napoyo").val(),
-                "EnvioTapoyo": $("#Tapoyo").val(),
-                "EnvioCapoyo": $("#Capoyo").val(),
-                "EnvioMulticulturalidad": $("#Multiculturalidad").val(),
-                "EnvioSISBEN": $("#SISBEN").val(),
-                "EnvioPrograma1": $("#Programa1").val(),
-                "EnvioPrograma2": $("#Programa2").val(),
-                "Enviofortaleza1": $("#fortaleza1").val(),
-                "Enviofortaleza2": $("#fortaleza2").val()
-            };
-            $.ajax({
-                data: parametros,
-                url: "EnvioSolicitudes.php",
-                type: "POST",
-                success: function(resp) {
-                    if (resp == "s") {
-                        alert("Registro Completo! Recuerde que su acceso a nuestra feria es su correo electronico");
-                        document.location = "Index.php";
-                    } else {
-                        $("#Resp").html("No Se Puede Registrar, El Correo Electronico Ya Está Vinculado");
-                    }
-                },
-                error: function(resp) {
-                    alert("Error Al Conectarse Al Servidor");
+        $("#Resp").addClass('block', 'alert-info');
+        $("#Resp").html("Espere Por Favor...");
+        var parametros = {
+            "EnvioIdentificacion": $("#Identificacion").val(),
+            "EnvioTipo": $("#Tipo").val(),
+            "EnvioNombres": $("#Nombres").val(),
+            "EnvioApellidos": $("#Apellidos").val(),
+            "EnvioTel": $("#Tel").val(),
+            "EnvioCelular": $("#Celular").val(),
+            "EnvioCorreo": $("#Correo").val(),
+            "EnviooCorreo": $("#oCorreo").val(),
+            "EnvioDir": $("#Dir").val(),
+            "EnvioBarrio": $("#Barrio").val(),
+            "EnvioGrado": $("#Grado").val(),
+            "EnvioColegio": $("#Colegio").val(),
+            "EnvioPuntaje": $("#Puntaje").val(),
+            "EnvioPuesto": $("#Puesto").val(),
+            "Enviorecursos": $("#recursos").val(),
+            "EnvioMedio": $("#Medio").val(),
+            "Envioapoyo": $("#apoyo").val(),
+            "EnvioNapoyo": $("#Napoyo").val(),
+            "EnvioTapoyo": $("#Tapoyo").val(),
+            "EnvioCapoyo": $("#Capoyo").val(),
+            "EnvioMulticulturalidad": $("#Multiculturalidad").val(),
+            "EnvioSISBEN": $("#SISBEN").val(),
+            "EnvioPrograma1": $("#Programa1").val(),
+            "EnvioPrograma2": $("#Programa2").val(),
+            "Enviofortaleza1": $("#fortaleza1").val(),
+            "Enviofortaleza2": $("#fortaleza2").val()
+        };
+        $.ajax({
+            data: parametros,
+            url: "EnvioSolicitudes.php",
+            type: "POST",
+            success: function(resp) {
+                if (resp == "s") {
+                    alert("Registro Completo! Recuerde que su acceso a nuestra feria es su correo electronico");
+                    document.location = "Index.php";
+                } else {
+                    $("#Resp").html("No Se Puede Registrar, El Correo Electronico Ya Está Vinculado");
                 }
-            });
-        } else {
-            $("#Resp").html("Acepte Terminos y Condiciones");
-        }
+            },
+            error: function(resp) {
+                alert("Error Al Conectarse Al Servidor");
+            }
+        });
     } else {
+        $("#Resp").removeClass('none');
+        $("#Resp").addClass('alert-danger');
         $("#Resp").html("Campos Obligatorios Pendientes");
     }
 }
@@ -126,26 +128,19 @@ function contacto() {
             url: "EnvioSolicitudes.php",
             type: "POST",
             success: function(resp) {
-                $("#resp").html("Mensaje Enviado, Nos Pondremos en contacto con usted");
+                $("#resp").html("Mensaje Enviado, Nos pondremos en contacto con usted");
+                $("#Mensaje").val("");
+                $("#Correo").val("");
+                $("#Nombre").val("");
+                $("#Telefono").val("");
             },
             error: function(resp) {
-                $("#resp").html("Error Al Conectarse Al Servidor");
+                alert(resp);
+                $("#resp").html("Error al conectarse al servidor");
             }
         });
     } else {
-        if ($("#Nombre").val() == "") {
-            $("#Nombre").val("");
-        }
-        if ($("#Mensaje").val() == "") {
-            $("#Mensaje").val("");
-        }
-        if ($("#Correo").val() == "") {
-            $("#Correo").val("");
-        }
-        if ($("#Telefono").val() == "") {
-            $("#Telefono").val("");
-        }
-        $("#resp").html("Complete los campos resaltados");
+        $("#resp").html("Complete los todos los campos");
     }
 }
 
