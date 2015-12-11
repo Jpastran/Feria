@@ -244,18 +244,12 @@ session_start();
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-5 alert-warning" for="Terminos">
-                        Al registrarte aceptas las
-                        <a href="#" class="alert-link" data-toggle="modal" data-target="#condicion"> Condiciones de servicios</a>
-                        y la
-                        <a href="#" class="alert-link" data-toggle="modal" data-target="#politica"> Politica de privacidad</a>
-                    </label>                      
-                    <div class="col-sm-2">
-                        <input type="submit" name="btnEnviar" id="btnupdate" class="button" value="Finalizar Registro" />
-                    </div>
                     <div class="col-sm-5">
                         <!--mirar un Dismissible popover-->
-                        <div class="alert none" role="alert" id="Resp"></div>
+                        <div class="alert" role="alert" id="Resp"></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="submit" class="button" value="Actualizar Registro"/>
                     </div>
                 </div>              
             </form>

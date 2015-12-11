@@ -29,7 +29,7 @@ if (!empty($_POST["SendNombre"])) {
     $headers .= "From: FeriaVirtual.com";
     mail($destinatario, $asunto, $cuerpo, $headers);
 } else {
-    require_once("Conexion.php");
+    require_once("../db/conectar.php");
     if (!empty($_POST["EnvioNombres"])) {
 
         $consulta = "INSERT estudiantes(nombre,apellido,documento,tipodoc,telefono,celular,correo,otrocorreo,direccion,barrio,grado,colegio,recursos,medio,apoyo,napoyo,telapoyo,correoapoyo,programa1,programa2,fortaleza1,fortaleza2,icfes,puesto,multi,sisbem,fechainsc)	values(

@@ -2,7 +2,7 @@
 
 header('Content-Type: text/html; charset=UTF-8');
 
-require_once("Conexion.php");
+require_once("../db/conectar.php");
 if (!empty($_POST["EnvioNombres"])) {
 
     $consulta = "update estudiantes set nombre='" . mysql_real_escape_string($_POST["EnvioNombres"]) . "',

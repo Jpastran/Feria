@@ -14,7 +14,7 @@ session_start();
             <div id="bannerRotator">
                 <ul>   
                     <?php
-                    require_once("Conexion.php");
+                    require_once("./db/conectar.php");
                     $consulta = "SELECT nombre FROM banners	";
                     $datos = mysql_query($consulta);
                     while ($row = mysql_fetch_array($datos)) {

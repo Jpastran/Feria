@@ -18,32 +18,36 @@ $(document).ready(function() {
 });
 
 function registro() {
-    $("#Resp").removeClass('none');
-    $("#Resp").addClass('alert-info');
+    $("#Resp").removeClass();
+    $("#Resp").addClass('alert');
     if ($("#Nombres").val() != "" && $("#Apellidos").val() != "" && $("#Correo").val() != "" && $("#Identificacion").val() != "" && $("#Tel").val() != "" && $("#Celular").val() != "") {
-        $("#Resp").addClass('block', 'alert-info');
+        $("#Resp").addClass('alert-info');
         $("#Resp").html("Espere Por Favor...");
         var parametros = obtenerCampos("registro");
         $.ajax({
             data: parametros,
-            url: "EnvioSolicitudes.php",
+            url: "./db/solicitud.php",
             type: "POST",
             success: function(resp) {
-                alert("success");
-                if (resp == "s") {
-                    alert("Registro Completo! Recuerde que su acceso a nuestra feria es su correo electronico");
-                    document.location = "Index.php";
+                $("#Resp").removeClass('alert-info');
+                if (resp == "s") {                   
+                    $("#Resp").addClass('alert-success');
+                    $("#Resp").html("Registro Completo! Recuerde que su acceso a nuestra feria es su correo electronico");
+                    setTimeout("location.href='Index.php'", 2000);
                 } else {
-                    alert("error");
+                    $("#Resp").addClass('alert-waring');
                     $("#Resp").html("No Se Puede Registrar, El Correo Electronico Ya Está Vinculado");
                 }
             },
             error: function(resp) {
-                alert("Error Al Conectarse Al Servidor");
+                $("#Resp").removeClass('alert-info');
+                $("#Resp").addClass('alert-danger');
+                $("#Resp").html("Error Al Conectarse Al Servidor");
             }
         });
     } else {
-        $("#Resp").html("Campos Obligatorios Pendientes");
+        $("#Resp").addClass('alert-danger');
+        $("#Resp").html("Llene correctamente los campos");
     }
 }
 
@@ -120,7 +124,7 @@ function contacto() {
         };
         $.ajax({
             data: parametros,
-            url: "EnvioSolicitudes.php",
+            url: "./db/solicitud.php",
             type: "POST",
             success: function(resp) {
                 $("#resp").html("Mensaje Enviado, Nos pondremos en contacto con usted");
@@ -130,7 +134,6 @@ function contacto() {
                 $("#Telefono").val("");
             },
             error: function(resp) {
-                alert(resp);
                 $("#resp").html("Error al conectarse al servidor");
             }
         });
@@ -147,19 +150,18 @@ function login() {
         };
         $.ajax({
             data: parametros,
-            url: "EnvioSolicitudes.php",
+            url: "./db/solicitud.php",
             type: "POST",
             success: function(resp) {
                 if (resp != "n") {
-                    $("#resp").html("");
-                    alert("Bienvenido " + resp);
-                    document.location = "Datos.php";
+                     $("#resp").html("Bienvenido " + resp);
+                     setTimeout("location.href='Datos.php'", 2000);
                 } else {
                     $("#resp").html("Correo No Registrado");
                 }
             },
             error: function(resp) {
-                alert("Error Al Conectarse Al Servidor");
+                $("#resp").html("Error Al Conectarse Al Servidor");
             }
         });
     } else {
@@ -175,7 +177,7 @@ function cargar() {
     };
     $.ajax({
         data: parametros,
-        url: "EnvioSolicitudes.php",
+        url: "./db/solicitud.php",
         type: "POST",
         success: function(resp) {
             var datos = resp.split("ô");
@@ -217,17 +219,17 @@ function actualizar() {
         var parametros = obtenerCampos("datos");
         $.ajax({
             data: parametros,
-            url: "AdmDatos.php",
+            url: "./db/datos.php",
             type: "POST",
             success: function(resp) {
                 if (resp == "s") {
-                    alert("Datos Actualizados Correctamente");
+                    $("#Resp").html("Datos Actualizados Correctamente");
                 } else {
-                    alert("No Se Puede Actualizar, Verifique Sus Datos");
+                    $("#Resp").html("No Se Puede Actualizar, Verifique Sus Datos");
                 }
             },
             error: function(resp) {
-                alert("Error Al Conectarse Al Servidor");
+                $("#Resp").html("Error Al Conectarse Al Servidor");
             }
         });
     } else {

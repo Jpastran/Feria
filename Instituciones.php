@@ -8,7 +8,7 @@ session_start();
         <title>Feria Virtual De Educación</title>
         <link href="css/estilos.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="bannerRotator.js"></script>
-        <script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
         <script type="text/javascript" src="Ext/jscroller.js"></script>
         <link href="style.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript">
@@ -135,7 +135,7 @@ session_start();
                     <?php
                     if (!empty($_GET['cod'])) {
 
-                        require_once("Conexion.php");
+                        require_once("db/conectar.php");
                         $consulta = "SELECT codigo,imagen FROM ofertas WHERE categoria='Instituciones' AND departamento='" . mysql_real_escape_string($_GET['cod']) . "'";
                         $datos = mysql_query($consulta);
                         $sw = 0;

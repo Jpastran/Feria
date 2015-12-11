@@ -9,7 +9,7 @@ session_start();
     <body>       
         <?php include_once './mods/nav.html'; ?> 
         <?php
-        require_once("Conexion.php");
+        require_once("db/conectar.php");
         $consulta = "SELECT mision,vision,quienes,objetivos,producto FROM configuracion	";
         $datos = mysql_query($consulta);
         if ($row = mysql_fetch_array($datos)) {
