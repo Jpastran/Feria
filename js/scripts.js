@@ -15,6 +15,9 @@ $(document).ready(function() {
         actualizar();
         return false;
     });
+    negro();
+    $("#negro").click(negro);
+    $(".linkProg").click(resize);
 });
 
 function registro() {
@@ -30,7 +33,7 @@ function registro() {
             type: "POST",
             success: function(resp) {
                 $("#Resp").removeClass('alert-info');
-                if (resp == "s") {                   
+                if (resp == "s") {
                     $("#Resp").addClass('alert-success');
                     $("#Resp").html("Registro Completo! Recuerde que su acceso a nuestra feria es su correo electronico");
                     setTimeout("location.href='index.php'", 2000);
@@ -154,8 +157,8 @@ function login() {
             type: "POST",
             success: function(resp) {
                 if (resp != "n") {
-                     $("#resp").html("Bienvenido " + resp);
-                     setTimeout("location.href='datos.php'", 2000);
+                    $("#resp").html("Bienvenido " + resp);
+                    setTimeout("location.href='datos.php'", 2000);
                 } else {
                     $("#resp").html("Correo No Registrado");
                 }
@@ -288,4 +291,41 @@ function MM_preloadImages() { //v3.0
             }
         }
     }
+}
+
+var global = "";
+
+function negro() {
+    $("#gris").hide(500);
+}
+
+function press() {
+    $("#blanco").html('<center><img src="img/cargando.gif" ><br><img src="img/Mensaje.jpg" ></center>');
+    var parametros = {
+        "MyCorreo": $("#MyCorreo").val(),
+        "Programa": global,
+        "Tipo": "Universidades",
+        "Keysave": "#f7641"
+    };
+    negro();
+    $.ajax({
+        data: parametros,
+        url: "db/solicitud.php",
+        type: "POST",
+        success: function(resp) {         
+            if (resp == "s") {
+                alert("Ha Sido Registrado Su Interes Hacia Este Programa");
+            } else {
+                alert("No se pudo guardar, verifique su conexión");
+            }
+        }
+    });
+}
+
+function resize() {
+    global = $(this).attr("title");
+    $("#gris").show(800);
+    $("#blanco").html('<img src="img/' + $(this).attr("name") + '" width="500"><br><center><img src="img/Interes.png" id="press" style="cursor:pointer"></center>');
+    $('html, body').animate({scrollTop: 10}, 650);
+    $("#press").click(press);
 }
