@@ -25,7 +25,7 @@ unset($_SESSION['Nombre']);
                     <div class="login center">
                         <div class="login line" id="resp"></div>
                         <div class="login line hr">No estas registrado:                                           
-                            <a href="Registro.php"> Registrese Aqui</a>
+                            <a href="registro.php"> Registrese Aqui</a>
                         </div>
                     </div>
                 </div>
