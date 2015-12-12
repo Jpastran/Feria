@@ -479,7 +479,7 @@ h1{
     margin-bottom:20px;
 }
 
-h3{
+.registro h3, h3{
     color:#fff;
     font-family:LetraOswald;
     padding:5px;
@@ -490,7 +490,6 @@ h3{
     text-align:center;
     border-radius:5px;
     font-weight:normal; 
-    width: 100%;
     margin-bottom: 16px;
 }
 
