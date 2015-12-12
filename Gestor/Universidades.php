@@ -279,7 +279,7 @@ if (empty($_SESSION['UseR'])) {
                                 echo '<td>' . $row[1] . '</td>
 			<td  >' . $row[2] . '</td>
 			<td >' . $row[3] . '</td>
-			<td align="center"><img src="../Imagenes/' . $row[4] . '" style="max-width:150px"></td>			
+			<td align="center"><img src="../img/' . $row[4] . '" style="max-width:150px"></td>			
 			<td align="center">
 			<input type="image" src="Imagenes/edit.png" class="edit" value="' . $row[0] . '"/>
 		<input type="image" src="Imagenes/delet.png" class="delet" value="' . $row[0] . '"/>

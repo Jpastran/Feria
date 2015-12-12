@@ -128,6 +128,17 @@ body {
     font-weight: bold;
 }
 
+.linkProg div{
+    margin: auto;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+
+.linkImg{
+    margin-right:10px;
+    margin-bottom:-6px;  
+}
+
 @font-face {
     font-family: Myriad;
     src: url(../fonts/Myriad.ttf);
@@ -138,22 +149,30 @@ body {
 }
 
 .late {
-    width: 100%;
-    max-width: 100px;
+    width: 50%;
     cursor: pointer;
-    transform: scale(1,1);
-    -webkit-transform: scale(1,1);
-    transition: -webkit-transform 0.47s;
-    margin-left: 3%;
-    margin-right: 3%;
     margin-top: 30px;
+    text-align: left;
     float:left;
 }
-.late:hover {
-    transform: scale(1.1,1.1);
+.late h2:hover {
+    transform: scale(1.01,1.05);
 }
 
-.late2 {
+.late h2{
+    margin-top: 20px;
+    cursor: pointer;
+    float:left;
+    width: 70%;
+    padding-top: 10px;
+}
+
+.late img{
+    float:left;
+    margin-top: 10px;
+    padding-right: 4px;
+}
+.opciones {
     width: 100%;
     max-width: 500px;
     cursor: pointer;
@@ -162,7 +181,7 @@ body {
     transition: -webkit-transform 0.47s;
     margin-top:20px
 }
-.late2:hover {
+.opciones:hover {
     transform: scale(1.1,1.1);
 }
 
@@ -353,7 +372,27 @@ h2{
     text-align: center;
     margin:auto;
     width:100%;
-    max-width:800px;
+    max-width:900px;
+}
+
+.center.img {
+    max-width:1000px;
+    width:95%;
+    margin-bottom: 10px;
+}
+
+.program{
+    font-family:Verdana, Geneva, sans-serif;
+    color:#333;
+    font-size:10px;
+    line-height:155%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.program a {
+    text-decoration:none;
+    cursor:pointer;
 }
 
 h1{
@@ -484,13 +523,13 @@ h1{
     font-family:LetraOswald;
     padding:5px;
     font-size:18px;
-    padding-left:10px;
-    margin:7px;
+    margin: auto;
     background-color:#993300;
     text-align:center;
     border-radius:5px;
     font-weight:normal; 
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .none{

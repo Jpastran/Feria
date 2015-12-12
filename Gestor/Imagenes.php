@@ -148,7 +148,7 @@ if (empty($_SESSION['UseR'])) {
                                 }
 
                                 echo '
-			<td align="center"><img src="../Banner/' . $row[0] . '" style="max-width:800px"></td>			
+			<td align="center"><img src="../img/banner/' . $row[0] . '" style="max-width:800px"></td>			
 			<td align="center">
 		<input type="image" src="Imagenes/delet.png" class="delet" value="' . $row[0] . '"/>
 			</td></tr>';

@@ -12,11 +12,11 @@ session_start();
             <div class="center">              
                 <?php if (!empty($_GET['cod'])) { ?>                
                 <a href="universidades.php?cod=<?php echo $_GET['cod'] ?>">
-                    <img src="img/Univ.jpg" class="late2"/></a>
+                    <img src="img/Univ.jpg" class="opciones"/></a>
                 <a href="instituciones.php?cod=<?php echo $_GET['cod'] ?>">
-                    <img src="img/Univ2.jpg" class="late2"/></a>
+                    <img src="img/Univ2.jpg" class="opciones"/></a>
                 <a href="idiomas.php?cod=<?php echo $_GET['cod'] ?>">
-                    <img src="img/Univ3.jpg" class="late2"/></a>
+                    <img src="img/Univ3.jpg" class="opciones"/></a>
                 <?php
                 } else {
                     header('Location: oferta.php');

@@ -14,26 +14,17 @@ if (empty($_SESSION['UseR'])) {
             <script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
             <script>
                 $(document).ready(function() {
-
-
                     $("#Editar").hide();
                     $("#Cancelar").hide();
-
                     $("#Editar").click(Editar);
                     $("#Cancelar").click(Cancelar);
                     $("#Guardar").click(Nuevo);
                     $("#Oferta").change(cambioOferta);
                     $(".delet").click(Eliminar);
                     $(".edit").click(Carga);
-
                     function Cancelar() {
-
                         document.location = "Programas.php";
-
                     }
-
-
-
                     function cambioOferta() {
 
                         if ($("#Oferta").val() != "") {
@@ -54,18 +45,10 @@ if (empty($_SESSION['UseR'])) {
                             });
                         } else {
                             $("#DivAreas").html(" <select name='Areas' id='Areas' style='width:300px;font-size:14px;padding:3px' ><option value='-1' selected='selected'>Seleccionar...</option></select>");
-
-
-
                         }
                     }
-
-
-
                     function Editar() {
                         if ($("#Nombre").val() != "" && $("#Oferta").val() != "" && $("#Areas").val() != "" && $("#Descripcion").val() != "") {
-
-
                             var parametros = {
                                 "Nombre": $("#Nombre").val(),
                                 "Oferta": $("#Oferta").val(),
@@ -97,9 +80,6 @@ if (empty($_SESSION['UseR'])) {
                             alert("Complete Todos Los Campos");
                         }
                     }
-
-
-
 
                     function Nuevo() {
                         if ($("#Oferta").val() != "" && $("#Areas").val() != "" && $("#Nombre").val() != "" && $("#Imagen").val() != "" && $("#Descripcion").val() != "") {
@@ -251,7 +231,6 @@ if (empty($_SESSION['UseR'])) {
 
                                     <?php
                                     require_once("Procesamiento/Conexion.php");
-
                                     $consulta = 'SELECT codigo,departamento,categoria,nombre FROM ofertas ORDER BY departamento,categoria,nombre';
                                     $datos = mysql_query($consulta);
                                     echo"<select name='Oferta' id='Oferta' style='width:300px;font-size:14px;padding:3px' >
@@ -332,7 +311,7 @@ if (empty($_SESSION['UseR'])) {
 			<td >' . $row[3] . '</td>
 			<td >' . $row[4] . '</td>
 			<td >' . $row[5] . '</td>
-			<td align="center"><img src="../Imagenes/' . $row[6] . '" style="max-width:200px"></td>			
+			<td align="center"><img src="../img/' . $row[6] . '" style="max-width:200px"></td>			
 			<td align="center">
 			<input type="image" src="Imagenes/edit.png" class="edit" value="' . $row[0] . '"/>
 		<input type="image" src="Imagenes/delet.png" class="delet" value="' . $row[0] . '"/>

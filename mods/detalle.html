@@ -1,0 +1,33 @@
+        <?php echo' <input type="hidden" id="MyCorreo" value="' . $_SESSION['Correo'] . '"/>'; ?>        <div id="DivSobreMG">
+        <div id="gris">
+            <div id="blanco"></div>  
+            <div id="negro"></div>
+        </div>
+        <div class="contenido">
+            <div class="center">
+            <?php
+            if (!empty($_GET['cod'])) {
+                $consulta = "SELECT banner FROM ofertas WHERE codigo='" . mysql_real_escape_string($_GET['cod']) . "'";
+                $datos = mysql_query($consulta);
+                if ($row = mysql_fetch_array($datos)) {
+                    echo'<img class="center img" src="img/' . $row[0] . '"/>';
+                }
+            echo '</div>';
+            $consulta = "SELECT codigo,nombre FROM areas WHERE codoferta='" . mysql_real_escape_string($_GET['cod']) . "'";
+            $datos = mysql_query($consulta);
+            while ($row = mysql_fetch_array($datos)) {
+                echo'<h3>' . $row[1] . '</h3>
+                <div class="program">';
+                $consultax = "SELECT codigo,nombre,descripcion,imagen FROM programas WHERE codarea='" . mysql_real_escape_string($row[0]) . "'";
+                $datosx = mysql_query($consultax);
+                while ($rowx = mysql_fetch_array($datosx)) {
+                    echo '
+                    <a class="linkProg" name="' . $rowx[3] . '"  title="' . $rowx[0] . '">
+                    <div><img src="img/next.png" class="linkImg"/>' . $rowx[1] . ' (' . $rowx[2] . ')</div></a>
+                    ';
+                }
+                echo '</div>';
+            }
+            echo '</div>';
+        }
+        ?>

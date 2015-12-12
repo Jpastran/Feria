@@ -13,13 +13,17 @@ session_start();
                 <?php
                 if (!empty($_GET['cod'])) {
                     require_once("db/conectar.php");
-                    $consulta = "SELECT codigo,imagen FROM ofertas WHERE categoria='Idiomas' AND departamento='" . mysql_real_escape_string($_GET['cod']) . "'";
+                    $consulta = "SELECT codigo,imagen,nombre FROM ofertas WHERE categoria='Idiomas' AND departamento='" . mysql_real_escape_string($_GET['cod']) . "'";
                     $datos = mysql_query($consulta);
                     $sw = FALSE;
                     while ($row = mysql_fetch_array($datos)) { ?>
-                        <a href="detalleIdiom.php?cod=<?php echo $row[0] ?>">
-                            <img src="img/<?php echo $row[1] ?>"  class="late" /></a>
-                        <?php 
+                        <div class="late">
+                            <a href="detalleIdiom.php?cod=<?php echo $row[0] ?>">
+                                <img src="img/<?php echo $row[1] ?>"/>
+                                <h2><?php echo $row[2] ?></h2>
+                            </a>
+                        </div>
+                    <?php
                         if (!$sw) { $sw = TRUE; }
                     }
                     if (!$sw) {
