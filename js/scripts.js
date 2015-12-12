@@ -8,7 +8,7 @@ $(document).ready(function() {
         registro();
         return false;
     });
-    if (jQuery(location).attr('pathname') == "/Feria/Datos.php") {
+    if (jQuery(location).attr('pathname') == "/Feria/datos.php") {
         cargar();
     }
     $("#formDatos").submit(function() {
@@ -33,7 +33,7 @@ function registro() {
                 if (resp == "s") {                   
                     $("#Resp").addClass('alert-success');
                     $("#Resp").html("Registro Completo! Recuerde que su acceso a nuestra feria es su correo electronico");
-                    setTimeout("location.href='Index.php'", 2000);
+                    setTimeout("location.href='index.php'", 2000);
                 } else {
                     $("#Resp").addClass('alert-waring');
                     $("#Resp").html("No Se Puede Registrar, El Correo Electronico Ya Está Vinculado");
@@ -155,7 +155,7 @@ function login() {
             success: function(resp) {
                 if (resp != "n") {
                      $("#resp").html("Bienvenido " + resp);
-                     setTimeout("location.href='Datos.php'", 2000);
+                     setTimeout("location.href='datos.php'", 2000);
                 } else {
                     $("#resp").html("Correo No Registrado");
                 }

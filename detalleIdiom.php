@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION['Nombre'])) {
-    echo"<script>alert('Para Ingresar A Este Lugar Debe Iniciar Sesion');document.location='Login.php';</script>";
+    echo"<script>alert('Para Ingresar A Este Lugar Debe Iniciar Sesion');document.location='login.php';</script>";
 } else {
 
 
@@ -42,7 +42,7 @@ if (empty($_SESSION['Nombre'])) {
                     var parametros = {
                         "MyCorreo": $("#MyCorreo").val(),
                         "Programa": global,
-                        "Tipo": "Institutos",
+                        "Tipo": "Idiomas",
                         "Keysave": "#f7641"
                     };
                     $.ajax({
@@ -88,7 +88,7 @@ if (empty($_SESSION['Nombre'])) {
 
 <div style="max-width:1100px;height:51px;margin:auto;width:100%">
 
-  <a href="Index.php" style="text-decoration:none;color:#FFF"> 
+  <a href="index.php" style="text-decoration:none;color:#FFF"> 
   <img src="img/Logo.png" style="margin-top:12px;margin-left:15px"/>
   </a>
     
@@ -97,29 +97,29 @@ if (empty($_SESSION['Nombre'])) {
     <tr>   
       
       <td valign="middle" class="table td">   
-     <a href="Registro.php" style="text-decoration:none;color:#FFF" >
+     <a href="registro.php" style="text-decoration:none;color:#FFF" >
      
          <img src="img/LogRegistro.png"  /><br />
       REGISTRARME      </a>
       </td>
       <td valign="middle" class="table td">   
-        <a href="Nosotros.php" style="text-decoration:none;color:#FFF">  
+        <a href="nosotros.php" style="text-decoration:none;color:#FFF">  
          <img src="img/LogNosotros.png"  /><br />   
       QUIENES SOMOS  </a>    
       </td>
       <td valign="middle" class="table td">   
-        <a href="Oferta.php" style="text-decoration:none;color:#FFF">    
+        <a href="oferta.php" style="text-decoration:none;color:#FFF">    
        <img src="img/LogUniversidades.png"  /><br />   
        OFERTA ACADEMICA</a>
        </td>
        
       <td valign="middle" class="table td">    
-        <a href="Contacto.php" style="text-decoration:none;color:#FFF">   
+        <a href="contacto.php" style="text-decoration:none;color:#FFF">   
        <img src="img/LogContacto.png"  /><br />   
        CONTACTENOS</a>
        </td>
       <td valign="middle" class="table td">    
-        <a href="Login.php" style="text-decoration:none;color:#FFF">   
+        <a href="login.php" style="text-decoration:none;color:#FFF">   
        <img src="img/LogLogin.png"  /><br />   
        INICIAR SESION</a>
        </td>
@@ -139,7 +139,7 @@ if (empty($_SESSION['Nombre'])) {
 
 <div style="max-width:1100px;height:51px;margin:auto;width:100%">
 
-  <a href="Index.php" style="text-decoration:none;color:#FFF"> 
+  <a href="index.php" style="text-decoration:none;color:#FFF"> 
   <img src="img/Logo.png" style="margin-top:12px;margin-left:15px"/>
   </a>
     
@@ -148,24 +148,24 @@ if (empty($_SESSION['Nombre'])) {
     <tr>   
   
       <td valign="middle" class="table td">   
-        <a href="Nosotros.php" style="text-decoration:none;color:#FFF">  
+        <a href="nosotros.php" style="text-decoration:none;color:#FFF">  
          <img src="img/LogNosotros.png"  /><br />   
       QUIENES SOMOS  </a>    
       </td>
       <td valign="middle" class="table td">   
-        <a href="Oferta.php" style="text-decoration:none;color:#FFF">    
+        <a href="oferta.php" style="text-decoration:none;color:#FFF">    
        <img src="img/LogUniversidades.png"  /><br />   
        OFERTA ACADEMICA</a>
        </td>
        
      
       <td valign="middle" class="table td">    
-        <a href="Contacto.php" style="text-decoration:none;color:#FFF">  
+        <a href="contacto.php" style="text-decoration:none;color:#FFF">  
        <img src="img/LogContacto.png"  /><br />   
        CONTACTENOS</a>
        </td>
       <td valign="middle" class="table td">    
-        <a href="Datos.php" style="text-decoration:none;color:#FFF">   
+        <a href="datos.php" style="text-decoration:none;color:#FFF">   
        <img src="img/user.png"  /><br />   
        ' . $_SESSION['Nombre'] . '</a>
        </td>
