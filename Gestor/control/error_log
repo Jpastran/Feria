@@ -1,7 +1,0 @@
-[18-Mar-2014 14:57:21 America/Denver] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home2/scvsasco/public_html/scv.edu.co/Nomina/../db/conectar.php on line 2
-[18-Mar-2014 14:57:21 America/Denver] PHP Warning:  mysql_select_db(): Access denied for user 'root'@'localhost' (using password: NO) in /home2/scvsasco/public_html/scv.edu.co/Nomina/../db/conectar.php on line 3
-[18-Mar-2014 14:57:21 America/Denver] PHP Warning:  mysql_select_db(): A link to the server could not be established in /home2/scvsasco/public_html/scv.edu.co/Nomina/../db/conectar.php on line 3
-[18-Mar-2014 14:57:21 America/Denver] PHP Warning:  mysql_real_escape_string(): Access denied for user 'root'@'localhost' (using password: NO) in /home2/scvsasco/public_html/scv.edu.co/Nomina/control/Usuarios.php on line 13
-[18-Mar-2014 14:57:21 America/Denver] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home2/scvsasco/public_html/scv.edu.co/Nomina/control/Usuarios.php on line 13
-[18-Mar-2014 14:57:21 America/Denver] PHP Warning:  mysql_query(): Access denied for user 'root'@'localhost' (using password: NO) in /home2/scvsasco/public_html/scv.edu.co/Nomina/control/Usuarios.php on line 14
-[18-Mar-2014 14:57:21 America/Denver] PHP Warning:  mysql_query(): A link to the server could not be established in /home2/scvsasco/public_html/scv.edu.co/Nomina/control/Usuarios.php on line 14
