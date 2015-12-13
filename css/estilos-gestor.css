@@ -15,7 +15,7 @@
 }
 
 .box {
-    background-image:url(Imagenes/form_bg.jpg);
+    background-image:url(../img/gestor/form_bg.jpg);
     background-repeat:repeat-x;
     border:1px solid #d1c7ac;
     width: 230px;

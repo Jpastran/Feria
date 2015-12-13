@@ -40,8 +40,8 @@ function lista() {
 			<td style="width:50px;">' . $row[3] . '</td>
 			
 			<td align="center">
-			<input type="image" src="Imagenes/edit.png" class="edit" value="' . $row[0] . '"/>
-			<input type="image" src="Imagenes/delet.png" class="delet" value="' . $row[0] . '"/>
+			<input type="image" src="../img/gestor/edit.png" class="edit" value="' . $row[0] . '"/>
+			<input type="image" src="../img/gestor/delet.png" class="delet" value="' . $row[0] . '"/>
 			</td></tr>';
             $i = 0;
         } else {
@@ -50,8 +50,8 @@ function lista() {
 			<td >' . $row[2] . '</td>
 			<td style="width:50px;" >' . $row[3] . '</td>
 			<td align="center">
-			<input type="image" src="Imagenes/edit.png" class="edit" value="' . $row[0] . '"/>
-		<input type="image" src="Imagenes/delet.png" class="delet" value="' . $row[0] . '"/>
+			<input type="image" src="../img/gestor/edit.png" class="edit" value="' . $row[0] . '"/>
+		<input type="image" src="../img/gestor/delet.png" class="delet" value="' . $row[0] . '"/>
 		</td></tr>';
             $i = 1;
         }

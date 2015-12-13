@@ -10,8 +10,8 @@ if (empty($_SESSION['UseR'])) {
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Feria Virtual De EducaciónFeria Virtual De Educación</title>
 
-        <link href="Estilos.css" rel="stylesheet" type="text/css">
-            <script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
+        <link href="../css/estilos-gestor.css" rel="stylesheet" type="text/css">
+            <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
             <script>
                 $(document).ready(function() {
                     $("#Editar").hide();
@@ -84,7 +84,7 @@ if (empty($_SESSION['UseR'])) {
                     function Nuevo() {
                         if ($("#Oferta").val() != "" && $("#Areas").val() != "" && $("#Nombre").val() != "" && $("#Imagen").val() != "" && $("#Descripcion").val() != "") {
 
-                            $("#respu").html("<img src='Imagenes/load.gif' style='margin-right:7px;margin-bottom:-10px'><span style='font-size:16px'>Cargando, Espere Por Favor...<span>");
+                            $("#respu").html("<img src='../img/gestor/load.gif' style='margin-right:7px;margin-bottom:-10px'><span style='font-size:16px'>Cargando, Espere Por Favor...<span>");
                             var archivos = document.getElementById("Imagen");//Damos el valor del input tipo file
                             var archivo = archivos.files; //Obtenemos el valor del input (los arcchivos) en modo de arreglo	do de arreglo		
 
@@ -313,8 +313,8 @@ if (empty($_SESSION['UseR'])) {
 			<td >' . $row[5] . '</td>
 			<td align="center"><img src="../img/' . $row[6] . '" style="max-width:200px"></td>			
 			<td align="center">
-			<input type="image" src="Imagenes/edit.png" class="edit" value="' . $row[0] . '"/>
-		<input type="image" src="Imagenes/delet.png" class="delet" value="' . $row[0] . '"/>
+			<input type="image" src="../img/gestor/edit.png" class="edit" value="' . $row[0] . '"/>
+		<input type="image" src="../img/gestor/delet.png" class="delet" value="' . $row[0] . '"/>
 			</td></tr>';
                             }
                             echo"</tbody></table></div>";

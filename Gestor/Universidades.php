@@ -10,8 +10,8 @@ if (empty($_SESSION['UseR'])) {
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Feria Virtual De EducaciónFeria Virtual De Educación</title>
 
-        <link href="Estilos.css" rel="stylesheet" type="text/css">
-            <script type="text/javascript" src="Ext/jquery-1.8.3.js"></script>
+        <link href="../css/estilos-gestor.css" rel="stylesheet" type="text/css">
+            <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
             <script>
                 $(document).ready(function() {
 
@@ -74,7 +74,7 @@ if (empty($_SESSION['UseR'])) {
                     function Nuevo() {
                         if ($("#Nombre").val() != "" && $("#Departamento").val() != "" && $("#Categoria").val() != "" && $("#Logo").val() != "" && $("#Banner").val() != "") {
 
-                            $("#respu").html("<img src='Imagenes/load.gif' style='margin-right:7px;margin-bottom:-10px'><span style='font-size:16px'>Cargando, Espere Por Favor...<span>");
+                            $("#respu").html("<img src='../img/gestor/load.gif' style='margin-right:7px;margin-bottom:-10px'><span style='font-size:16px'>Cargando, Espere Por Favor...<span>");
                             var archivos = document.getElementById("Banner");//Damos el valor del input tipo file
                             var archivo = archivos.files; //Obtenemos el valor del input (los arcchivos) en modo de arreglo		
                             var archivos1 = document.getElementById("Logo");//Damos el valor del input tipo file
@@ -281,8 +281,8 @@ if (empty($_SESSION['UseR'])) {
 			<td >' . $row[3] . '</td>
 			<td align="center"><img src="../img/' . $row[4] . '" style="max-width:150px"></td>			
 			<td align="center">
-			<input type="image" src="Imagenes/edit.png" class="edit" value="' . $row[0] . '"/>
-		<input type="image" src="Imagenes/delet.png" class="delet" value="' . $row[0] . '"/>
+			<input type="image" src="../img/gestor/edit.png" class="edit" value="' . $row[0] . '"/>
+		<input type="image" src="../img/gestor/delet.png" class="delet" value="' . $row[0] . '"/>
 			</td></tr>';
                             }
                             echo"</tbody>

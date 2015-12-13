@@ -72,8 +72,8 @@ function lista() {
         }
 
         echo '<td>' . $row[0] . '</td><td>' . $row[1] . '</td><td align="center">
-			<input type="image" src="Imagenes/edit.png" class="edit" value="' . $row[0] . '"/>
-			<input type="image" src="Imagenes/delet.png" class="delet" value="' . $row[0] . '"/>
+			<input type="image" src="../img/gestor/edit.png" class="edit" value="' . $row[0] . '"/>
+			<input type="image" src="../img/gestor/delet.png" class="delet" value="' . $row[0] . '"/>
 			</td></tr>';
     }
     echo"</tbody>
