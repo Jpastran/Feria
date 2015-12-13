@@ -8,7 +8,7 @@ header("Expires: 0");
 
 
 
-require_once("../Procesamiento/Conexion.php");
+require_once("../../db/conectar.php");
 $consulta = "SELECT o.departamento,o.categoria,o.nombre,a.nombre,p.nombre,i.fecha,e.nombre,e.apellido,e.documento,e.tipodoc,e.telefono,e.celular,e.correo FROM ((((ofertas o INNER JOIN areas a ON a.codoferta=o.codigo) INNER JOIN programas p ON p.codarea=a.codigo  )INNER JOIN interes i ON i.codprograma=p.codigo)INNER JOIN estudiantes e ON i.codestudiante=e.correo) WHERE  i.fecha>='" . mysql_real_escape_string($_GET["Inicio"]) . "' and
 				i.fecha<='" . mysql_real_escape_string($_GET["Final"]) . "' ";
 $datos = mysql_query($consulta);

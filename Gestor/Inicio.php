@@ -23,7 +23,7 @@ if (empty($_SESSION['UseR'])) {
                 if (!empty($_SESSION['UseR'])) {
                     echo "Identificado Como: " . $_SESSION['Name'] . " <a href='index.php' style='margin-left:7px;margin-right:10px; color: #09C;font-size:16px;font-weight:bold'>Cerrar Sesion</a>
 					</div>";
-                    include("Partes/Opciones.html");
+                    include("mods/nav.html");
                 }
                 ?>
                 <div style=" 
@@ -35,7 +35,7 @@ if (empty($_SESSION['UseR'])) {
                 </div>
             </div>
             <?php
-            $variable = file_get_contents("Partes/Pie.html");
+            $variable = file_get_contents("mods/pie.html");
             echo $variable;
             ?>
     </body>

@@ -34,7 +34,7 @@ if (empty($_SESSION['UseR'])) {
                             };
                             $.ajax({
                                 data: parametros,
-                                url: "Procesamiento/Programas.php",
+                                url: "control/Programas.php",
                                 type: "POST",
                                 success: function(resp) {
                                     $("#DivAreas").html(resp);
@@ -59,7 +59,7 @@ if (empty($_SESSION['UseR'])) {
                             };
                             $.ajax({
                                 data: parametros,
-                                url: "Procesamiento/Programas.php",
+                                url: "control/Programas.php",
                                 type: "POST",
                                 success: function(resp) {
 
@@ -96,7 +96,7 @@ if (empty($_SESSION['UseR'])) {
                             parametros.append('Imagen', archivo[0]);
                             parametros.append('Guardar', "Key");
                             $.ajax({
-                                url: 'Procesamiento/Programas.php', //Url a donde la enviaremos
+                                url: 'control/Programas.php', //Url a donde la enviaremos
                                 type: 'POST', contentType: false, data: parametros, processData: false, cache: false
                             }).done(function(resp) {
                                 if (resp == "s") {
@@ -126,7 +126,7 @@ if (empty($_SESSION['UseR'])) {
                             };
                             $.ajax({
                                 data: parametros,
-                                url: "Procesamiento/Programas.php",
+                                url: "control/Programas.php",
                                 type: "POST",
                                 success: function(resp) {
 
@@ -154,7 +154,7 @@ if (empty($_SESSION['UseR'])) {
                         };
                         $.ajax({
                             data: parametros,
-                            url: "Procesamiento/Programas.php",
+                            url: "control/Programas.php",
                             type: "POST",
                             success: function(resp) {
 
@@ -175,7 +175,7 @@ if (empty($_SESSION['UseR'])) {
                                 };
                                 $.ajax({
                                     data: parametros,
-                                    url: "Procesamiento/Programas.php",
+                                    url: "control/Programas.php",
                                     type: "POST",
                                     success: function(resp) {
 
@@ -217,7 +217,7 @@ if (empty($_SESSION['UseR'])) {
                 if (!empty($_SESSION['UseR'])) {
                     echo "Identificado Como: " . $_SESSION['Name'] . " <a href='index.php' style='margin-left:7px;margin-right:10px; color: #09C;font-size:16px;font-weight:bold'>Cerrar Sesion</a>
 </div>";
-                    include("Partes/Opciones.html");
+                    include("mods/nav.html");
                 }
                 ?>
                 <div style="margin:auto;font-size:14px;width:100%;padding-top:30px">
@@ -230,7 +230,7 @@ if (empty($_SESSION['UseR'])) {
                                 <td align="left" style="padding:8px;">
 
                                     <?php
-                                    require_once("Procesamiento/Conexion.php");
+                                    require_once("../db/conectar.php");
                                     $consulta = 'SELECT codigo,departamento,categoria,nombre FROM ofertas ORDER BY departamento,categoria,nombre';
                                     $datos = mysql_query($consulta);
                                     echo"<select name='Oferta' id='Oferta' style='width:300px;font-size:14px;padding:3px' >
@@ -346,7 +346,7 @@ if (empty($_SESSION['UseR'])) {
             </div>
 
             <?php
-            $variable = file_get_contents("Partes/Pie.html");
+            $variable = file_get_contents("mods/pie.html");
             echo $variable;
             ?>
 

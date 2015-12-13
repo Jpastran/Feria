@@ -25,7 +25,7 @@ unset($_SESSION['UseR']);
                             };
                             $.ajax({
                                 data: parametros,
-                                url: "Procesamiento/Usuarios.php",
+                                url: "control/Usuarios.php",
                                 type: "POST",
                                 success: function(resp) {
                                     console.log(resp);

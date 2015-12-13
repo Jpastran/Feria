@@ -52,7 +52,7 @@ function Eliminar() {
 
 function Guardar() {
     $sw = 0;
-    $ruta = "../../../img/gestor/";
+    $ruta = "../img/gestor/";
     foreach ($_FILES as $key) {
 
         if ($sw == 0) {

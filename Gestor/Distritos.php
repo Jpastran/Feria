@@ -40,7 +40,7 @@ if (empty($_SESSION['ADocumento'])) {
                             };
                             $.ajax({
                                 data: parametros,
-                                url: "Procesamiento/Distritos.php",
+                                url: "control/Distritos.php",
                                 type: "POST",
                                 success: function(resp) {
                                     if (resp == "s") {
@@ -84,7 +84,7 @@ if (empty($_SESSION['ADocumento'])) {
                         };
                         $.ajax({
                             data: parametros,
-                            url: "Procesamiento/Distritos.php",
+                            url: "control/Distritos.php",
                             type: "POST",
                             success: function(resp) {
                                 $("#Contenido").html(resp);
@@ -106,7 +106,7 @@ if (empty($_SESSION['ADocumento'])) {
                             };
                             $.ajax({
                                 data: parametros,
-                                url: "Procesamiento/Distritos.php",
+                                url: "control/Distritos.php",
                                 type: "POST",
                                 success: function(resp) {
                                     if (resp == "s") {
@@ -145,7 +145,7 @@ if (empty($_SESSION['ADocumento'])) {
                         $("#Contenido").html("<center>Cargando, Espere Por Favor...</center>");
                         $.ajax({
                             data: parametros,
-                            url: "Procesamiento/Distritos.php",
+                            url: "control/Distritos.php",
                             type: "POST",
                             success: function(resp) {
                                 $("#Nombre").val(resp);
@@ -171,7 +171,7 @@ if (empty($_SESSION['ADocumento'])) {
                             };
                             $.ajax({
                                 data: parametros,
-                                url: "Procesamiento/Distritos.php",
+                                url: "control/Distritos.php",
                                 type: "POST",
                                 success: function(resp) {
                                     if (resp == "s") {
@@ -216,7 +216,7 @@ if (empty($_SESSION['ADocumento'])) {
             </div>
             <?php
             if (!empty($_SESSION['ADocumento'])) {
-                $variable = file_get_contents("Partes/Opciones.html");
+                $variable = file_get_contents("mods/nav.html");
                 echo $variable;
             }
             ?>
@@ -255,7 +255,7 @@ if (empty($_SESSION['ADocumento'])) {
             <div id ="mensajesError" class="error mensajes"></div>
 
             <?php
-            $variable = file_get_contents("Partes/Pie.html");
+            $variable = file_get_contents("mods/pie.html");
             echo $variable;
             ?>
         </div>

@@ -8,7 +8,7 @@ header("Expires: 0");
 
 
 
-require_once("../Procesamiento/Conexion.php");
+require_once("../../db/conectar.php");
 $consulta = "select nombre,apellido,documento,tipodoc,telefono,celular,correo,otrocorreo,direccion,barrio,grado,colegio,recursos,medio,apoyo,napoyo,telapoyo,correoapoyo,programa1,programa2,fortaleza1,fortaleza2,icfes,puesto,multi,sisbem,fechainsc from estudiantes WHERE  fechainsc>='" . mysql_real_escape_string($_GET["Inicio"]) . "' and
 				fechainsc<='" . mysql_real_escape_string($_GET["Final"]) . "' ";
 $datos = mysql_query($consulta);

@@ -41,7 +41,7 @@ if (empty($_SESSION['UseR'])) {
                     $("#Buscar").click(Buscar);
 
                     function Buscar() {
-                        document.location = "Reportes/Visitas.php?Inicio=" + $("#Inicio").val() + "&Final=" + $("#Final").val();
+                        document.location = "reporte/Visitas.php?Inicio=" + $("#Inicio").val() + "&Final=" + $("#Final").val();
 
                     }
 
@@ -62,7 +62,7 @@ if (empty($_SESSION['UseR'])) {
                 if (!empty($_SESSION['UseR'])) {
                     echo "Identificado Como: " . $_SESSION['Name'] . " <a href='index.php' style='margin-left:7px;margin-right:10px; color: #09C;font-size:16px;font-weight:bold'>Cerrar Sesion</a>
 </div>";
-                    include("Partes/Opciones.html");
+                    include("mods/nav.html");
                 }
                 ?>
                 <div style="margin:auto;font-size:14px;width:100%;padding-top:30px">
@@ -106,7 +106,7 @@ if (empty($_SESSION['UseR'])) {
             </div>
 
             <?php
-            $variable = file_get_contents("Partes/Pie.html");
+            $variable = file_get_contents("mods/pie.html");
             echo $variable;
             ?>
 

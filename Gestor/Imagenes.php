@@ -34,7 +34,7 @@ if (empty($_SESSION['UseR'])) {
                             parametros.append('Imagen', archivo[0]);
                             parametros.append('Guardar', "Key");
                             $.ajax({
-                                url: 'Procesamiento/Imagenes.php', //Url a donde la enviaremos
+                                url: 'control/Imagenes.php', //Url a donde la enviaremos
                                 type: 'POST', contentType: false, data: parametros, processData: false, cache: false
                             }).done(function(resp) {
                                 if (resp == "s") {
@@ -64,7 +64,7 @@ if (empty($_SESSION['UseR'])) {
                             };
                             $.ajax({
                                 data: parametros,
-                                url: "Procesamiento/Imagenes.php",
+                                url: "control/Imagenes.php",
                                 type: "POST",
                                 success: function(resp) {
 
@@ -102,7 +102,7 @@ if (empty($_SESSION['UseR'])) {
                 if (!empty($_SESSION['UseR'])) {
                     echo "Identificado Como: " . $_SESSION['Name'] . " <a href='index.php' style='margin-left:7px;margin-right:10px; color: #09C;font-size:16px;font-weight:bold'>Cerrar Sesion</a>
 </div>";
-                    include("Partes/Opciones.html");
+                    include("mods/nav.html");
                 }
                 ?>
                 <div style="margin:auto;font-size:14px;width:100%;padding-top:30px">
@@ -129,7 +129,7 @@ if (empty($_SESSION['UseR'])) {
 
 
                             <?php
-                            require_once("Procesamiento/Conexion.php");
+                            require_once("../db/conectar.php");
 
                             $consulta = "SELECT nombre FROM banners ";
                             $datos = mysql_query($consulta);
@@ -184,7 +184,7 @@ if (empty($_SESSION['UseR'])) {
             </div>
 
             <?php
-            $variable = file_get_contents("Partes/Pie.html");
+            $variable = file_get_contents("mods/pie.html");
             echo $variable;
             ?>
 
