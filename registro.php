@@ -45,21 +45,21 @@ if(isset($_SESSION['Nombre'])){
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="Tel">Teléfono</label>
                     <div class="col-sm-4">
-                        <input name="Tel" type="text" class="box form-control" id="Tel" value="" required/>
+                        <input name="Tel" type="tel" class="box form-control" id="Tel" value="" required/>
                     </div>
                     <label class="control-label col-sm-2" for="Celular">Celular</label>
                     <div class="col-sm-4">
-                        <input name="Celular" type="text" class="box form-control" id="Celular"  value="" required/>
+                        <input name="Celular" type="tel" class="box form-control" id="Celular"  value="" required/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="Correo">Correo Electrónico</label>
                     <div class="col-sm-4">
-                        <input name="Correo" type="text" class="box form-control" id="Correo"  value="" required/>
+                        <input name="Correo" type="email" class="box form-control" id="Correo"  value="" required/>
                     </div>
                     <label class="control-label col-sm-2" for="oCorreo">Correo Alternativo</label>
                     <div class="col-sm-4">
-                        <input name="oCorreo" type="text" class="box form-control" id="oCorreo"  value="" />
+                        <input name="oCorreo" type="email" class="box form-control" id="oCorreo"  value="" />
                     </div>
                 </div>
                 <div class="form-group">

@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(empty($_SESSION['Nombre'])){
+    header('Location: login.php');
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -46,17 +49,17 @@ session_start();
                     </div>
                     <label class="control-label col-sm-2" for="Celular">Celular</label>
                     <div class="col-sm-4">
-                        <input name="Celular" type="text" class="box form-control" id="Celular"  value="" required/>
+                        <input name="Celular" type="tel" class="box form-control" id="Celular"  value="" required/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="Correo">Correo Electrónico</label>
                     <div class="col-sm-4">
-                        <input name="Correo" type="text" class="box form-control" id="Correo"  value="<?php echo $_SESSION['Correo']; ?>" required/>
+                        <input name="Correo" type="email" class="box form-control" id="Correo"  value="<?php echo $_SESSION['Correo']; ?>" required/>
                     </div>
                     <label class="control-label col-sm-2" for="oCorreo">Correo Alternativo</label>
                     <div class="col-sm-4">
-                        <input name="oCorreo" type="text" class="box form-control" id="oCorreo"  value="" />
+                        <input name="oCorreo" type="email" class="box form-control" id="oCorreo"  value="" />
                     </div>
                 </div>               
                 <h3 id="titu2">INFORMACIÓN SOCIAL</h3>              
@@ -94,8 +97,8 @@ session_start();
                     <div class="col-sm-3">
                         <select name="SISBEN" id="SISBEN" class="form-control">
                             <option value="-1">Seleccione...</option>
-                            <option value="No">No</option>
-                            <option value="Si">Si</option>                            
+                            <option value="Si">Si</option>
+                            <option value="No">No</option>                                                        
                         </select>
                     </div>
                 </div>
@@ -145,7 +148,7 @@ session_start();
                 <div class="form-group">
                     <label class="control-label col-sm-6" for="Tapoyo">Telefono(s) de su apoyo economico</label>
                     <div class="col-sm-5">
-                        <input name="Tapoyo" type="text" class="box form-control" id="Tapoyo"  value=""/>
+                        <input name="Tapoyo" type="tel" class="box form-control" id="Tapoyo"  value=""/>
                     </div>
                 </div>
                 <div class="form-group">
