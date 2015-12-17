@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION['UseR'])) {
-    echo "<script>document.location=('index.php');</script>";
+    header('Location: index.php');
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -23,27 +23,18 @@ if (empty($_SESSION['UseR'])) {
                     <label for="oferta" class="col-sm-3 control-label">Ofertas</label>
                     <div class="col-sm-6">
                         <select name='oferta' class="form-control" id='Oferta'> 
-                            <option value='-1' selected='selected'>Seleccionar...</option>
-                            <?php
-                            require_once ("../db/conectar.php");
-                            $consulta = 'SELECT codigo,departamento,categoria,nombre FROM ofertas ORDER BY departamento,categoria,nombre';
-                            $datos = mysql_query($consulta);
-                            while ($row = mysql_fetch_array($datos)) {
-                                echo "<option value='" . $row[0] . "'>" . $row[1] . " / " . $row[2] . " / " . $row[3] . "</option>";
-                            }
-                            ?>
                         </select>
                     </div>
                 </div>          
                 <div class="form-group">
-                    <div class="  col-sm-5">
+                    <div class="col-sm-5">
                         <input type="hidden" id="oculto" name="oculto" />
                         <span id="respu" class="text-primary"></span>
                     </div>
                     <div class="col-sm-4">
-                        <input type="button" name="btnentrar" id="btnNuevo" class="button" value="Guardar" />
+                        <input type="button" name="btnNuevo" id="btnNuevo" class="button" value="Guardar" />
                         <input type="button" name="btnEditar" id="btnEditar" class="button" value="Editar" />
-                        <input type="button" name="Cancelar" id="btnCancelar" class="button" value="Cancelar" />
+                        <input type="button" name="btnCancelar" id="btnCancelar" class="button" value="Cancelar" />
                     </div>
                 </div>
             </form> 

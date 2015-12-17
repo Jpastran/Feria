@@ -12,29 +12,26 @@ if (!empty($_POST["Lista"])) {
     editar();
 } elseif (!empty($_POST["Borrar"])) {
     eliminar();
-} elseif (!empty($_POST["SelectOferta"])) {
-    selectOferta();
 } else {
     echo 'No se recibio nada';
 }
 
 function lista() {
-    $consulta = "Select g.codigo,g.nombre,o.nombre,o.departamento,o.categoria from areas g inner join ofertas o on o.codigo=g.codoferta order by g.nombre ";
+    $consulta = "SELECT codigo,nombre,categoria,departamento,imagen FROM ofertas ORDER BY nombre";
     $datos = mysql_query($consulta);
-    echo '
+    echo'
     <div class="datagrid">
         <table>
             <thead>
                 <tr>
-                    <th>Departamento</th>
+                    <th>Nombre</th>
                     <th>Categoria</th>
-                    <th>Oferta</th>
-                    <th>Area</th>
+                    <th>Departamento</th>
+                    <th>Logo</th>
                     <th width="80">Opciones</th>
                 </tr>
             </thead>
-            <tbody>
-        ';
+            <tbody>';
     $i = 1;
     while ($row = mysql_fetch_array($datos)) {
         if ($i == 1) {
@@ -44,18 +41,16 @@ function lista() {
             echo '<tr class="alt">';
             $i = 1;
         }
-        echo '
-                <td>' . $row[3] . '</td>
-                <td>' . $row[4] . '</td>
+        echo '  <td>' . $row[1] . '</td>
                 <td>' . $row[2] . '</td>
-                <td>' . $row[1] . '</td>
+                <td>' . $row[3] . '</td>
+                <td align="center"><img src="../img/' . $row[4] . '" style="max-width:150px"></td>			
                 <td align="center">
                     <input type="image" src="../img/gestor/edit.png" class="edit" value="' . $row[0] . '"/>
                     <input type="image" src="../img/gestor/delet.png" class="delet" value="' . $row[0] . '"/>
-                </td></tr>
-            ';
-    }
-    echo '
+                </td>
+            </tr>';
+    } echo'
             </tbody>
             <tfoot>
                 <tr>
@@ -64,21 +59,25 @@ function lista() {
                     </td>
                 </tr>
             </tfoot>
-            </table>
-        </div>
-        ';
+        </table>        
+    </div>';
 }
 
 function buscar() {
-    $consulta = "Select nombre,codoferta from areas where codigo='" . mysql_real_escape_string($_POST["Buscar"]) . "'";
+    $consulta = "Select nombre,departamento,categoria from ofertas where codigo='" . mysql_real_escape_string($_POST["Codigo"]) . "'";
     $datos = mysql_query($consulta);
     if ($row = mysql_fetch_array($datos)) {
-        echo $row[0] . "ô" . $row[1];
+        echo $row[0] . "ô" . $row[1] . "ô" . $row[2];
     }
 }
 
 function crear() {
-    $consulta = "insert areas(nombre,codoferta) values('" . mysql_real_escape_string($_POST["NNombre"]) . "','" . mysql_real_escape_string($_POST["NOferta"]) . "')";
+    $consulta = "insert ofertas(nombre,imagen,banner,departamento,categoria) 
+                    values('" . mysql_real_escape_string($_POST["Nombre"]) . "',
+                    '" . mysql_real_escape_string($_POST["Logo"]) . "',
+                    '" . mysql_real_escape_string($_POST["Banner"]) . "',
+                    '" . mysql_real_escape_string($_POST["Departamento"]) . "',
+                    '" . mysql_real_escape_string($_POST["Categoria"]) . "')";
     if ($datos = mysql_query($consulta)) {
         echo "s";
     } else {
@@ -87,9 +86,11 @@ function crear() {
 }
 
 function editar() {
-    $consulta = "update areas set nombre='" . mysql_real_escape_string($_POST["Nombre"]) . "',
-				codoferta='" . mysql_real_escape_string($_POST["Oferta"]) . "' 				
-				where codigo='" . mysql_real_escape_string($_POST["Codigo"]) . "'";
+    $consulta = "update ofertas set 
+                    nombre='" . mysql_real_escape_string($_POST["Nombre"]) . "',
+                    departamento='" . mysql_real_escape_string($_POST["Departamento"]) . "', 
+                    categoria='" . mysql_real_escape_string($_POST["Categoria"]) . "'
+                    where codigo='" . mysql_real_escape_string($_POST["Codigo"]) . "'";
     if ($datos = mysql_query($consulta)) {
         echo "s";
     } else {
@@ -98,20 +99,11 @@ function editar() {
 }
 
 function eliminar() {
-    $consulta = "Delete from areas where codigo='" . mysql_real_escape_string($_POST["CodArea"]) . "'";
+    $consulta = "delete from ofertas where codigo='" . mysql_real_escape_string($_POST["Eliminar"]) . "'";
     if ($datos = mysql_query($consulta)) {
         echo "s";
     } else {
         echo "n";
-    }
-}
-
-function selectOferta() {
-    $consulta = 'SELECT codigo,departamento,categoria,nombre FROM ofertas ORDER BY departamento,categoria,nombre';
-    $datos = mysql_query($consulta);
-    echo ' <option value="-1" selected="selected">Seleccionar...</option>';
-    while ($row = mysql_fetch_array($datos)) {
-        echo "<option value='" . $row[0] . "'>" . $row[1] . " / " . $row[2] . " / " . $row[3] . "</option>";
     }
 }
 
