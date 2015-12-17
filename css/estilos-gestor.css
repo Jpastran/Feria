@@ -227,7 +227,6 @@ body {
 }
 
 .pie {
-    margin: auto;
     font-size: 12px;
     padding-top: 3px;
     padding-bottom: 3px;
@@ -236,7 +235,6 @@ body {
     background: linear-gradient(#555,#222);
     color: #fff;
     text-align: center;
-    margin-top: 50px;
     position: fixed;
     bottom: 0px;
 }

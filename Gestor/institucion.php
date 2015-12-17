@@ -65,7 +65,7 @@ if (empty($_SESSION['UseR'])) {
                         <input type="button" name="btnCancelar" id="btnCancelar" class="button" value="Cancelar" />
                     </div>
                     <div class="col-sm-5">
-                        <input type="hidden" id="Codigo" value=""/></td>
+                        <input type="hidden" id="Codigo" value=""/>
                         <span id="respu" class="text-primary"></span>
                     </div>
                 </div>

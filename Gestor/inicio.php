@@ -14,6 +14,7 @@ if (empty($_SESSION['UseR'])) {
         <div id="principal">
             <div class="logo">
                 <h1><img src="../img/Logo.png" ><br />Bienvenido</h1>
+                <?php echo "Hora actual " . date("r");?> 
             </div>
         </div>
         <?php include_once './mods/pie.html'; ?>

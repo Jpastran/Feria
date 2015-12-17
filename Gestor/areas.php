@@ -28,7 +28,7 @@ if (empty($_SESSION['UseR'])) {
                 </div>          
                 <div class="form-group">
                     <div class="col-sm-5">
-                        <input type="hidden" id="oculto" name="oculto" />
+                        <input type="hidden" id="Codigo" name="oculto" />
                         <span id="respu" class="text-primary"></span>
                     </div>
                     <div class="col-sm-4">

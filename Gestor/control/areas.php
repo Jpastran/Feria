@@ -70,7 +70,7 @@ function lista() {
 }
 
 function buscar() {
-    $consulta = "Select nombre,codoferta from areas where codigo='" . mysql_real_escape_string($_POST["Buscar"]) . "'";
+    $consulta = "Select nombre,codoferta from areas where codigo='" . mysql_real_escape_string($_POST["Codigo"]) . "'";
     $datos = mysql_query($consulta);
     if ($row = mysql_fetch_array($datos)) {
         echo $row[0] . "ô" . $row[1];
@@ -78,7 +78,7 @@ function buscar() {
 }
 
 function crear() {
-    $consulta = "insert areas(nombre,codoferta) values('" . mysql_real_escape_string($_POST["NNombre"]) . "','" . mysql_real_escape_string($_POST["NOferta"]) . "')";
+    $consulta = "insert areas(nombre,codoferta) values('" . mysql_real_escape_string($_POST["Nombre"]) . "','" . mysql_real_escape_string($_POST["Oferta"]) . "')";
     if ($datos = mysql_query($consulta)) {
         echo "s";
     } else {

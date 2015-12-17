@@ -72,16 +72,39 @@ function buscar() {
 }
 
 function crear() {
-    $consulta = "insert ofertas(nombre,imagen,banner,departamento,categoria) 
-                    values('" . mysql_real_escape_string($_POST["Nombre"]) . "',
-                    '" . mysql_real_escape_string($_POST["Logo"]) . "',
-                    '" . mysql_real_escape_string($_POST["Banner"]) . "',
-                    '" . mysql_real_escape_string($_POST["Departamento"]) . "',
-                    '" . mysql_real_escape_string($_POST["Categoria"]) . "')";
-    if ($datos = mysql_query($consulta)) {
-        echo "s";
+    $sw = 0;
+    $ruta = "../../img/";
+    foreach ($_FILES as $key) {
+        if ($sw == 0) {
+            if ($key['error'] == UPLOAD_ERR_OK) {
+                $nombre = "banner" . date('His') . "." . end(explode(".", $key['name']));
+                $temporal = $key['tmp_name'];
+                move_uploaded_file($temporal, $ruta . $nombre);
+                $sw = 1;
+            }
+        } else {
+            if ($key['error'] == UPLOAD_ERR_OK) {
+                $nombre1 = "logo" . date('His') . "." . end(explode(".", $key['name']));
+                $temporal = $key['tmp_name'];
+                move_uploaded_file($temporal, $ruta . $nombre1);
+                $sw = 2;
+            }
+        }
+    }
+    if ($sw > 0) {
+        $consulta = "insert ofertas(nombre,imagen,banner,departamento,categoria) 
+			values('" . mysql_real_escape_string($_POST["Nombre"]) . "',
+			'" . $nombre1 . "',
+			'" . $nombre . "',
+			'" . mysql_real_escape_string($_POST["Departamento"]) . "',
+			'" . mysql_real_escape_string($_POST["Categoria"]) . "')";
+        if ($datos = mysql_query($consulta)) {
+            echo "s";
+        } else {
+            echo "n";
+        }
     } else {
-        echo "n";
+        echo "X";
     }
 }
 
