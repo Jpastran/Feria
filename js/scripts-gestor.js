@@ -129,7 +129,7 @@ function buscarArea() {
         success: function(resp) {
             var datos = resp.split("ô");
             $("#Nombre").val(datos[0]);
-            $("#Oferta option[value='" + datos[1] + "']").attr("selected", true);
+            $("#Oferta").val(datos[1]);
             $("#btnEditar").show();
             $("#btnCancelar").show();
             $("#btnNuevo").hide();
@@ -165,7 +165,7 @@ function ocultarArea() {
     $("#btnCancelar").hide();
     $("#btnNuevo").show();
     $("#Nombre").val("");
-    $("#Oferta option[value='-1']").attr("selected", true);
+    $("#Oferta").val(-1);
     $("#contenido").html("Cargando, Espere Por Favor...");
     cargarAreas();
 }
@@ -191,7 +191,7 @@ function cargarSelectOferta() {
 
 function crearInst() {
     if ($("#Nombre").val() != "" && $("#Departamento").val() != "" && $("#Categoria").val() != "" && $("#Logo").val() != "" && $("#Banner").val() != "") {
-        $("#respu").html("Espere Por Favor...");       
+        $("#respu").html("Espere Por Favor...");
         var parametros = new FormData();
         parametros.append('Nombre', $("#Nombre").val());
         parametros.append('Departamento', $("#Departamento").val());
@@ -203,7 +203,7 @@ function crearInst() {
             data: parametros,
             url: 'control/Institucion.php',
             type: 'POST',
-            contentType: false,                    
+            contentType: false,
             processData: false
         }).done(function(resp) {
             if (resp == "s") {
@@ -266,7 +266,7 @@ function buscarInst() {
             var datos = resp.split("ô");
             $("#Nombre").val(datos[0]);
             $("#Departamento").val(datos[1]);
-            $("#Categoria").val(datos[2]);           
+            $("#Categoria").val(datos[2]);
             $("#Logo").prop('disabled', true);
             $("#Banner").prop('disabled', true);
             $("#contenido").html("");
@@ -329,8 +329,8 @@ function ocultarInst() {
     $("#Nombre").val("");
     $("#Logo").val("");
     $("#Banner").val("");
-    $("#Departamento option[value='-1']").attr("selected", true);
-    $("#Categoria option[value='-1']").attr("selected", true);
+    $("#Departamento").val(-1);
+    $("#Categoria").val(-1);
     $("#Logo").prop('disabled', false);
     $("#Banner").prop('disabled', false);
     $("#contenido").html("Cargando, Espere Por Favor...");
@@ -340,7 +340,7 @@ function ocultarInst() {
 //***************Programas*****************//
 
 function crearProg() {
-    if ($("#Oferta").val() != "" && $("#Areas").val() != "" && $("#Nombre").val() != "" && $("#Imagen").val() != "" && $("#Descripcion").val() != "") {  
+    if ($("#Oferta").val() != "" && $("#Areas").val() != "" && $("#Nombre").val() != "" && $("#Imagen").val() != "" && $("#Descripcion").val() != "") {
         var parametros = new FormData();
         parametros.append('Areas', $("#Areas").val());
         parametros.append('Nombre', $("#Nombre").val());
@@ -350,8 +350,8 @@ function crearProg() {
         $.ajax({
             data: parametros,
             url: 'control/Programas.php',
-            type: 'POST', 
-            contentType: false,                    
+            type: 'POST',
+            contentType: false,
             processData: false
         }).done(function(resp) {
             if (resp == "s") {
@@ -383,25 +383,26 @@ function editarProg() {
             type: "POST",
             success: function(resp) {
                 if (resp == "s") {
-                    alert("Actualizado Con Exito");
+                    $("#respu").html("Actualizado Con Exito");
                     ocultarProg();
                 } else {
-                   alert("no Se Pudo Actualizar, Verifique Su Conexion");
+                    $("#respu").html("no Se Pudo Actualizar, Verifique Su Conexion");
                 }
             },
             error: function(resp) {
-                alert("Error Al Conectarse Al Servidor");
+                $("#respu").html("Error Al Conectarse Al Servidor");
             }
         });
     } else {
-        alert("Complete Todos Los Campos");
+        $("#respu").html("Complete Todos Los Campos");
     }
 }
 
 function buscarProg() {
     $("#Codigo").val($(this).val());
     var parametros = {
-        "Carga": $(this).val()
+        "Codigo": $(this).val(),
+        "Buscar": "Buscar"
     };
     $.ajax({
         data: parametros,
@@ -414,13 +415,14 @@ function buscarProg() {
             var datos = resp.split("ô");
             $("#Nombre").val(datos[0]);
             $("#Oferta").val(datos[1]);
-            $("#Descripcion").val(datos[2]);           
+            $("#Descripcion").val(datos[2]);
             $("#Imagen").prop('disabled', true);
-            cargarSelectArea();
+            cargarSelectArea(false);
+            $("#Areas").val(datos[3]);
             $("#contenido").html("");
         },
         error: function(resp) {
-            alert("Error Al Conectarse Al Servidor");
+            $("#respu").html("Error Al Conectarse Al Servidor");
         }
     });
 
@@ -429,7 +431,8 @@ function buscarProg() {
 function eliminarProg() {
     if (confirm("¿Esta Seguro Que Desea Eliminar Este Registro?")) {
         var parametros = {
-            "Eliminar": $(this).val()
+            "Eliminar": $(this).val(),
+            "Borrar": "Borrar"
         };
         $.ajax({
             data: parametros,
@@ -437,22 +440,36 @@ function eliminarProg() {
             type: "POST",
             success: function(resp) {
                 if (resp == "s") {
-                    alert("Eliminado Con Exito");
+                    $("#respu").html("Eliminado Con Exito");
                     ocultarProg();
                 } else {
-                    alert("no Se Pudo Eliminar, Verifique Su Conexion");
+                    $("#respu").html("No se Pudo Eliminar, Verifique Su Conexion");
                 }
             },
             error: function(resp) {
-                alert("Error Al Conectarse Al Servidor");
+                $("#respu").html("Error Al Conectarse Al Servidor");
             }
         });
     }
 }
 
 function cargarProg() {
-    $(".delet").click(eliminarProg);
-    $(".edit").click(buscarProg);
+    var parametros = {
+        "Lista": "Lista"
+    };
+    $.ajax({
+        data: parametros,
+        url: "control/Programas.php",
+        type: "POST",
+        success: function(resp) {
+            $("#contenido").html(resp);
+            $(".delet").click(eliminarProg);
+            $(".edit").click(buscarProg);
+        },
+        error: function(resp) {
+            $("#respu").html("Error Al Conectarse Al Servidor");
+        }
+    });
 }
 
 function ocultarProg() {
@@ -462,14 +479,14 @@ function ocultarProg() {
     $("#Nombre").val("");
     $("#Descripcion").val("");
     $("#Imagen").val("");
-    $("#Oferta option[value='-1']").attr("selected", true);
-    $("#Areas option[value='-1']").attr("selected", true);
+    $("#Oferta").val(-1);
+    $("#Areas").val(-1);
     $("#Imagen").prop('disabled', false);
     $("#contenido").html("Cargando, Espere Por Favor...");
     cargarProg();
 }
 
-function cargarSelectArea() {
+function cargarSelectArea(async) {
     if ($("#Oferta").val() != "") {
         $("#Areas").html("<option value='-1' selected='selected'>Cargado, Espere...</option>");
         var parametros = {
@@ -480,6 +497,7 @@ function cargarSelectArea() {
             data: parametros,
             url: "control/Programas.php",
             type: "POST",
+            async: async === false ? false : true,
             success: function(resp) {
                 $("#Areas").html(resp);
             },
