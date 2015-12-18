@@ -24,6 +24,13 @@ $(document).ready(function() {
         $("#btnEditar").click(editarProg);
         $("#btnCancelar").click(ocultarProg);
         $("#Oferta").change(cargarSelectArea);
+    } else if (url == "/Feria/Gestor/Usuarios.php") {
+        cargarUser();
+        $("#btnEditar").hide();
+        $("#btnCancelar").hide();
+        $("#btnNuevo").click(crearUser);
+        $("#btnEditar").click(editarUser);
+        $("#btnCancelar").click(ocultarUser);
     }
 });
 
@@ -501,10 +508,155 @@ function cargarSelectArea(async) {
                 $("#Areas").html(resp);
             },
             error: function(resp) {
-                alert("Error Al Conectarse Al Servidor");
+                $("#respu").html("Error Al Conectarse Al Servidor");
             }
         });
     }
+}
+
+//**************Usuarios****************//
+
+function crearUser() {
+    if ($("#Nombre").val() != "" && $("#Usuario").val() != "" && $("#pass").val() != "") {
+        $("#respu").html("Espere Por Favor...");
+        var parametros = {
+            "Nombre": $("#Nombre").val(),
+            "pass": $("#pass").val(),
+            "Usuario": $("#Usuario").val(),
+            "Crear": "Crear"
+        };
+        $.ajax({
+            data: parametros,
+            url: "control/User.php",
+            type: "POST",
+            success: function(resp) {
+                if (resp == "s") {
+                    $("#respu").html("Guardado Con Exito");
+                    ocultarUser();
+                } else {
+                    $("#respu").html("El Documento Ya Está Registrado");
+                }
+            },
+            error: function(resp) {
+                $("#respu").html("Error Al Conectarse Al Servidor");
+            }
+        });
+    } else {
+        $("#respu").html("Complete Todos Los Campos");
+    }
+}
+function editarUser() {
+    if ($("#Nombre").val() != "" && $("#Usuario").val() != "" && $("#pass").val() != "") {
+        $("#respu").html("Espere Por Favor...");
+        var parametros = {
+            "oculto": $("#oculto").val(),
+            "Nombre": $("#Nombre").val(),
+            "pass": $("#pass").val(),
+            "Usuario": $("#Usuario").val(),
+            "Editar": "Editar"
+        };
+        $.ajax({
+            data: parametros,
+            url: "control/User.php",
+            type: "POST",
+            success: function(resp) {
+                if (resp == "s") {
+                    $("#respu").html("Actualizado Con Exito");
+                    ocultarUser();
+                } else {
+                    $("#respu").html("El Usuario Ya Está Registrado");
+                }
+            },
+            error: function(resp) {
+                $("#respu").html("Error Al Conectarse Al Servidor");
+            }
+        });
+    } else {
+        $("#respu").html("Complete Todos Los Campos");
+    }
+}
+
+function eliminarUser() {
+    if (confirm("¿Esta Seguro Que Desea Eliminar Este Usuario?")) {
+        var parametros = {
+            "Codigo": $(this).val(),
+            "Borrar": "Borrar"
+        };
+        $.ajax({
+            data: parametros,
+            url: "control/User.php",
+            type: "POST",
+            success: function(resp) {
+                if (resp == "s") {
+                    $("#respu").html("Eliminado Con Exito");
+                    $("#contenido").html("Cargando, Espere Por Favor...");
+                    cargarUser();
+                } else {
+                    $("#respu").html("No Se Pudo Eliminar");
+                }
+            },
+            error: function(resp) {
+                $("#respu").html("Error Al Conectarse Al Servidor");
+            }
+        });
+    }
+}
+
+function buscarUser() {
+    var parametros = {
+        "Codigo": $(this).val(),
+        "Buscar": "Buscar"
+    };
+    $("#oculto").val($(this).val());
+    $("#contenido").html("Cargando, Espere Por Favor...");
+    $.ajax({
+        data: parametros,
+        url: "control/User.php",
+        type: "POST",
+        success: function(resp) {
+            var datos = resp.split("ô");
+            $("#Usuario").val(datos[0]);
+            $("#Nombre").val(datos[1]);
+            $("#pass").val(datos[2]);
+            $("#btnEditar").show();
+            $("#btnCancelar").show();
+            $("#btnNuevo").hide();
+            $("#contenido").html("");
+        },
+        error: function(resp) {
+            $("#respu").html("Error Al Conectarse Al Servidor");
+        }
+    });
+}
+
+function ocultarUser() {
+    $("#btnEditar").hide();
+    $("#btnCancelar").hide();
+    $("#btnNuevo").show();
+    $("#Usuario").val("");
+    $("#Nombre").val("");
+    $("#pass").val("");
+    $("#contenido").html("Cargando, Espere Por Favor...");
+    cargarUser();
+}
+
+function cargarUser() {
+    var parametros = {
+        "Cargar": "Cargar"
+    };
+    $.ajax({
+        data: parametros,
+        url: "control/User.php",
+        type: "POST",
+        success: function(resp) {
+            $("#contenido").html(resp);
+            $(".delet").click(eliminarUser);
+            $(".edit").click(buscarUser);
+        },
+        error: function(resp) {
+            $("#respu").html("Error Al Conectarse Al Servidor");
+        }
+    });
 }
 
 //**************--------------****************//
