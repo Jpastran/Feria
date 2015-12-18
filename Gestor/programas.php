@@ -11,48 +11,55 @@ if (empty($_SESSION['UseR'])) {
     </head>
     <body>
         <?php include_once './mods/nav.html'; ?>
-        <div id="Principal">
-            <input type="hidden" id="Codigo" value=""/>
-            <table cellpadding="7" style="margin:auto">
-                <tr>
-                    <td align="right"  style="text-align:right !important;padding:8px;">Oferta</td>
-                    <td align="left" style="padding:8px;">
-                        <select name='Oferta' id='Oferta'>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right"  style="text-align:right !important;padding:8px;">Areas</td>
-                    <td align="left" style="padding:8px;">
-                        <select name='Areas' id='Areas'>
+        <div id="Principal">          
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="Nombre" class="col-sm-3 control-label">Nombre</label>
+                    <div class="col-sm-6">
+                        <input name="Nombre" type="text" class="form-control box" id="Nombre" value=""/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Descripcion" class="col-sm-3 control-label">Descripcion</label>
+                    <div class="col-sm-6">
+                        <input name="Descripcion" type="text" class="form-control box" id="Descripcion" value=""/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Oferta" class="col-sm-3 control-label">Oferta</label>
+                    <div class="col-sm-6">
+                        <select name='Oferta' id='Oferta' class="form-control">
                             <option value='-1' selected='selected'>Selecccionar...</option>
                         </select>
-                    </td>
-                </tr> 
-                <tr>
-                    <td align="right">Nombre</td>
-                    <td>
-                        <input name="Nombre" type="text" class="box" id="Nombre" onkeydown="testForEnter();" value="" style="width:300px;"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right">Imagen</td>
-                    <td>    <input id="Imagen" type="file" name="Imagen[]" multiple="multiple"/></td>
-                </tr> <tr>
-                    <td align="right">Descripcion</td>
-                    <td>
-                        <input name="Descripcion" type="text" class="box" id="Descripcion" onkeydown="testForEnter();" value="" style="width:300px;"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td  align="left"></td>
-                    <td align="left">
-                        <input type="button" name="Guardar" id="btnNuevo" class="button" value="Guardar" />
-                        <input type="button" name="Editar" id="btnEditar" class="button" value="Editar" />
-                        <input type="button" name="Cancelar" id="btnCancelar" class="button" value="Cancelar" />
-                        <span id="respu" ></span></td>
-                </tr>
-            </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Areas" class="col-sm-3 control-label">Areas</label>
+                    <div class="col-sm-4">
+                        <select name='Areas' id='Areas' class="form-control">
+                            <option value='-1' selected='selected'>Selecccionar...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Imagen" class="col-sm-3 control-label">Imagen</label>
+                    <div class="col-sm-4">
+                        <input id="Imagen" type="file" name="Imagen" class="control-label"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-4">
+                        <input type="button" name="btnNuevo" id="btnNuevo" class="button" value="Guardar" />
+                        <input type="button" name="btnEditar" id="btnEditar" class="button" value="Editar" />
+                        <input type="button" name="btnCancelar" id="btnCancelar" class="button" value="Cancelar" />
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="hidden" id="Codigo" value=""/>
+                        <span id="respu" class="text-primary"></span>
+                    </div>
+                </div>
+            </form>
             <div id="contenido">
                 Cargando, Espere Por Favor...
             </div>

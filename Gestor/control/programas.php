@@ -22,7 +22,7 @@ function lista() {
     $consulta = "SELECT p.codigo,f.categoria,f.departamento,f.nombre,a.nombre,p.nombre,p.imagen,p.descripcion FROM ((programas  p INNER JOIN areas a ON a.codigo=p.codarea)INNER JOIN ofertas f ON f.codigo=a.codoferta) ORDER BY f.categoria,f.departamento,f.nombre,a.nombre,p.nombre";
     $datos = mysql_query($consulta);
     echo'
-    <div class="datagrid">
+    <div class="datagrid table-responsive">
         <table style="margin:auto;">
             <thead>
                 <tr>
@@ -91,7 +91,7 @@ function editar() {
 }
 
 function buscar() {
-    $consulta = "Select p.nombre,a.codoferta,p.descripcion,a.codigo from programas P INNER JOIN areas a on a.codigo= p.codarea  where p.codigo='" . mysql_real_escape_string($_POST["Codigo"]) . "'";
+    $consulta = "Select p.nombre,a.codoferta,p.descripcion,a.codigo from programas p INNER JOIN areas a on a.codigo= p.codarea  where p.codigo='" . mysql_real_escape_string($_POST["Codigo"]) . "'";
     $datos = mysql_query($consulta);
     if ($row = mysql_fetch_array($datos)) {
         echo $row[0] . "ô" . $row[1] . "ô" . $row[2] . "ô" . $row[3];

@@ -16,8 +16,8 @@ $(document).ready(function() {
         $("#btnEditar").click(editarInst);
         $("#btnCancelar").click(ocultarInst);
     } else if (url == "/Feria/Gestor/Programas.php") {
-        cargarProg();
         cargarSelectOferta();
+        cargarProg();
         $("#btnEditar").hide();
         $("#btnCancelar").hide();
         $("#btnNuevo").click(crearProg);
@@ -120,8 +120,6 @@ function buscarArea() {
         "Buscar": "Buscar"
     };
     $("#Codigo").val($(this).val());
-    $("#respu").html("Cargando, Espere Por Favor...");
-    $("#contenido").html("");
     $.ajax({
         data: parametros,
         url: "control/Areas.php",
@@ -134,6 +132,7 @@ function buscarArea() {
             $("#btnCancelar").show();
             $("#btnNuevo").hide();
             $("#respu").html("");
+            $("#contenido").html("");
         },
         error: function(resp) {
             $("#respu").html("Error Al Conectarse Al Servidor");
@@ -399,11 +398,11 @@ function editarProg() {
 }
 
 function buscarProg() {
-    $("#Codigo").val($(this).val());
     var parametros = {
         "Codigo": $(this).val(),
         "Buscar": "Buscar"
     };
+    $("#Codigo").val($(this).val());
     $.ajax({
         data: parametros,
         url: "control/Programas.php",
