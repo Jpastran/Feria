@@ -28,7 +28,7 @@ if (empty($_SESSION['UseR'])) {
                 <div class="form-group">
                     <label for="pass" class="col-sm-3 control-label">Contraseña</label>
                     <div class="col-sm-6">
-                        <input name="pass" type="password" class="form-control box" id="pass"value="" />
+                        <input name="pass" type="password" class="form-control box" id="pass" value="" />
                     </div>
                 </div>
                 <div class="form-group">

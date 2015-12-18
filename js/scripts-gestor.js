@@ -31,6 +31,9 @@ $(document).ready(function() {
         $("#btnNuevo").click(crearUser);
         $("#btnEditar").click(editarUser);
         $("#btnCancelar").click(ocultarUser);
+    } else if (url == "/Feria/Gestor/Imagenes.php") {
+        cargarImg();
+        $("#btnNuevo").click(crearImg);       
     }
 });
 
@@ -545,6 +548,7 @@ function crearUser() {
         $("#respu").html("Complete Todos Los Campos");
     }
 }
+
 function editarUser() {
     if ($("#Nombre").val() != "" && $("#Usuario").val() != "" && $("#pass").val() != "") {
         $("#respu").html("Espere Por Favor...");
@@ -657,6 +661,77 @@ function cargarUser() {
             $("#respu").html("Error Al Conectarse Al Servidor");
         }
     });
+}
+
+//**************Imagenes****************//
+
+function crearImg() {
+    if ($("#Imagen").val() != "") {
+        $("#respu").html("Cargando, Espere Por Favor...");
+        var parametros = new FormData();
+        parametros.append('Imagen', $("#Imagen").prop('files')[0]);
+        parametros.append('Crear', "Crear");
+        $.ajax({
+            data: parametros,
+            url: 'control/Imagenes.php',
+            type: 'POST', 
+            contentType: false,            
+            processData: false,
+            cache: false
+        }).done(function(resp) {
+            if (resp == "s") {
+               $("#respu").html("Guardado Con Exito");
+               cargarImg();
+            } else {
+                $("#respu").html("No se Pudo Guardar, Verifique Su Conexion");
+            }
+        });
+    } else {
+        $("#respu").html("Complete Todos Los Campos");
+    }
+}
+
+function eliminarImg() {
+    if (confirm("¿Esta Seguro Que Desea Eliminar Este Registro?")) {
+        var parametros = {
+            "Eliminar": $(this).val(),
+            "Borrar":"Borrar"
+        };
+        $.ajax({
+            data: parametros,
+            url: "control/Imagenes.php",
+            type: "POST",
+            success: function(resp) {
+                if (resp == "s") {
+                    $("#respu").html("Eliminado Con Exito");
+                    cargarImg();
+                } else {
+                    $("#respu").html("no Se Pudo Eliminar, Verifique Su Conexion");
+                }
+            },
+            error: function(resp) {
+                $("#respu").html("Error Al Conectarse Al Servidor");
+            }
+        });
+    }
+}
+
+function cargarImg(){
+    var parametros = {
+        "Cargar": "Cargar"
+    };
+    $.ajax({
+        data: parametros,
+        url: "control/Imagenes.php",
+        type: "POST",
+        success: function(resp) {
+            $("#contenido").html(resp);
+            $(".delet").click(eliminarUser);
+        },
+        error: function(resp) {
+            $("#respu").html("Error Al Conectarse Al Servidor");
+        }
+    });   
 }
 
 //**************--------------****************//
