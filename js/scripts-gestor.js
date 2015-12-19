@@ -33,7 +33,11 @@ $(document).ready(function() {
         $("#btnCancelar").click(ocultarUser);
     } else if (url == "/Feria/Gestor/Imagenes.php") {
         cargarImg();
-        $("#btnNuevo").click(crearImg);       
+        $("#btnNuevo").click(crearImg);
+    } else if (url == "/Feria/Gestor/Informacion.php") {
+        cargarInfo();
+        $("#btnEditar").click(editarInfo);
+        $("#formInfo").hide();
     }
 });
 
@@ -674,14 +678,14 @@ function crearImg() {
         $.ajax({
             data: parametros,
             url: 'control/Imagenes.php',
-            type: 'POST', 
-            contentType: false,            
+            type: 'POST',
+            contentType: false,
             processData: false,
             cache: false
         }).done(function(resp) {
             if (resp == "s") {
-               $("#respu").html("Guardado Con Exito");
-               cargarImg();
+                $("#respu").html("Guardado Con Exito");
+                cargarImg();
             } else {
                 $("#respu").html("No se Pudo Guardar, Verifique Su Conexion");
             }
@@ -695,7 +699,7 @@ function eliminarImg() {
     if (confirm("¿Esta Seguro Que Desea Eliminar Este Registro?")) {
         var parametros = {
             "Eliminar": $(this).val(),
-            "Borrar":"Borrar"
+            "Borrar": "Borrar"
         };
         $.ajax({
             data: parametros,
@@ -716,7 +720,7 @@ function eliminarImg() {
     }
 }
 
-function cargarImg(){
+function cargarImg() {
     var parametros = {
         "Cargar": "Cargar"
     };
@@ -731,7 +735,87 @@ function cargarImg(){
         error: function(resp) {
             $("#respu").html("Error Al Conectarse Al Servidor");
         }
-    });   
+    });
+}
+
+//**************Informacion****************//
+
+function editarInfo() {
+    if ($("#Mision").val() != "" && $("#Vision").val() != "" && $("#Quienes").val() != "" && $("#Objetivos").val() != "" && $("#Producto").val() != "" && $("#Correos").val()) {
+        $("#respu").html("Espere Por Favor...");
+        var parametros = {
+            "Mision": $("#Mision").val(),
+            "Vision": $("#Vision").val(),
+            "Quienes": $("#Quienes").val(),
+            "Objetivos": $("#Objetivos").val(),
+            "Producto": $("#Producto").val(),
+            "Correos": $("#Correos").val(),
+            "Editar": "Editar"
+        };
+        $.ajax({
+            data: parametros,
+            url: "control/Informacion.php",
+            type: "POST",
+            success: function(resp) {
+                if (resp == "s") {
+                    $("#respu").html("Actualizado Con Exito");
+                    cargarInfo();
+                    $("#formInfo").hide();
+                } else {
+                    $("#respu").html("No Se Pudo Guarda, Verifique Su Conexion");
+                }
+            },
+            error: function(resp) {
+                $("#respu").html("Error Al Conectarse Al Servidor");
+            }
+        });
+    } else {
+        $("#respu").html("No puede dejar ninguno vacio");
+    }
+}
+
+function cargarInfo() {
+    var parametros = {
+        "Cargar": "Cargar"
+    };
+    $.ajax({
+        data: parametros,
+        url: "control/Informacion.php",
+        type: "POST",
+        success: function(resp) {
+            $("#contenido").html(resp);
+            $("#btnCargar").click(buscarInfo);
+        },
+        error: function(resp) {
+            $("#contenido").html("Error Al Conectarse Al Servidor");
+        }
+    });
+
+}
+
+function buscarInfo() {
+    var parametros = {
+        "Buscar": "Buscar"
+    };
+    $.ajax({
+        data: parametros,
+        url: "control/Informacion.php",
+        type: "POST",
+        success: function(resp) {
+            var datos = resp.split("ô");
+            $("#Mision").val(datos[0]);
+            $("#Vision").val(datos[1]);
+            $("#Quienes").val(datos[2]);
+            $("#Objetivos").val(datos[3]);
+            $("#Producto").val(datos[4]);
+            $("#Correos").val(datos[5]);
+            $("#formInfo").show();
+            $("#contenido").html("");
+        },
+        error: function(resp) {
+            alert("Error Al Conectarse Al Servidor");
+        }
+    });
 }
 
 //**************--------------****************//

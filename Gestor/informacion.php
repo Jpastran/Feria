@@ -7,202 +7,61 @@ if (empty($_SESSION['UseR'])) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Feria Virtual De EducaciónFeria Virtual De Educación</title>
-
-        <link href="../css/estilos-gestor.css" rel="stylesheet" type="text/css">
-            <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
-            <script>
-                $(document).ready(function() {
-                    function time() {
-                        setTimeout(function() {
-                            $(".mensajes").fadeOut(900);
-                        }, 1500);
-                    }
-
-                    cargar();
-                    $("#btnEditar").click(btnEditar);
-                    $("#TablaSinCss").hide();
-
-                    function btnEditar() {
-
-
-                        $("#respu").html("Espere Por Favor...");
-                        var parametros = {
-                            "Mision": $("#Mision").val(),
-                            "Vision": $("#Vision").val(),
-                            "Quienes": $("#Quienes").val(),
-                            "Objetivos": $("#Objetivos").val(),
-                            "Producto": $("#Producto").val(),
-                            "Editar": "Editar",
-                            "Correos": $("#Correos").val()
-                        };
-
-                        $.ajax({
-                            data: parametros,
-                            url: "control/Informacion.php",
-                            type: "POST",
-                            success: function(resp) {
-                                if (resp == "s") {
-                                    $("#respu").html("");
-                                    alert("Actualizado Con Exito");
-                                    document.location = "Informacion.php";
-                                } else {
-                                    $("#respu").html("");
-                                    alert("No Se Pudo Guarda, Verifique Su Conexion");
-
-                                }
-                            },
-                            error: function(resp) {
-                                alert("Error Al Conectarse Al Servidor");
-                            }
-                        });
-
-                    }
-
-                    function cargar() {
-
-                        var parametros = {
-                            "Cdocentes": "X"
-                        };
-                        $.ajax({
-                            data: parametros,
-                            url: "control/Informacion.php",
-                            type: "POST",
-                            success: function(resp) {
-                                $("#Contenido").html(resp);
-                                ;
-                                $("#Editar").click(editar);
-
-                            },
-                            error: function(resp) {
-                                alert("Error Al Conectarse Al Servidor");
-                            }
-                        });
-
-                    }
-
-
-                    function editar() {
-
-                        var parametros = {
-                            "BuscarDocente": "1"
-                        };
-                        $("#oculto").val($(this).val());
-                        $("#Contenido").html("<center>Cargando, Espere Por Favor...</center>");
-                        $.ajax({
-                            data: parametros,
-                            url: "control/Informacion.php",
-                            type: "POST",
-                            success: function(resp) {
-                                var datos = resp.split("ô");
-                                $("#Mision").val(datos[0]);
-                                $("#Vision").val(datos[1]);
-                                $("#Quienes").val(datos[2]);
-                                $("#Objetivos").val(datos[3]);
-                                $("#Producto").val(datos[4]);
-                                $("#Correos").val(datos[5]);
-                                $("#TablaSinCss").show();
-
-
-                                $("#Contenido").html("");
-                            },
-                            error: function(resp) {
-                                alert("Error Al Conectarse Al Servidor");
-                            }
-                        });
-                    }
-
-
-                });
-
-            </script>
-
+        <?php include_once './mods/head.html'; ?>
     </head>
-
-
     <body>
+        <?php include_once './mods/nav.html'; ?>
         <div id="Principal">
-
-            <div style="text-align:right;font-size:14px;padding:3px;background-color:#fff;color:#333;">
-
-                <?php
-                if (!empty($_SESSION['UseR'])) {
-                    echo "Identificado Como: " . $_SESSION['Name'] . " <a href='index.php' style='margin-left:7px;margin-right:10px; color: #09C;font-size:16px;font-weight:bold'>Cerrar Sesion</a>
-</div>";
-                    include("mods/nav.html");
-                }
-                ?>
-                <div style="margin:auto;font-size:14px;width:100%;padding-top:30px">
-
-
-                    <table border="0" cellpadding="8" style="margin:auto;margin-bottom:50px;" id="TablaSinCss">  <tr>
-                            <td align="right"  style="text-align:right !important;padding:8px;"><h3>Mision</h3></td>
-                            <td align="left" style="padding:8px;"><textarea name="Mision" rows="5" class="box" id="Mision" style="width:500px;" onkeydown="testForEnter();"></textarea></td>
-                        </tr> <tr>
-                            <td align="right"  style="text-align:right !important;padding:8px;"><h3>Vision</h3></td>
-                            <td align="left" style="padding:8px;"><textarea name="Vision" rows="5" class="box" id="Vision" style="width:500px;" onkeydown="testForEnter();"></textarea></td>
-                        </tr> <tr>
-                            <td align="right"  style="text-align:right !important;padding:8px;"><h3>Quienes Somos	</h3></td>
-                            <td align="left" style="padding:8px;"><textarea name="Quienes" rows="5" class="box" id="Quienes" style="width:500px;" onkeydown="testForEnter();"></textarea></td>
-                        </tr> <tr>
-                            <td align="right"  style="text-align:right !important;padding:8px;"><h3>Objetivos</h3></td>
-                            <td align="left" style="padding:8px;"><textarea name="Objetivos" rows="5" class="box" id="Objetivos" style="width:500px;" onkeydown="testForEnter();"></textarea></td>
-                        </tr> <tr>
-                            <td align="right"  style="text-align:right !important;padding:8px;"><h3>Producto</h3></td>
-                            <td align="left" style="padding:8px;"><textarea name="Producto" rows="5" class="box" id="Producto" style="width:500px;" onkeydown="testForEnter();"></textarea></td>
-                        </tr> <tr>
-                            <td align="right"  style="text-align:right !important;padding:8px;"><h3>Correos</h3></td>
-                            <td align="left" style="padding:8px;"><textarea name="Correos" rows="5" class="box" id="Correos" style="width:500px;" onkeydown="testForEnter();"></textarea></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="hidden" id="oculto" name="oculto" />
-                            </td>
-                            <td align="left"  style="padding:8px;"><input type="button" name="btnEditar" id="btnEditar" class="button" value="Actualizar Informacion" />      <span id="respu" style="font-size:12px;margin-left:5px;"></span></td>
-                        </tr>
-                    </table>
-
-
-
-
-                    <div id="Contenido"  style="margin:auto;font-size:14px;width:100%;padding-top:30px;text-align:center">
-
-
-                        Cargando, Espere Por Favor...
-
+            <form class="form-horizontal" id="formInfo">
+                <div class="form-group">
+                    <label for="Mision" class="col-sm-3 control-label"><h3>Mision</h3></label>
+                    <div class="col-sm-8">
+                        <textarea name="Mision" class="box form-control" rows="4" id="Mision"></textarea>
                     </div>
-
-                    <br /><br />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </div>
-            </div>
-
-            <?php
-            $variable = file_get_contents("mods/pie.html");
-            echo $variable;
-            ?>
-
-
-
+                <div class="form-group">
+                    <label for="Vision" class="col-sm-3 control-label"><h3>Vision</h3></label>
+                    <div class="col-sm-8">
+                        <textarea name="Vision" class="box form-control" rows="4" id="Vision"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Quienes" class="col-sm-3 control-label"><h3>Quienes Somos</h3></label>
+                    <div class="col-sm-8">
+                        <textarea name="Quienes" class="box form-control" rows="4" id="Quienes"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Objetivos" class="col-sm-3 control-label"><h3>Objetivos</h3></label>
+                    <div class="col-sm-8">
+                        <textarea name="Objetivos" class="box form-control" rows="4" id="Objetivos" ></textarea>
+                    </div>                
+                </div>
+                <div class="form-group">
+                    <label for="Producto" class="col-sm-3 control-label"><h3>Producto</h3></label>
+                    <div class="col-sm-8">
+                        <textarea name="Producto" class="box form-control" rows="4" id="Producto" ></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Correos" class="col-sm-3 control-label"><h3>Correos</h3></label>
+                    <div class="col-sm-8">
+                        <textarea name="Correos" class="box form-control" rows="4" id="Correos" ></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-8">
+                        <input type="button" id="btnEditar" class="button" value="Actualizar Informacion" />      
+                        <span id="respu" class="text-primary"></span>
+                    </div>
+                </div>
+            </form>
+        </div>       
+        <div id="contenido">
+            Cargando, Espere Por Favor...
+        </div>
+        </div>
+        <?php include_once './mods/pie.html'; ?>
     </body>
 </html>
