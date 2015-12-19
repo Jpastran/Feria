@@ -38,6 +38,12 @@ $(document).ready(function() {
         cargarInfo();
         $("#btnEditar").click(editarInfo);
         $("#formInfo").hide();
+    } else if (url == "/Feria/Gestor/Visitas.php") {
+        generar("Visitas");
+    } else if (url == "/Feria/Gestor/Intereses.php") {
+        generar("Intereses");
+    } else if (url == "/Feria/Gestor/Visitantes.php") {
+        generar("Visitantes");
     }
 });
 
@@ -818,4 +824,36 @@ function buscarInfo() {
     });
 }
 
-//**************--------------****************//
+//**************Informes****************//
+function generar(archivo) {
+    var f = new Date();
+    var dia = f.getDate() < 10 ? "0" + f.getDate() : dia = f.getDate();
+    var mes = (f.getMonth() + 1) < 10 ? "0" + (f.getMonth() + 1) : (f.getMonth() + 1);
+
+    $("#Final").val(f.getFullYear() + "-" + mes + "-" + dia);
+
+    mes = (f.getMonth() + 1) < 10 ? "0" + (f.getMonth()) : (f.getMonth());
+
+    $("#Inicio").val(f.getFullYear() + "-" + mes + "-" + dia);
+    $("#Buscar").click(function() {
+        if (archivo === "Visitantes") {
+            visitantes();
+        } else if (archivo === "Intereses") {
+            intereses();
+        } else if (archivo === "Visitas") {
+            visitas();
+        }
+    });
+}
+
+function visitantes(){
+    document.location = "reporte/Visitantes.php?Inicio=" + $("#Inicio").val() + "&Final=" + $("#Final").val();
+}
+
+function intereses(){
+    document.location = "reporte/Intereses.php?Inicio=" + $("#Inicio").val() + "&Final=" + $("#Final").val();
+}
+
+function visitas(){
+    document.location = "reporte/Visitas.php?Inicio=" + $("#Inicio").val() + "&Final=" + $("#Final").val();
+}
