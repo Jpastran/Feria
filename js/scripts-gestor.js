@@ -1,6 +1,9 @@
 $(document).ready(function() {
     var url = $(location).attr('pathname');
-    if (url == "/Feria/Gestor/Areas.php") {
+    url = url.toLowerCase();
+    if (url == "/feria/gestor/index.php" || url == "/feria/gestor/") {
+        $("#Ingresar").click(login);
+    } else if (url == "/feria/gestor/areas.php") {
         cargarSelectOferta();
         cargarAreas();
         $("#btnEditar").hide();
@@ -8,14 +11,14 @@ $(document).ready(function() {
         $("#btnNuevo").click(crearArea);
         $("#btnEditar").click(editarArea);
         $("#btnCancelar").click(ocultarArea);
-    } else if (url == "/Feria/Gestor/Institucion.php") {
+    } else if (url == "/feria/gestor/institucion.php") {
         cargarInst();
         $("#btnEditar").hide();
         $("#btnCancelar").hide();
         $("#btnNuevo").click(crearInst);
         $("#btnEditar").click(editarInst);
         $("#btnCancelar").click(ocultarInst);
-    } else if (url == "/Feria/Gestor/Programas.php") {
+    } else if (url == "/feria/gestor/programas.php") {
         cargarSelectOferta();
         cargarProg();
         $("#btnEditar").hide();
@@ -24,28 +27,67 @@ $(document).ready(function() {
         $("#btnEditar").click(editarProg);
         $("#btnCancelar").click(ocultarProg);
         $("#Oferta").change(cargarSelectArea);
-    } else if (url == "/Feria/Gestor/Usuarios.php") {
+    } else if (url == "/feria/gestor/usuarios.php") {
         cargarUser();
         $("#btnEditar").hide();
         $("#btnCancelar").hide();
         $("#btnNuevo").click(crearUser);
         $("#btnEditar").click(editarUser);
         $("#btnCancelar").click(ocultarUser);
-    } else if (url == "/Feria/Gestor/Imagenes.php") {
+    } else if (url == "/feria/gestor/imagenes.php") {
         cargarImg();
         $("#btnNuevo").click(crearImg);
-    } else if (url == "/Feria/Gestor/Informacion.php") {
+    } else if (url == "/feria/gestor/informacion.php") {
         cargarInfo();
         $("#btnEditar").click(editarInfo);
         $("#formInfo").hide();
-    } else if (url == "/Feria/Gestor/Visitas.php") {
+    } else if (url == "/feria/gestor/visitas.php") {
         generar("Visitas");
-    } else if (url == "/Feria/Gestor/Intereses.php") {
+    } else if (url == "/feria/gestor/intereses.php") {
         generar("Intereses");
-    } else if (url == "/Feria/Gestor/Visitantes.php") {
+    } else if (url == "/feria/gestor/visitantes.php") {
         generar("Visitantes");
     }
 });
+
+//**************Login****************//
+
+function login() {
+    $("#Usuario").removeClass('err');
+    $("#pass").removeClass('err');
+    if ($("#Usuario").val()) {
+        if ($("#pass").val()) {
+            $("#resul").html("<blink style='color:#000;margin-bottom:-10px;'>Procesando, espere...</blink><br><br>");
+            var parametros = {
+                "Enteruser": $("#Usuario").val(),
+                "Enterpass": $("#pass").val(),
+                "Login": "Login"
+            };
+            $.ajax({
+                data: parametros,
+                url: "control/login.php",
+                type: "POST",
+                success: function(resp) {
+                    if (resp == "s") {
+                        document.location = "Inicio.php"
+                    } else {
+                        $("#resul").html("Datos Incorrectos");
+                        $("#pass").val("");
+                    }
+                },
+                error: function(resp) {
+                    $("#resul").html("Error Al Conectarse Al Servidor");
+                }
+            });
+        } else {
+            $("#pass").addClass('err');
+            $("#resul").html("Complete Los Campos");
+        }
+    } else {
+        $("#Usuario").addClass('err');
+        $("#resul").html("Complete Los Campos");
+    }
+}
 
 //**************Areas****************//
 
@@ -846,14 +888,14 @@ function generar(archivo) {
     });
 }
 
-function visitantes(){
+function visitantes() {
     document.location = "reporte/Visitantes.php?Inicio=" + $("#Inicio").val() + "&Final=" + $("#Final").val();
 }
 
-function intereses(){
+function intereses() {
     document.location = "reporte/Intereses.php?Inicio=" + $("#Inicio").val() + "&Final=" + $("#Final").val();
 }
 
-function visitas(){
+function visitas() {
     document.location = "reporte/Visitas.php?Inicio=" + $("#Inicio").val() + "&Final=" + $("#Final").val();
 }

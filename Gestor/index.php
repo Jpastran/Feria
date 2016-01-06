@@ -8,54 +8,9 @@ unset($_SESSION['UseR']);
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=none" />
-        <link href="../css/estilos-gestor.css" rel="stylesheet" type="text/css"/>
-        <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
-        <script>
-            $(document).ready(function() {
-                $("#Ingresar").click(Ingresar);
-                function Ingresar() {
-                    $("#Usuario").removeClass('err');
-                    $("#pass").removeClass('err');
-                    if ($("#Usuario").val()) {
-                        if ($("#pass").val()) {
-                            $("#resul").html("<blink style='color:#000;margin-bottom:-10px;'>Procesando, espere...</blink><br><br>");
-                            var parametros = {
-                                "Enteruser": $("#Usuario").val(),
-                                "Enterpass": $("#pass").val()
-                            };
-                            $.ajax({
-                                data: parametros,
-                                url: "control/login.php",
-                                type: "POST",
-                                success: function(resp) {
-                                    console.log(resp);
-                                    if (resp == "s") {
-                                        document.location = "Inicio.php"
-                                    } else {
-                                        $("#resul").html("Datos Incorrectos");
-                                        $("#pass").val("");
-                                    }
-                                },
-                                error: function(resp) {
-                                    alert("Error Al Conectarse Al Servidor");
-                                }
-                            });
-                        } else {
-                            $("#pass").addClass('err');
-                            $("#resul").html("Complete Los Campos");
-                        }
-                    } else {
-                        $("#Usuario").addClass('err');
-                        $("#resul").html("Complete Los Campos");
-                    }
-                }
-            });
-        </script>           
-        <style>
-            .err{
-                border: solid 1px #D8000C!important;
-            }
-        </style>
+        <link href="../css/estilos-gestor.css" rel="stylesheet" type="text/css"/>      
+        <script src="../js/jquery-1.11.3.js"></script> 
+        <script src="../js/scripts-gestor.js"></script>
     </head>
     <body style="background-color:#09C" >
         <div style="margin:auto;margin-top:5%;font-family:letraOswald;">
@@ -65,7 +20,7 @@ unset($_SESSION['UseR']);
             <table  cellpadding="7" style="font-family:letraOswald;background-color:#fafafa;border-radius:10px;opacity:0.87;box-shadow:0px 0px 5px #ddd;font-family:letraOswald;margin:auto">
                 <tr>
                     <td align="right">Usuario</td>
-                    <td><input type="text" id="Usuario" name="Usuario"class="box"  required/></td>
+                    <td><input type="text" id="Usuario" name="Usuario" class="box" required/></td>
                 </tr>
                 <tr>
                     <td align="right">Contraseña</td>
