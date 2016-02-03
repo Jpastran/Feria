@@ -20,7 +20,7 @@ function lista() {
     $consulta = "SELECT codigo,nombre,categoria,departamento,imagen FROM ofertas ORDER BY nombre";
     $datos = mysql_query($consulta);
     echo'
-    <div class="datagrid">
+    <div class="datagrid table-responsive">
         <table>
             <thead>
                 <tr>

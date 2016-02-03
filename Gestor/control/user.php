@@ -39,7 +39,7 @@ function buscar() {
 function lista() {
     $consulta = "Select g.usuario,g.nombre from usuarios g  order by g.nombre ";
     $datos = mysql_query($consulta);
-    echo '<div class="datagrid">
+    echo '<div class="datagrid table-responsive">
             <table>
             <thead>
                 <tr>

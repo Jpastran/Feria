@@ -39,7 +39,7 @@ function lista() {
     $consulta = "SELECT mision,vision,quienes,objetivos,producto,email FROM configuracion";
     $datos = mysql_query($consulta);
     echo '
-    <div class="datagrid">
+    <div class="datagrid table-responsive">
     <table>
         <thead>
             <tr>

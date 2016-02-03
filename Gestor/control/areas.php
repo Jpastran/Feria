@@ -22,7 +22,7 @@ function lista() {
     $consulta = "Select g.codigo,g.nombre,o.nombre,o.departamento,o.categoria from areas g inner join ofertas o on o.codigo=g.codoferta order by g.nombre ";
     $datos = mysql_query($consulta);
     echo '
-    <div class="datagrid">
+    <div class="datagrid table-responsive">
         <table>
             <thead>
                 <tr>
