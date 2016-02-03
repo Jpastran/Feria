@@ -8,7 +8,7 @@ $(document).ready(function() {
         registro();
         return false;
     });
-    if ($(location).attr('pathname') == "/Feria/datos.php") {
+    if ($(location).attr('pathname').toLowerCase() == "/feria/datos.php") {
         cargar();
     }
     $("#formDatos").submit(function() {

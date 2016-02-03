@@ -11,13 +11,11 @@ if (empty($_SESSION['UseR'])) {
     </head>
     <body>
         <?php include_once './mods/nav.html'; ?>
-        <div id="principal">
-            <div class="logo">
-                <h1><img src="../img/Logo.png" /><br/>Bienvenido</h1>
-                <?php echo "Hora actual " . date("r");?><br/>
-                <?php echo "Usuario de Sesion " . $_SESSION['UseR'];?><br/> 
-                <?php echo "Nombre de Sesion " . $_SESSION['Name'];?>            
-            </div>
+        <div class="logo">
+            <h1><img src="../img/Logo.png" /><br/>Bienvenido</h1>
+            <?php echo "Hora actual " . date("r"); ?><br/>
+            <?php echo "Usuario de Sesion " . $_SESSION['UseR']; ?><br/> 
+            <?php echo "Nombre de Sesion " . $_SESSION['Name']; ?>            
         </div>
         <?php include_once './mods/pie.html'; ?>
     </body>

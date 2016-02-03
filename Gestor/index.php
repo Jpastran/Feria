@@ -12,12 +12,12 @@ unset($_SESSION['UseR']);
         <script src="../js/jquery-1.11.3.js"></script> 
         <script src="../js/scripts-gestor.js"></script>
     </head>
-    <body style="background-color:#09C" >
-        <div style="margin:auto;margin-top:5%;font-family:letraOswald;">
-            <h2 style="color:#FFF;text-align:center">
+    <body id="login">
+        <div class="contenido">
+            <h2>
                 Inicio De Sesión - Gestor De Contenido 
             </h2>
-            <table  cellpadding="7" style="font-family:letraOswald;background-color:#fafafa;border-radius:10px;opacity:0.87;box-shadow:0px 0px 5px #ddd;font-family:letraOswald;margin:auto">
+            <table  cellpadding="7">
                 <tr>
                     <td align="right">Usuario</td>
                     <td><input type="text" id="Usuario" name="Usuario" class="box" required/></td>
@@ -31,7 +31,7 @@ unset($_SESSION['UseR']);
                     <td><input type="button"  id="Ingresar"  name="Ingresar" class="button" value="Ingresar"  /></td>
                 </tr>
             </table>
-            <div id="resul" style="font-size:14px;color:#000;text-align:center;margin-top:10px;font-family:letraOswald;" ></div>
+            <div id="resul"></div>
         </div>
     </body>
 </html>

@@ -11,7 +11,6 @@ if (empty($_SESSION['UseR'])) {
     </head>
     <body>
         <?php include_once './mods/nav.html'; ?>
-        <div id="principal">
             <form class="form-horizontal">
                 <div class="form-group">
                     <label for="nombre" class="col-sm-3 control-label">Nombre Area</label>
@@ -41,7 +40,6 @@ if (empty($_SESSION['UseR'])) {
             <div id="contenido">
                 Cargando, Espere Por Favor...
             </div>
-        </div>
         <?php include_once './mods/pie.html'; ?>
     </body>
 </html>
