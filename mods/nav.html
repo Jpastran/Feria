@@ -1,3 +1,43 @@
+<nav id="nav-movil" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.php">
+            <img id="logo-movil" src="img/Logo2.png" />Feria Virtual</a>
+    </div>
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav side-nav">            
+            <?php if (empty($_SESSION['Nombre'])) { echo'<li>
+                <a href="registro.php"><i class="fa fa-fw fa-edit"></i> Regristrarme</a>
+            </li>';}?>            
+            <li>
+                <a href="nosotros.php"><i class="fa fa-fw fa-list"></i> Quienes Somos</a>
+            </li>
+            <li>
+                <a href="oferta.php"><i class="fa fa-fw fa-university"></i> Oferta Academica</a>
+            </li>
+            <li>
+                <a href="contacto.php"><i class="fa fa-fw fa-share"></i> Contactenos</a>
+            </li>
+            <?php if (empty($_SESSION['Nombre'])) { echo'<li>
+                <a href="login.php"><i class="fa fa-fw fa-sign-in"></i> Iniciar Sesion</a>
+            </li>';          
+            } elseif ($_SERVER["REQUEST_URI"] == "/Feria/datos.php") { echo'<li>  
+                <a href="login.php"><i class="fa fa-fw fa-sign-out"></i> Cerrar Sesion</a>
+            </li>';
+            } else { echo'<li> 
+                <a href="datos.php"><i class="fa fa-fw fa-child"></i>' . $_SESSION['Nombre'] . '</a>
+            </li>';}?>
+        </ul>
+    </div>
+<!-- /.navbar-collapse -->
+</nav> 
 <nav id="nav">
     <div class="nav logo">
         <a href="index.php" > 
@@ -26,8 +66,7 @@
                 <img src="img/LogContacto.png"  /><br />   
                 CONTACTENOS</a>
         </div>
-        <?php
-        if (empty($_SESSION['Nombre'])) { echo'
+        <?php if (empty($_SESSION['Nombre'])) { echo'
         <div class="nav menu col">    
             <a href="login.php" >   
                 <img src="img/LogLogin.png"  /><br />   

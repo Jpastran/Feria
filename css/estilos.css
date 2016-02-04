@@ -16,7 +16,6 @@ body {
 .nav.logo {
     margin: auto;
     float: left;
-    min-width: 210px;
 }
 
 .nav.logo a {
@@ -72,7 +71,7 @@ body {
 }
 
 .LinkFoot {
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
     font-weight: normal;
 }
@@ -118,9 +117,8 @@ body {
 }
 
 .linkProg {
-    padding-top: 100px;
     font-size: 16px;
-    color: #000;
+    color: #990000;
 }
 
 .linkProg:hover {
@@ -136,7 +134,7 @@ body {
 
 .linkImg {
     margin-right: 10px;
-    margin-bottom: -6px;
+    margin-bottom: 6px;
 }
 
 @font-face {
@@ -149,22 +147,20 @@ body {
 }
 
 .late {
-    width: 50%;
+    width: 48%;
     cursor: pointer;
     margin-top: 30px;
+    margin-left: 10px;
     text-align: left;
     float: left;
+    height: 130px;
 }
 .late h2:hover {
     transform: scale(1.01,1.05);
 }
 
 .late h2 {
-    margin-top: 20px;
     cursor: pointer;
-    float: left;
-    width: 70%;
-    padding-top: 10px;
 }
 
 .late img {
@@ -231,7 +227,7 @@ body {
 }
 
 .panel.col.tres {
-    width: 31%;
+    width: 30%;
 }
 
 .panel.col.dos {
@@ -348,8 +344,8 @@ body {
 }
 
 h2 {
-    font-family: letraOswald;
-    color: #993300;
+    font-family: letraOswald !important;
+    color: #993300 !important;
 }
 
 .contenido {
@@ -372,11 +368,11 @@ h2 {
     text-align: center;
     margin: auto;
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
 }
 
 .center.img {
-    max-width: 1000px;
+    max-width: 950px;
     width: 95%;
     margin-bottom: 10px;
 }
@@ -446,6 +442,10 @@ h1 {
     margin-top: 10px;
 }
 
+#Resp{
+    padding: 0px;
+}
+
 #login {
     max-width: 500px;
     margin: auto;
@@ -465,6 +465,7 @@ h1 {
     margin-top: 30px;
     margin-bottom: 40px;
     color: #555;
+    padding: 5px;
 }
 
 .login input {
@@ -473,20 +474,19 @@ h1 {
 
 .login.line {
     margin: auto;
-    margin-bottom: 16px;
 }
 
-.login.label {
+.login.tag {
     float: left;
     width: 20%;
     margin: auto;
-    padding-right: 6px;
+    padding-right: 10px;
     text-align: right;
 }
 
 .login.input {
     width: 70%;
-    float: left;
+    float: right;
     margin: auto;
 }
 
@@ -507,7 +507,8 @@ h1 {
 }
 
 .login.line.btn {
-    padding-left: 22%;
+    padding-left: 32%;
+    text-align: initial;
 }
 
 .registro {
@@ -519,7 +520,7 @@ h1 {
 }
 
 .registro h3, h3 {
-    color: #fff;
+    color: #fff !important;
     font-family: LetraOswald;
     padding: 5px;
     font-size: 18px;
@@ -557,3 +558,96 @@ h1 {
     height: 100%;
 }
 
+#logo-movil{
+    float: left;
+    height: 30px;
+    padding-right: 5px;
+}
+
+#nav-movil{
+    display: none;
+    background-image: url(../img/Foot.jpg);
+    border-top: solid 1px #FE9900;
+    border-bottom: solid 2px #FE9900;
+}
+
+#pie-movil{
+    display: none;
+    font-size: 12px;
+    width: 100%;
+    background-image: url(../img/Foot.jpg);
+    color: #fff;
+    text-align: center;
+    margin: 0 !important;
+    border-top: solid 1px #FE9900;
+    border-bottom: solid 1px #FE9900;
+}
+
+@media screen and (max-width:830px ) {
+    .nav.logo img{
+        width: 100px;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width:730px ) {
+    #nav{
+        display: none;
+    }
+    #nav-movil{
+        display: inherit;
+    }
+    #pie{
+        display: none;
+    }
+    #pie-movil{
+        display: block;
+    }
+    #banner{
+        margin-top: 60px !important;
+        height: auto !important;
+    }
+    #bannerRotator{
+        height: auto !important;
+    }    
+    #bannerRotator ul li img{
+        height: auto !important;
+    }  
+    #bannerNav {
+        right: 0 !important;
+        bottom: initial !important;
+    }
+    #cita{
+        margin-top: 23%;
+        font-size: 20px;
+    }    
+    .panel.col{
+        float: none;
+    }
+    .panel.col.tres{
+        width: 85%;
+    }
+    .panel.col.dos{
+        width: 85%;
+    }
+    .login.line{
+        margin-bottom:0;
+    }
+    .login.input {
+        float: none;
+    }
+    .login.tag {
+        float: none;
+        width: 70%;
+        text-align: left;
+    }
+    .login.line.btn{
+        padding-left: 18%;
+    }
+    .late{
+        float: none;
+        margin: auto;
+        width: 80%;
+        min-width: 250px;
+    }
+}

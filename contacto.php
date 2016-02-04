@@ -11,7 +11,7 @@ session_start();
         <div class="contenido">
             <form id="formContacto">
                 <div id="panel">
-                    <p class="panel title">Envíanos tu Pregunta</p>
+                    <p class="panel title">Envíanos tu Consulta</p>
                     <p class="panel subtitle"> Tienes alguna inquitud, escribenos y nos pondremos en contacto.</p>      
                     <div class="panel col dos">
                         <div class="col row">

@@ -9,7 +9,6 @@ if(empty($_SESSION['Nombre'])){
     <head>
         <?php include_once './mods/head.html';?>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
-        <script src="js/bootstrap.js"></script>
     </head>
     <body>
         <?php include_once './mods/nav.html';?>

@@ -4,12 +4,12 @@ session_start();
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <?php include_once './mods/head.html';?>
+        <?php include_once './mods/head.html'; ?>
         <script type="text/javascript" src="js/bannerRotator.js"></script>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <?php include_once './mods/nav.html';?>
+        <?php include_once './mods/nav.html'; ?>
         <div id="banner">
             <div id="bannerRotator">
                 <ul>   

@@ -13,7 +13,7 @@ unset($_SESSION['Nombre']);
             <div id="login">
                 <div class="login">
                     <div class="login line">
-                        <div class="login label">Correo Electronico</div>
+                        <div class="login tag">Correo Electronico</div>
                         <div class="login input">
                             <input name="Correo" type="text" class="box" id="Correo" value=""/>
                         </div>
