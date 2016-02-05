@@ -18,6 +18,7 @@ if (!empty($_POST["Crear"])) {
     echo 'No se recibio Informacion';
 }
 
+//Limitar el tamaño de la lista a 25 por vez para evitar sobre carga.
 function lista() {
     $consulta = "SELECT p.codigo,f.categoria,f.departamento,f.nombre,a.nombre,p.nombre,p.imagen,p.descripcion FROM ((programas  p INNER JOIN areas a ON a.codigo=p.codarea)INNER JOIN ofertas f ON f.codigo=a.codoferta) ORDER BY f.categoria,f.departamento,f.nombre,a.nombre,p.nombre";
     $datos = mysql_query($consulta);

@@ -241,7 +241,7 @@ body {
 
 .logo h1 {
     margin: auto;
-    width: auto;
+    width: 80%;
     border: solid 1px #FF6633;
     border-radius: 15px 0px 15px 0px;
     padding: 8px;

@@ -164,6 +164,7 @@ body {
 }
 
 .late img {
+    height: 100px;
     float: left;
     margin-top: 10px;
     padding-right: 4px;

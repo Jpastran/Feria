@@ -26,11 +26,11 @@ if (empty($_SESSION['UseR'])) {
                     </div>
                 </div>          
                 <div class="form-group">
-                    <div class="col-sm-5">
+                    <div class="col-sm-3">
                         <input type="hidden" id="Codigo" name="oculto" />
                         <span id="respu" class="text-primary"></span>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-5">
                         <input type="button" name="btnNuevo" id="btnNuevo" class="button" value="Guardar" />
                         <input type="button" name="btnEditar" id="btnEditar" class="button" value="Editar" />
                         <input type="button" name="btnCancelar" id="btnCancelar" class="button" value="Cancelar" />

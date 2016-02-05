@@ -98,7 +98,7 @@ function editar() {
 }
 
 function eliminar() {
-    $consulta = "Delete from areas where codigo='" . mysql_real_escape_string($_POST["CodArea"]) . "'";
+    $consulta = "Delete from areas where codigo='" . mysql_real_escape_string($_POST["Codigo"]) . "'";
     if ($datos = mysql_query($consulta)) {
         echo "s";
     } else {
