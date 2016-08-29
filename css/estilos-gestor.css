@@ -262,6 +262,7 @@ body {
     text-align: center;
     position: fixed;
     bottom: 0px;
+    z-index: 10;
 }
 
 .page-header {

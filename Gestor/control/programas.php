@@ -18,7 +18,7 @@ if (!empty($_POST["Crear"])) {
     echo 'No se recibio Informacion';
 }
 
-//Limitar el tamaño de la lista a 25 por vez para evitar sobre carga.
+
 function lista() {
     $sql = "SELECT * FROM ((programas p INNER JOIN areas a ON a.codigo=p.codarea)INNER JOIN ofertas f ON f.codigo=a.codoferta)";
     $query = mysql_query($sql);

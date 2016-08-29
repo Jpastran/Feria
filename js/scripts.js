@@ -8,6 +8,10 @@ $(document).ready(function() {
         registro();
         return false;
     });
+    $("#formOferta").submit(function() {
+        busqueda();
+        return false;
+    });
     if ($(location).attr('pathname').toLowerCase() == "/feria/datos.php") {
         cargar();
     }
@@ -18,7 +22,42 @@ $(document).ready(function() {
     negro();
     $("#negro").click(negro);
     $(".linkProg").click(resize);
+
+    //En caso de redireccion desde el buscar en oferta
+    if (verificar_get('busca') !== undefined) {
+        $('a.linkProg[title=' + verificar_get('busca') + ']').trigger('click');
+    }
+
 });
+
+function busqueda() {
+    $("#resultado").removeClass();
+    $("#resultado").addClass('alert');
+    if ($("#buscar").val() !== "") {
+        $("#resultado").addClass('alert-info');
+        $("#resultado").html("Espere Por Favor...");
+        var parametros = {
+            "buscar": $("#buscar").val()
+        };
+        $.ajax({
+            data: parametros,
+            url: "./db/buscar.php",
+            type: "POST",
+            success: function(resp) {
+                $("#resultado").removeClass('alert-info');
+                $("#resultado").html(resp);
+            },
+            error: function(resp) {
+                $("#resultado").removeClass('alert-info');
+                $("#resultado").addClass('alert-danger');
+                $("#resultado").html("Error Al Conectarse Al Servidor");
+            }
+        });
+    } else {
+        $("#resultado").addClass('alert-danger');
+        $("#resultado").html("Llene correctamente los campos");
+    }
+}
 
 function registro() {
     $("#Resp").removeClass();
@@ -312,7 +351,7 @@ function press() {
         data: parametros,
         url: "db/solicitud.php",
         type: "POST",
-        success: function(resp) {         
+        success: function(resp) {
             if (resp == "s") {
                 alert("Ha Sido Registrado Su Interes Hacia Este Programa");
             } else {
@@ -328,4 +367,21 @@ function resize() {
     $("#blanco").html('<img src="img/' + $(this).attr("name") + '" width="500"><br><center><img src="img/Interes.png" id="press" style="cursor:pointer"></center>');
     $('html, body').animate({scrollTop: 10}, 650);
     $("#press").click(press);
+}
+
+function verificar_get(param) {
+    url = document.URL;
+    url = String(url.match(/\?+.+/));
+    url = url.replace("?", "");
+    url = url.split("&");
+    x = 0;
+    while (x < url.length)
+    {
+        p = url[x].split("=");
+        if (p[0] == param)
+        {
+            return decodeURIComponent(p[1]);
+        }
+        x++;
+    }
 }

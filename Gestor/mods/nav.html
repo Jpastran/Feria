@@ -67,7 +67,7 @@
         <div class="container-fluid">
             <!-- Page Heading -->
             <div class="row">
-                <?php $url = substr($_SERVER["REQUEST_URI"], 14, -4); ?>
+                <?php $url = substr($_SERVER["PHP_SELF"], 14, -4); ?>
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         <? echo $url ?>

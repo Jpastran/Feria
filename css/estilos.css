@@ -57,6 +57,7 @@ body {
 
 .nav.menu.col:hover {
     background-color: #960;
+    border-radius: 5px;
 }
 
 #cita {
@@ -130,6 +131,12 @@ body {
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.group-url{
+    font-size: 16px !important;
+    color: #960 !important;
+    font-weight: bold;
 }
 
 .linkImg {
@@ -416,6 +423,8 @@ h1 {
 .col.row {
     font-size: 18px;
     vertical-align: top;
+    margin-right: 0px;
+    margin-left: 0px;
 }
 
 .col.row input {
@@ -536,6 +545,10 @@ h1 {
 
 .none {
     display: none;
+}
+
+#resultado{
+    margin: 40px auto;
 }
 
 #blanco {
