@@ -17,7 +17,13 @@ if (!empty($_POST["Lista"])) {
 }
 
 function lista() {
-    $consulta = "SELECT codigo,nombre,categoria,departamento,imagen FROM ofertas ORDER BY nombre";
+    $sql = "SELECT * FROM ofertas";
+    $query = mysql_query($sql);
+    $num_total_registros = mysql_num_rows($query);
+
+    include '../mods/paginar_init.php';
+    
+    $consulta = "SELECT codigo,nombre,categoria,departamento,imagen FROM ofertas ORDER BY nombre LIMIT " . $inicio . "," . $TAMANO_PAGINA;
     $datos = mysql_query($consulta);
     echo'
     <div class="datagrid table-responsive">
@@ -50,17 +56,17 @@ function lista() {
                     <input type="image" src="../img/gestor/delet.png" class="delet" value="' . $row[0] . '"/>
                 </td>
             </tr>';
-    } echo'
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="5">
-                        <div id="no-paging">&nbsp;</div>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>        
-    </div>';
+    }
+    echo'</tbody>';
+    
+    $url = 'Institucion.php';
+    $colspan = 5;
+
+    include '../mods/paginar_gen.php';
+    
+    echo '
+        </table>
+    </div>';   
 }
 
 function buscar() {

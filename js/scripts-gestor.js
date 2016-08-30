@@ -204,7 +204,8 @@ function buscarArea() {
 
 function cargarAreas() {
     var parametros = {
-        "Lista": "Lista"
+        "Lista": "Lista",
+        "Pagina": paginar("pag")
     };
     $.ajax({
         data: parametros,
@@ -366,7 +367,8 @@ function eliminarInst() {
 
 function cargarInst() {
     var parametros = {
-        "Lista": "Lista"
+        "Lista": "Lista",
+        "Pagina": paginar("pag")
     };
     $.ajax({
         data: parametros,

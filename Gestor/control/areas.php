@@ -19,8 +19,15 @@ if (!empty($_POST["Lista"])) {
 }
 
 function lista() {
-    $consulta = "Select g.codigo,g.nombre,o.nombre,o.departamento,o.categoria from areas g inner join ofertas o on o.codigo=g.codoferta order by g.nombre ";
+    $sql = "SELECT * FROM areas g inner join ofertas o on o.codigo=g.codoferta";
+    $query = mysql_query($sql);
+    $num_total_registros = mysql_num_rows($query);
+
+    include '../mods/paginar_init.php';
+    
+    $consulta = "Select g.codigo,g.nombre,o.nombre,o.departamento,o.categoria from areas g inner join ofertas o on o.codigo=g.codoferta order by g.nombre LIMIT " . $inicio . "," . $TAMANO_PAGINA;
     $datos = mysql_query($consulta);
+    
     echo '
     <div class="datagrid table-responsive">
         <table>
@@ -55,18 +62,16 @@ function lista() {
                 </td></tr>
             ';
     }
+    echo'</tbody>';
+    
+    $url = 'Areas.php';
+    $colspan = 5;
+
+    include '../mods/paginar_gen.php';
+    
     echo '
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="5">
-                        <div id="no-paging">&nbsp;</div>
-                    </td>
-                </tr>
-            </tfoot>
-            </table>
-        </div>
-        ';
+        </table>
+    </div>';
 }
 
 function buscar() {

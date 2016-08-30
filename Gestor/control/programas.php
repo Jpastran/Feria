@@ -24,18 +24,8 @@ function lista() {
     $query = mysql_query($sql);
     $num_total_registros = mysql_num_rows($query);
 
-    //Limito la busqueda
-    $TAMANO_PAGINA = 15;
-
-    //examino la página a mostrar y el inicio del registro a mostrar
-    if (!isset($_POST["Pagina"])) {
-        $inicio = 0;
-        $pagina = 1;
-    } else {
-        $pagina = $_POST["Pagina"];
-        $inicio = ($pagina - 1) * $TAMANO_PAGINA;
-    }
-
+    include '../mods/paginar_init.php';
+    
     $consulta = "SELECT p.codigo,f.categoria,f.departamento,f.nombre,a.nombre,p.nombre,p.imagen,p.descripcion FROM ((programas  p INNER JOIN areas a ON a.codigo=p.codarea)INNER JOIN ofertas f ON f.codigo=a.codoferta) ORDER BY f.categoria,f.departamento,f.nombre,a.nombre,p.nombre LIMIT " . $inicio . "," . $TAMANO_PAGINA;
     $datos = mysql_query($consulta);
 
@@ -74,43 +64,17 @@ function lista() {
                     <input type="image" src="../img/gestor/delet.png" class="delet" value="' . $row[0] . '"/>
                 </td>
             </tr>';
-    }echo'
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="7">  
-                        <nav aria-label="Page navigation" id="no-paging">
-                            <ul class="pagination">';
+    }
+    echo'</tbody>';
     
     $url = 'Programas.php';
-    //calculo el total de páginas
-    $total_paginas = ceil($num_total_registros / $TAMANO_PAGINA);
+    $colspan = 7;
+
+    include '../mods/paginar_gen.php';
     
-    if ($total_paginas > 1) {
-        if ($pagina != 1) {
-            echo '<li><a href="' . $url . '?pag=' . ($pagina - 1) . '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
-        }
-        for ($i = 1; $i <= $total_paginas; $i++) {
-            if ($pagina == $i) {
-                //si muestro el índice de la página actual, no coloco enlace
-                echo '<li class="active"><a href="#">' . $pagina . ' <span class="sr-only">(current)</span></a></li>';
-            } else {
-                //si el índice no corresponde con la página mostrada actualmente,
-                //coloco el enlace para ir a esa página
-                echo '<li><a href="' . $url . '?pag=' . $i . '">' . $i . '</a></li>';
-            }
-        }
-        if ($pagina != $total_paginas) {
-            echo '<li><a href="' . $url . '?pag=' . ($pagina + 1) . '" aria-label="Next"><span aria-hidden="true">&raquo;</span></a><li>';
-        }
-    }
-    echo '                  </ul>
-                        </nav>
-                    </td>
-                </tr>
-            </tfoot>
+    echo '
         </table>
-    </div>';
+    </div>';   
 }
 
 function selectAreas() {
