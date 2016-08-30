@@ -868,7 +868,6 @@ function cargarInfo() {
             $("#contenido").html("Error Al Conectarse Al Servidor");
         }
     });
-
 }
 
 function buscarInfo() {
@@ -898,6 +897,7 @@ function buscarInfo() {
 
 //**************Informes****************//
 function generar(archivo) {
+
     var f = new Date();
     var dia = f.getDate() < 10 ? "0" + f.getDate() : dia = f.getDate();
     var mes = (f.getMonth() + 1) < 10 ? "0" + (f.getMonth() + 1) : (f.getMonth() + 1);
@@ -907,25 +907,38 @@ function generar(archivo) {
     mes = (f.getMonth() + 1) < 10 ? "0" + (f.getMonth()) : (f.getMonth());
 
     $("#Inicio").val(f.getFullYear() + "-" + mes + "-" + dia);
+
     $("#Buscar").click(function() {
         if (archivo === "Visitantes") {
-            visitantes();
+            gen_reporte("Visitantes");
         } else if (archivo === "Intereses") {
-            intereses();
+            gen_reporte("Intereses");
         } else if (archivo === "Visitas") {
-            visitas();
+            gen_reporte("Visitas");
         }
     });
+
+    $("#descargar").hide();
 }
 
-function visitantes() {
-    document.location = "reporte/Visitantes.php?Inicio=" + $("#Inicio").val() + "&Final=" + $("#Final").val();
-}
+function gen_reporte(tipo) {
 
-function intereses() {
-    document.location = "reporte/Intereses.php?Inicio=" + $("#Inicio").val() + "&Final=" + $("#Final").val();
-}
-
-function visitas() {
-    document.location = "reporte/Visitas.php?Inicio=" + $("#Inicio").val() + "&Final=" + $("#Final").val();
+    var parametros = {
+        "Lista": "Lista"
+    };
+    $.ajax({
+        data: parametros,
+        url: "reporte/" + tipo + ".php?Inicio=" + $("#Inicio").val() + "&Final=" + $("#Final").val(),
+        type: "POST",
+        success: function(resp) {
+            $("#contenido").html(resp);
+            $("#descargar").show();
+            $("#descargar").click(function() {
+                document.location = "reporte/" + tipo + ".php?Inicio=" + $("#Inicio").val() + "&Final=" + $("#Final").val();
+            });
+        },
+        error: function(resp) {
+            $("#contenido").html("Error Al Conectarse Al Servidor");
+        }
+    });
 }

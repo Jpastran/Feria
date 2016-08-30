@@ -2,10 +2,15 @@
 
 require_once("../../db/conectar.php");
 
-header("Content-Disposition: attachment; filename=Visitantes.xls");
-header("Content-Type: application/vnd.ms-excel; charset=utf-8");
-header("Pragma: no-cache");
-header("Expires: 0");
+$lista = isset($_POST['Lista']);
+
+if (!$lista) {
+
+    header("Content-Disposition: attachment; filename=Visitas.xls");
+    header("Content-Type: application/vnd.ms-excel; charset=utf-8");
+    header("Pragma: no-cache");
+    header("Expires: 0");
+}
 
 $consulta = "SELECT nombre,
                     apellido,
@@ -39,7 +44,12 @@ $consulta = "SELECT nombre,
                     AND fechainsc <= '" . mysql_real_escape_string($_GET["Final"]) . "'  ";
 $datos = mysql_query($consulta);
 
-echo'<table BORDER="1" >	
+if ($lista) {
+    echo '<div class="datagrid table-responsive">';
+}
+echo'
+<table BORDER="1" >
+    <thead>
         <tr>
             <th  bgcolor="#CCCCCC">Nombres</th>
             <th  bgcolor="#CCCCCC">Apellidos</th>
@@ -68,12 +78,19 @@ echo'<table BORDER="1" >
             <th  bgcolor="#CCCCCC">Multiculturalidad</th>
             <th  bgcolor="#CCCCCC">Sisbem</th>
             <th  bgcolor="#CCCCCC">Fecha Inscripcion</th>
-        </tr>';
-
+        </tr>
+    </thead>';
+$i = 1;
 while ($row = mysql_fetch_array($datos)) {
+    if ($i == 1) {
+        echo '<tr>';
+        $i = 2;
+    } else {
+        echo '<tr class="alt">';
+        $i = 1;
+    }
 
-    echo '<tr>
-            <td>' . ($row[0]) . '</td>
+    echo '<td>' . ($row[0]) . '</td>
             <td>' . ($row[1]) . '</td>
             <td>' . ($row[2]) . '</td>
             <td>' . ($row[3]) . '</td>
@@ -104,4 +121,8 @@ while ($row = mysql_fetch_array($datos)) {
 }
 
 echo"</table>";
+
+if ($lista) {
+    echo '<div class="datagrid table-responsive">';
+}
 ?>
