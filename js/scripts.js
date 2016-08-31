@@ -19,8 +19,7 @@ $(document).ready(function() {
         actualizar();
         return false;
     });
-    negro();
-    $("#negro").click(negro);
+
     $(".linkProg").click(resize);
 
     //En caso de redireccion desde el buscar en oferta
@@ -339,14 +338,14 @@ function negro() {
 }
 
 function press() {
-    $("#blanco").html('<center><img src="img/cargando.gif" ><br><img src="img/Mensaje.jpg" ></center>');
+    $("#body").html('<center><img src="img/cargando.gif" ><br><img src="img/Mensaje.jpg" ></center>');
     var parametros = {
         "MyCorreo": $("#MyCorreo").val(),
         "Programa": global,
         "Tipo": "Universidades",
         "Keysave": "#f7641"
     };
-    negro();
+    $('#btnclose').trigger('click');
     $.ajax({
         data: parametros,
         url: "db/solicitud.php",
@@ -363,9 +362,8 @@ function press() {
 
 function resize() {
     global = $(this).attr("title");
-    $("#gris").show(800);
-    $("#blanco").html('<img src="img/' + $(this).attr("name") + '" width="500"><br><center><img src="img/Interes.png" id="press" style="cursor:pointer"></center>');
-    $('html, body').animate({scrollTop: 10}, 650);
+    $("#title").html($('a.linkProg[title=' + global + ']').children('span').text());
+    $("#body").html('<img src="img/' + $(this).attr("name") + '" ><br><img src="img/Interes.png" id="press">');
     $("#press").click(press);
 }
 

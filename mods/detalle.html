@@ -1,8 +1,15 @@
         <?php echo' <input type="hidden" id="MyCorreo" value="' . $_SESSION['Correo'] . '"/>'; ?>        
-        <div id="DivSobreMG">
-        <div id="gris">
-            <div id="blanco"></div>  
-            <div id="negro"></div>
+        <div id="DivSobreMG">       
+        <div class="modal fade" id="resize" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" id="btnclose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="title"></h4>
+                    </div>
+                    <div class="modal-body" id="body"></div>
+                </div>
+            </div>
         </div>
         <div class="contenido">
             <div class="center">
@@ -23,8 +30,8 @@
                 $datosx = mysql_query($consultax);
                 while ($rowx = mysql_fetch_array($datosx)) {
                     echo '
-                    <a class="linkProg" name="' . $rowx[3] . '"  title="' . $rowx[0] . '">
-                    <div><img src="img/next.png" class="linkImg"/>' . $rowx[1] . ' (' . $rowx[2] . ')</div></a>
+                    <a class="linkProg" data-toggle="modal" data-target="#resize" name="' . $rowx[3] . '"  title="' . $rowx[0] . '">
+                    <img src="img/next.png" class="linkImg"/><span>' . $rowx[1] . ' (' . $rowx[2] . ')</span></a>
                     ';
                 }
                 echo '</div>';

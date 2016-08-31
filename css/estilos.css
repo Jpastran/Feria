@@ -71,6 +71,27 @@ body {
     margin-top: 30px;
 }
 
+#body{
+    margin: 0px auto;
+    text-align: center;
+}
+
+#body img{
+    width: 100%
+}
+
+#press{
+    cursor:pointer;
+}
+
+#title{
+    text-transform: uppercase;
+    text-align: center;
+    color: #990000;
+    font-weight: bold;
+    text-shadow: 2px 2px #DDD;
+}
+
 .LinkFoot {
     color: #fff !important;
     text-decoration: none;
@@ -397,6 +418,7 @@ h2 {
 .program a {
     text-decoration: none;
     cursor: pointer;
+    display: block;
 }
 
 h1 {
